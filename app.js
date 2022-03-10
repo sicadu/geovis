@@ -15,9 +15,7 @@ import RangeInput from './range-input';
 import {useMemo} from 'react';
 
 
-import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 
 
 // Source data GeoJSON
@@ -117,6 +115,7 @@ export default function App({data, mapStyle = MAP_STYLE}) {
         pickable: true
       })
   ];
+  
 
   return (
     <>
@@ -128,21 +127,21 @@ export default function App({data, mapStyle = MAP_STYLE}) {
       </div>
       <nav>
         <ul>
-          <li><a href="#intro">Home</a></li>
-          <li><a href="#map">map</a></li>
-          <li><a href="#summary">summary</a></li>
-          <li><a href="#authors">authors</a></li>
+          <li className="introNav active"><a href="#introNav">Home</a></li>
+          <li className="mapNav"><a href="#mapNav">map</a></li>
+          <li className="summaryNav"><a href="#summaryNav">summary</a></li>
+          <li className="authorsNav"><a href="#authorsNav">authors</a></li>
         </ul>
       </nav>
     </div>
-    <div className="scrollableScreen">
-      <div className="intro page" id="intro">
+    <div className="scrollableScreen" id="scrollableScreen">
+      <div className="intro page" id="introNav">
         <div className="e">GeoVis </div> 
         <div className="e"> 
             <span className="s"> für es besseres Lebe</span>
         </div>
       </div>
-      <div className="mapPage page" id="map">
+      <div className="mapPage page" id="mapNav">
         <div className="mapContainer">
           <DeckGL
             views={MAP_VIEW}
@@ -166,8 +165,8 @@ export default function App({data, mapStyle = MAP_STYLE}) {
           )}
         </div>
       </div>
-      <div className="summary page" id="summary">Summary</div>
-      <div className="authors page" id="authors">
+      <div className="summary page" id="summaryNav">Summary</div>
+      <div className="authors page" id="authorsNav">
         <div className="profile-card">
           <div className="img">
             <img src={img1}></img>

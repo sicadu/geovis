@@ -78,7 +78,14 @@
     padding: 0;
     float: right;
   }
-  nav li {
+
+  nav ul li.active a{
+    color: wheat;
+    transition: 0.7s;
+  }
+
+
+  nav ul li {
     display: inline-block;
     margin-left: 40px;
     height: 70px;
@@ -86,6 +93,8 @@
     transition: .5s linear;
     font-size: 18px;
   }
+
+  
   nav li:last-child{
       margin-right: 100px;
   }
@@ -120,17 +129,9 @@
   }
   @media screen and (max-width: 550px) {
   nav {overflow: visible;}
-  nav li {
-    display: block;
-    margin: 0;
-    height: 40px;
-    line-height: 40px;
-  }
-  nav li:hover {
-    background: rgba(0,0,0,.1);
-    }
   nav a:after {content: none;}
   }
+
   nav a:hover{
     color: wheat;
   }
