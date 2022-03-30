@@ -79,12 +79,6 @@
     float: right;
   }
 
-  nav ul li.active a{
-    color: wheat;
-    transition: 0.7s;
-  }
-
-
   nav ul li {
     display: inline-block;
     margin-left: 40px;
@@ -93,8 +87,11 @@
     transition: .5s linear;
     font-size: 18px;
   }
-
   
+  nav ul li.active a{
+    color: wheat;
+    transition: 0.7s;
+  }
   nav li:last-child{
       margin-right: 100px;
   }
@@ -163,6 +160,8 @@
     margin: 0 25px;
     font-size: 21px
   }
+
+
 
   .profile-card:hover{
     border-radius: 10px;
