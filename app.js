@@ -122,7 +122,7 @@ export default function App({data, mapStyle = MAP_STYLE}) {
     <div className="navContainer">
       <div className="logo-box">
         <a href="/">
-          <img src="https://html5book.ru/wp-content/uploads/2015/01/logo-header.png"></img>
+          <img src="images\uzh_logo_e_pos_web_main.jpg"></img>
         </a>
       </div>
       <nav>
