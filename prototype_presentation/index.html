@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>deck.gl Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style> body {margin: 0; font-family: sans-serif; width: 100vw; height: 100vh; overflow: hidden;}</style>
+  <link rel="stylesheet" type="text/css" href="./css/main.css">
+  <script src="-/script/main.js"></script> 
+</head>
+<body>
+    <div class="navContainer">
+        <div class="logo-box">
+          <a href="/">
+          <img src="./images/uzh_logo_e_pos_web_assoc_zone.jpg" height="70px"></img>
+          </a>
+        </div>
+        <nav>
+          <ul>
+            <li class="introNav active"><a href="#introNav">Home</a></li>
+            <li class="mapNav"><a href="#mapNav">map</a></li>
+            <li class="summaryNav"><a href="#summaryNav">summary</a></li>
+            <li class="authorsNav"><a href="#authorsNav">authors</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="scrollableScreen" id="scrollableScreen">
+        <div class="intro page" id="introNav">
+          <div class="e">GeoVis </div> 
+          <div class="e"> 
+              <span class="s"> für es besseres Lebe</span>
+          </div>
+        </div>
+        <div class="mapPage page" id="mapNav">
+          <div class="mapContainer">
+              <img src="./images/map.jpg" alt="map">
+          </div>
+        </div>
+        <div class="summary page" id="summaryNav">Summary</div>
+        <div class="authors page" id="authorsNav">
+          <div class="profile-card">
+            <div class="img">
+              <img src="./images/team-1.jpg"></img>
+            </div>
+            <div class="caption">
+              <h3>Annina Ardüser</h3>
+              <p>GeoVis Expert</p>
+            </div>
+            <div class="social-links">
+            </div>
+          </div>
+          <div class="profile-card">
+          <div class="img">
+              <img src="./images/team-2.jpg"></img>
+          </div>
+          <div class="caption">
+            <h3>Fiona Federer</h3>
+            <p>GeoVis Expert</p>
+            <div class="social-links">
+            </div>
+          </div>
+          </div>
+            <div class="profile-card">
+              <div class="img">
+                <img src="./images/team-3.jpg"></img>
+              </div>
+              <div class="caption">
+                <h3>Silvan Caduuff</h3>
+                <p>GeoVis Expert</p>
+              <div class="social-links">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+
+<script>
+      
+    const pages = document.querySelectorAll('.page');
+    const navLi = document.querySelectorAll('nav li');
+    const scr = document.getElementById('scrollableScreen');
+    
+    scr.onscroll = () => {
+    var current = "";
+    pages.forEach((page) => {
+        const pageTop = page.offsetTop;
+        if(scr.scrollTop >= (pageTop - 400)) {
+        current = page.getAttribute('id');
+        }
+    });
+    
+    navLi.forEach((li) => {
+        li.classList.remove('active');
+        
+        if(li.classList.contains(current)){
+        li.classList.add('active');
+        }
+    });
+    };
+      </script>

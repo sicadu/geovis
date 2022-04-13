@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {useMemo} from 'react';
 import {render} from 'react-dom';
 
 import './app.css';
@@ -10,7 +11,7 @@ import {StaticMap} from 'react-map-gl';
 import DeckGL from '@deck.gl/react';
 import {GeoJsonLayer, ArcLayer} from '@deck.gl/layers';
 import {scaleQuantile} from 'd3-scale';
-import {useMemo} from 'react';
+
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -41,8 +42,8 @@ const DATA_URL =
   ];
   
   const INITIAL_VIEW_STATE = {
-    longitude: -100,
-    latitude: 40.7,
+    longitude: 6,
+    latitude: 50,
     zoom: 3,
     maxZoom: 15,
     pitch: 30,
@@ -52,13 +53,15 @@ const DATA_URL =
   const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json';
   
   function calculateArcs(data, selectedCounty) {
+    console.log(data);
     if (!data || !data.length) {
       return null;
     }
     if (!selectedCounty) {
-      selectedCounty = data.find(f => f.properties.name === 'Los Angeles, CA');
+      selectedCounty = data.find(f => f.properties.Country === 'Germany');
     }
-    const {flows, centroid} = selectedCounty.properties;
+    const flows = selectedCounty.properties.flows;
+    const centroid = selectedCounty.geometry.centroid;
   
     const arcs = Object.keys(flows).map(toId => {
       const f = data[toId];
@@ -82,7 +85,7 @@ const DATA_URL =
   }
   
   function getTooltip({object}) {
-    return object && object.properties.name;
+    return object && object.properties.Country;
   }
   
   /* eslint-disable react/no-deprecated */
@@ -177,7 +180,7 @@ const DATA_URL =
               <img src={img3}></img>
             </div>
             <div className="caption">
-              <h3>Silvan Caduff</h3>
+              <h3>Silvan Caduuff</h3>
               <p>GeoVis Expert</p>
             <div className="social-links">
             </div>
