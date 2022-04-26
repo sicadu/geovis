@@ -11,6 +11,7 @@ import {StaticMap} from 'react-map-gl';
 import DeckGL from '@deck.gl/react';
 import {GeoJsonLayer, ArcLayer} from '@deck.gl/layers';
 import {scaleQuantile} from 'd3-scale';
+import {IconLayer} from '@deck.gl/layers';
 
 
 
@@ -113,6 +114,26 @@ const DATA_URL =
         getTargetColor: d => (d.gain > 0 ? outFlowColors : inFlowColors)[d.quantile],
         getWidth: strokeWidth
       })
+      /*
+      const layerProps = {
+        data_remittance,
+        pickable: true,
+        getPosition: d => d.coordinates,
+        iconAtlas,
+        iconMapping,
+        onHover: !hoverInfo.objects && setHoverInfo
+      };
+      showCluster
+    ? new IconClusterLayer({...layerProps, id: 'icon-cluster', sizeScale: 40})
+    : new IconLayer({
+        ...layerProps,
+        id: 'icon',
+        getIcon: d => 'marker',
+        sizeUnits: 'meters',
+        sizeScale: 2000,
+        sizeMinPixels: 6
+      });
+      */
     ];
 
   return (
@@ -126,8 +147,10 @@ const DATA_URL =
       <nav>
         <ul>
           <li className="introNav active"><a href="#introNav">Home</a></li>
+          <li className="backgroundNav"><a href="#backgroundNav">background</a></li>
           <li className="mapNav"><a href="#mapNav">map</a></li>
           <li className="summaryNav"><a href="#summaryNav">summary</a></li>
+          <li className="referencesNav"><a href="#referencesNav">references</a></li>
           <li className="authorsNav"><a href="#authorsNav">authors</a></li>
         </ul>
       </nav>
@@ -139,6 +162,7 @@ const DATA_URL =
             <span className="s"> Development of Global Pattern</span>
         </div>
       </div>
+      <div className="background page" id="backgroundNav">Background</div>
       <div className="mapPage page" id="mapNav">
         <div className="mapContainer">
           <DeckGL
@@ -152,6 +176,7 @@ const DATA_URL =
         </div>
       </div>
       <div className="summary page" id="summaryNav">Summary</div>
+      <div className="references page" id="referencesNav">References</div>
       <div className="authors page" id="authorsNav">
         <div className="profile-card">
           <div className="img">
