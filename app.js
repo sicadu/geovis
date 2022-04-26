@@ -50,7 +50,7 @@ const DATA_URL =
     bearing: 30
   };
   
-  const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json';
+  const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json';
   
   function calculateArcs(data, selectedCounty) {
     console.log(data);
@@ -134,9 +134,9 @@ const DATA_URL =
     </div>
     <div className="scrollableScreen" id="scrollableScreen">
       <div className="intro page" id="introNav">
-        <div className="e">GeoVis </div> 
+        <div className="e">Remittance and Migration Flows: </div> 
         <div className="e"> 
-            <span className="s"> für es besseres Lebe</span>
+            <span className="s"> Development of Global Pattern</span>
         </div>
       </div>
       <div className="mapPage page" id="mapNav">
