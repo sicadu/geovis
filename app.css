@@ -1,9 +1,10 @@
 :root{
     --color1:#edf8fb;
-    --color2:#b2e2e2;
+    --color2:#cbcbcb;
     --color3:#ffffff;
     --color4:#2ca25f;
     --color5:#006d2c;
+    --color6:#f5d505;
 }
 
 .scrollableScreen {
@@ -25,7 +26,7 @@
     justify-content: center;
     align-items: center;
     font-size: 60px;
-    color: yellow;
+    color: rgb(64, 64, 64);
 }
 
 .intro{
@@ -37,6 +38,10 @@
     -webkit-backface-visibility: hidden;
     -webkit-perspective: 1000;
     -webkit-transform: translate3d(0,0,0);
+}
+
+.background{
+    background-color: var(--color6);
 }
 
 .mapPage{
@@ -53,19 +58,23 @@
 }
 
 .summary{
-    background-color: var(--color4);
+    background-color: var(--color2);
+}
+
+.references{
+    background-color: var(--color2);
 }
 
 .authors{
     height: 50vh;
     color: black;
-    background-color: var(--color1)
+    background-color: var(--color2)
 }
 
 /* Navbar Styling */
 
 .navContainer {
-    background-color: var(--color5);
+    background-color: var(--color3);
     padding: 0 20px;
     margin: 0 auto;
   }
@@ -89,7 +98,7 @@
   }
   
   nav ul li.active a{
-    color: wheat;
+    color: rgb(30, 30, 30);
     transition: 0.7s;
   }
   nav li:last-child{
@@ -99,7 +108,7 @@
     text-decoration: none;
     display: block;
     position: relative;
-    color: white;
+    color: rgb(70, 70, 70);
     text-transform: uppercase;
   }
   nav a:after {
@@ -109,7 +118,7 @@
     position: absolute;
     left: 0;
     bottom: 17px;
-    background: wheat;
+    background: rgb(30, 30, 30);
     transition: width .5s linear;  
   }
   nav a:hover:after {width: 100%;}
@@ -130,7 +139,7 @@
   }
 
   nav a:hover{
-    color: wheat;
+    color: rgb(30, 30, 30);
   }
 
   .logo-box {
