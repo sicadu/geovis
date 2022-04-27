@@ -12,8 +12,7 @@ import DeckGL from '@deck.gl/react';
 import {GeoJsonLayer, ArcLayer} from '@deck.gl/layers';
 import {scaleQuantile} from 'd3-scale';
 import {IconLayer} from '@deck.gl/layers';
-
-
+import {ScatterplotLayer} from '@deck.gl/layers';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -21,6 +20,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Source data GeoJSON
 const DATA_URL =
   './data/e15.json'; // eslint-disable-line
+
+//comment to delete
 
   export const inFlowColors = [
     [255, 255, 204],
