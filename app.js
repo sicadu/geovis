@@ -13,7 +13,7 @@ import {GeoJsonLayer, ArcLayer} from '@deck.gl/layers';
 import {scaleQuantile} from 'd3-scale';
 import {IconLayer} from '@deck.gl/layers';
 
-
+//delete this comment
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
