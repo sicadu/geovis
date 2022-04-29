@@ -1,0 +1,276 @@
+:root{
+    --color1:#edf8fb;
+    --color2:#b2e2e2;
+    --color3:#66c2a4;
+    --color4:#2ca25f;
+    --color5:#006d2c;
+}
+
+.scrollableScreen {
+    height: calc(100vh - 70px);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.scrollableScreen::-webkit-scrollbar{
+    display:none;
+}
+
+.page{
+    height: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    color: yellow;
+}
+
+.intro{
+    background-color: var(--color2);
+    text-align:center;
+    font-weight:300;
+    font-size:36px;
+    overflow:hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    -webkit-transform: translate3d(0,0,0);
+}
+
+.mapPage{
+    position: relative;
+    width: 100vw;
+    background-color: var(--color3);
+    color: blue;
+}
+
+.mapContainer{
+    position: relative;
+    height: 80vh;
+    width: 65vw;
+}
+
+.map{
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 0;
+}
+
+.summary{
+    background-color: var(--color4);
+}
+
+.authors{
+    height: 50vh;
+    color: black;
+    background-color: var(--color1)
+}
+
+/* Navbar Styling */
+
+.navContainer {
+    background-color: var(--color5);
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+  nav {
+    overflow: hidden;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float: right;
+  }
+
+  nav ul li {
+    display: inline-block;
+    margin-left: 40px;
+    height: 70px;
+    line-height: 70px;
+    transition: .5s linear;
+    font-size: 18px;
+  }
+  
+  nav ul li.active a{
+    color: wheat;
+    transition: 0.7s;
+  }
+  nav li:last-child{
+      margin-right: 100px;
+  }
+  nav a {
+    text-decoration: none;
+    display: block;
+    position: relative;
+    color: white;
+    text-transform: uppercase;
+  }
+  nav a:after {
+    content: "";
+    width: 0;
+    height: 1px;
+    position: absolute;
+    left: 0;
+    bottom: 17px;
+    background: wheat;
+    transition: width .5s linear;  
+  }
+  nav a:hover:after {width: 100%;}
+  
+  @media screen and (max-width: 660px) {
+    header {text-align: center;}
+    .logo-box {
+      float: none;
+      display: inline-block;
+      margin: 0 0 16px 0;
+    }
+    ul {float: none;}
+    nav li:first-of-type {margin-left: 0;}
+  }
+  @media screen and (max-width: 550px) {
+  nav {overflow: visible;}
+  nav a:after {content: none;}
+  }
+
+  nav a:hover{
+    color: wheat;
+  }
+
+  .logo-box {
+    float: left;
+    margin-right: 20px;
+  }
+  .logo-box a {
+    outline: none;
+    display: block;
+  }
+  .logo-box img {display: block;}
+
+
+
+/* Team Section */
+
+.profile-card{
+    position: relative;
+    font-family: sans-serif;
+    width: 220px;
+    height: 220px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 50%;
+    box-shadow: 0 0 22px #3336;
+    transition: .6s;
+    margin: 0 25px;
+    font-size: 21px
+  }
+
+
+
+  .profile-card:hover{
+    border-radius: 10px;
+    height: 260px;
+  }
+
+.profile-card .img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: .6s;
+    z-index: 99;
+  }
+
+  .img img{
+    width: 100%;
+    height: 90%;
+    border-radius: 50%;
+    box-shadow: 0 0 22px #3336;
+    transition: .6s;
+  }
+
+  .profile-card:hover .img{
+    transform: translateY(-60px);
+  }
+
+  .profile-card:hover img{
+    border-radius: 10px;
+  }
+
+  .caption{
+    text-align: center;
+    transform: translateY(-80px);
+    opacity: 0;
+    transition: .6s;
+  }
+  .profile-card:hover .caption{
+    opacity: 1;
+  }
+  .caption h3{
+    font-size: 21px;
+    font-family: sans-serif;
+  }
+  .caption p{
+    font-size: 15px;
+    color: #0c52a1;
+    font-family: sans-serif;
+    margin: 2px 0 9px 0;
+  }
+  .caption .social-links a{
+    color: #333;
+    margin-right: 15px;
+    font-size: 21px;
+    transition: .6s;
+  }
+  .social-links a:hover{
+    color: #0c52a1;
+  }
+
+
+
+/* FadeIn */
+
+.e {
+    display:inline-block;
+    overflow:hidden;
+    white-space:nowrap;
+  }
+  
+.e:first-of-type { 
+animation: showup 7s infinite;
+animation-fill-mode: forwards;
+}
+
+.e:last-of-type {
+animation: reveal 7s infinite;
+animation-fill-mode: forwards;
+}
+.e:last-of-type span {
+margin-left:-455px;
+animation: slidein 7s infinite;
+animation-fill-mode: forwards;
+}
+
+@keyframes showup {
+    0% {opacity:0;}
+    20% {opacity:1;}
+    80% {opacity:1;}
+    100% {opacity:0;}
+}
+
+@keyframes slidein {
+    0% { margin-left:-800px; }
+    20% { margin-left:-800px; }
+    35% { margin-left:0px; }
+    100% { margin-left:0px; }
+}
+
+@keyframes reveal {
+    0% {opacity:0;width:0px;}
+    20% {opacity:1;width:0px;}
+    30% {width:355px;}
+    80% {opacity:1;}
+    100% {opacity:0;width:355px;}
+}

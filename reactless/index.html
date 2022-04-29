@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Migration Flow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="#">
+  <style> body {margin: 0; font-family: sans-serif; width: 100vw; height: 100vh; overflow: hidden;}</style>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" type="text/css" href="./css/main.css">
+
+  <!-- DeckGl library - processing geospatial data-->
+  <script src="https://unpkg.com/deck.gl@^8.4.0/dist.min.js"></script>
+	<script src="https://unpkg.com/@deck.gl/carto@^8.4.0/dist.min.js"></script>
+
+  <!-- Basemap loading -->
+  <link href="https://libs.cartocdn.com/mapbox-gl/v1.13.0/mapbox-gl.css" rel="stylesheet"/>
+  <script src="https://libs.cartocdn.com/mapbox-gl/v1.13.0/mapbox-gl.js"></script>
+
+  <!-- Document data manipulation-->
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+
+</head>
+
+
+<body>
+    <div class="navContainer">
+        <div class="logo-box">
+          <a href="/">
+          <img src="./images/uzh_logo_e_pos_web_assoc_zone.jpg" height="70px"></img>
+          </a>
+        </div>
+        <nav>
+          <ul>
+            <li className="introNav active"><a href="#introNav">Home</a></li>
+            <li className="backgroundNav"><a href="#backgroundNav">background</a></li>
+            <li className="mapNav"><a href="#mapNav">map</a></li>
+            <li className="summaryNav"><a href="#summaryNav">summary</a></li>
+            <li className="referencesNav"><a href="#referencesNav">references</a></li>
+            <li className="authorsNav"><a href="#authorsNav">authors</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="scrollableScreen" id="scrollableScreen">
+        <div class="intro page" id="introNav">
+          <div class="e">GeoVis </div> 
+          <div class="e"> 
+              <span class="s"> für es besseres Lebe</span>
+          </div>
+        </div>
+        <div class="background page" id="backgroundNav">Background</div>
+        <div class="mapPage page" id="mapNav">
+          <div class="mapContainer">
+              <div class="map" id="map"></div>
+          </div>
+        </div>
+        <div class="summary page" id="summaryNav">Summary</div>
+        <div class="references page" id="referencesNav">References</div>
+        <div class="authors page" id="authorsNav">
+          <div class="profile-card">
+            <div class="img">
+              <img src="./images/team-1.jpg" ></img>
+            </div>
+            <div class="caption">
+              <h3>Annina Ardüser</h3>
+              <p>GeoVis Expert</p>
+            </div>
+            <div class="social-links">
+            </div>
+          </div>
+          <div class="profile-card">
+          <div class="img">
+              <img src="./images/team-2.jpg"></img>
+          </div>
+          <div class="caption">
+            <h3>Fiona Federer</h3>
+            <p>GeoVis Expert</p>
+            <div class="social-links">
+            </div>
+          </div>
+          </div>
+            <div class="profile-card">
+              <div class="img">
+                <img src="./images/team-3.jpg"></img>
+              </div>
+              <div class="caption">
+                <h3>Silvan Caduuff</h3>
+                <p>GeoVis Expert</p>
+              <div class="social-links">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+
+<script language="JavaScript">  
+    const pages = document.querySelectorAll('.page');
+    const navLi = document.querySelectorAll('nav li');
+    const scr = document.getElementById('scrollableScreen');
+    
+    scr.onscroll = () => {
+    var current = "";
+    pages.forEach((page) => {
+        const pageTop = page.offsetTop;
+        if(scr.scrollTop >= (pageTop - 400)) {
+        current = page.getAttribute('id');
+        }
+    });
+    
+    navLi.forEach((li) => {
+        li.classList.remove('active');
+        
+        if(li.classList.contains(current)){
+        li.classList.add('active');
+        }
+    });
+    };
+
+    // New Part
+
+    const {DeckGL, GeoJsonLayer, ArcLayer} = deck;
+
+    fetch('./data/e15.json')
+    .then(res => res.json())
+    .then(data => {
+
+      const dataSorted = keysrt(data.features, ['properties','Country']);
+
+      console.log(dataSorted);
+
+      const inFlowColors = [
+        [255, 255, 204],
+        [199, 233, 180],
+        [127, 205, 187],
+        [65, 182, 196],
+        [29, 145, 192],
+        [34, 94, 168],
+        [12, 44, 132]
+      ];
+
+      const outFlowColors = [
+        [255, 255, 178],
+        [254, 217, 118],
+        [254, 178, 76],
+        [253, 141, 60],
+        [252, 78, 42],
+        [227, 26, 28],
+        [177, 0, 38]
+      ];
+
+      
+      
+      const countyLayer = new GeoJsonLayer({
+        id: 'geojson',
+        data,
+        stroked: false,
+        filled: true,
+        autoHighlight: true,
+        getFillColor: () => [0, 0, 0, 0],
+        onClick: info => updateLayers(info.object),
+        pickable: true
+      });
+
+      const deckgl = new DeckGL({
+        mapStyle: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
+        container: 'map',
+        initialViewState: {
+          longitude: 6,
+          latitude: 50,
+          zoom: 3,
+          maxZoom: 15,
+          pitch: 30,
+          bearing: 30
+        },
+        controller: true,
+        layers: []
+      });
+
+      updateLayers(
+        dataSorted.find(f => f.properties.Country === 'Germany')
+      );
+
+      function updateLayers(dataFeature) {
+        selectedFeature = dataSorted.find(f => f.properties.Country === dataFeature.properties.Country);
+        
+        const flows = selectedFeature.properties.flows;
+        const centroid = selectedFeature.geometry.centroid;
+
+        const arcs = Object.keys(flows).map(toId => {
+          const f = dataSorted[toId];
+          return {
+            source: centroid,
+            target: f.geometry.centroid,
+            value: flows[toId]
+          };
+        });
+
+        const scale = d3.scaleQuantile()
+          .domain(arcs.map(a => Math.abs(a.value)))
+          .range(inFlowColors.map((c, i) => i));
+
+        arcs.forEach(a => {
+          a.gain = Math.sign(a.value);
+          a.quantile = scale(Math.abs(a.value));
+        });
+
+        console.log(arcs);
+
+        const arcLayer = new ArcLayer({
+          id: 'arc',
+          data: arcs,
+          getSourcePosition: d => d.source,
+          getTargetPosition: d => d.target,
+          getSourceColor: d => (d.gain > 0 ? inFlowColors : outFlowColors)[d.quantile],
+          getTargetColor: d => (d.gain > 0 ? inFlowColors : outFlowColors)[d.quantile],
+          widthMinPixels: 3,
+          greatCircle: true,
+          getHeight: 0.1
+        });
+
+        deckgl.setProps({
+          layers: [countyLayer, arcLayer]
+        });
+      }
+    });
+
+    function keysrt(arr, keyArr, reverse) {
+          var sortOrder = 1;
+          if(reverse)sortOrder = -1;
+          return arr.sort(function(a, b) {
+              var x=a,y=b;
+              for (var i=0; i < keyArr.length; i++) {
+                x = x[keyArr[i]];
+                y = y[keyArr[i]];
+              }
+              return sortOrder * ((x < y) ? -1 : ((x > y) ? 1 : 0));
+          });
+      }
+
+</script>
