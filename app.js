@@ -176,7 +176,7 @@ export default function App({data, mapStyle = MAP_STYLE}) {
         //],
         //extensions: [dataFilter], //evtl weg
 
-        pickable: true
+        //pickable: true
       })
   ];
 
