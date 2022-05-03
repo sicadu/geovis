@@ -17,9 +17,20 @@ import {ScatterplotLayer} from '@deck.gl/layers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
+<<<<<<< Updated upstream
 // Source data GeoJSON
 const DATA_URL =
   './data/e15.json'; // eslint-disable-line
+=======
+
+
+// Source data PROP_IN
+const DATA_URL_IN = 
+'./data/remittances_IN_PROP_centroid_millions.json';  // eslint-disable-line
+// Source data PROP_OUT
+//const DATA_URL_OUT = 
+//'./data/remittances_OUT_PROP_centroid_millions.json';  // eslint-disable-line
+>>>>>>> Stashed changes
 
 //comment to delete
 
@@ -53,6 +64,7 @@ const DATA_URL =
   };
   
   const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json';
+<<<<<<< Updated upstream
   
   function calculateArcs(data, selectedCounty) {
     console.log(data);
@@ -136,6 +148,47 @@ const DATA_URL =
       });
       */
     ];
+=======
+
+////////////////////////////////////////////////////////////////
+  // functions Proportional Symbols
+
+  // Pop-up
+function getTooltip({object}) {
+  return (
+    object &&
+    `\
+    Country: ${object.COUNTRY}
+    GDP: ${object.GDP_2017}
+    `
+  );
+}
+  
+
+
+export default function App({data, mapStyle = MAP_STYLE}) {
+  //const [filter, setFilter] = useState(null);
+  const layers = [
+    data &&
+      new ScatterplotLayer({
+        id: 'proportional',
+        data,
+        opacity: 0.8,
+        radiusScale: 100,
+        radiusMinPixels: 1,
+        wrapLongitude: true,
+
+        //Formel für Farbe!
+        getPosition: d => [d.X, d.Y],
+        getRadius: d =>  Math.sqrt(d.GDP_2017)/Math.Pi,
+        getFillColor: d => {
+          const r = ((d.R_IN_2017) * Math.pow(10,6))/d.GDP_2017; //als variabel
+          return [255 - r * 15, r * 5, r * 10]; //werte für Farbschema ändern
+        }
+
+      })
+  ];
+>>>>>>> Stashed changes
 
   return (
     <>
@@ -164,6 +217,11 @@ const DATA_URL =
         </div>
       </div>
       <div className="background page" id="backgroundNav">Background</div>
+        <div className= "text-box"> 
+          <div className= "text-section">
+            <p> Hier kommt der Text hin </p>
+          </div>
+        </div>
       <div className="mapPage page" id="mapNav">
         <div className="mapContainer">
           <DeckGL
@@ -218,7 +276,30 @@ const DATA_URL =
   );
 }
 
+<<<<<<< Updated upstream
 export function renderToDOM(container) {
+=======
+
+
+export function renderToDOM(container) {
+  render(<App />, container);
+  require('d3-request').csv(DATA_URL_IN, (error, response) => {
+    if (!error) {
+      const data = response.map(row => ({
+        timestamp: new Date(`${row.DateTime} UTC`).getTime(),
+        latitude: Number(row.Latitude),
+        longitude: Number(row.Longitude),
+        depth: Number(row.Depth),
+        magnitude: Number(row.Magnitude)
+      }));
+      render(<App data={data} />, container);
+    }
+  });
+}
+
+/* for Arcs)
+  export function renderToDOM(container) {
+>>>>>>> Stashed changes
   render(<App />, container);
 
   fetch(DATA_URL)
@@ -226,4 +307,11 @@ export function renderToDOM(container) {
     .then(({features}) => {
       render(<App data={features} />, container);
     });
+<<<<<<< Updated upstream
 }
+=======
+}*/
+
+
+
+>>>>>>> Stashed changes
