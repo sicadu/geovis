@@ -16,6 +16,8 @@ import {ScatterplotLayer} from '@deck.gl/layers';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+// Remittance datasets: Declare json to variables
+const remi_in = './data/remittances_IN_PROP_centroid_millions.json'
 
 // Source data GeoJSON
 const DATA_URL =
@@ -117,9 +119,9 @@ const DATA_URL =
       }),
       // create proportional symbols layers
       new ScatterplotLayer({
-        data: 'https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/airports.json',
-        getPosition: d => d.coordinates,
-        getRadius: 100,
+        data: remi_in,
+        getPosition: (a) => [a.X, a.Y], // Koordinaten werden noch nicht richtig ausgewählt
+        getRadius: 1000000,
         getColor: [155, 40, 0],
         radiusMinPixels: 2
       })
