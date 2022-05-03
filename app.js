@@ -11,7 +11,7 @@ import {StaticMap} from 'react-map-gl';
 import DeckGL from '@deck.gl/react';
 import {GeoJsonLayer, ArcLayer} from '@deck.gl/layers';
 import {scaleQuantile} from 'd3-scale';
-import {IconLayer} from '@deck.gl/layers';
+//import {IconLayer} from '@deck.gl/layers';
 import {ScatterplotLayer} from '@deck.gl/layers';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -114,27 +114,15 @@ const DATA_URL =
         getSourceColor: d => (d.gain > 0 ? inFlowColors : outFlowColors)[d.quantile],
         getTargetColor: d => (d.gain > 0 ? outFlowColors : inFlowColors)[d.quantile],
         getWidth: strokeWidth
-      })
-      /*
-      const layerProps = {
-        data_remittance,
-        pickable: true,
+      }),
+      // create proportional symbols layers
+      new ScatterplotLayer({
+        data: 'https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/airports.json',
         getPosition: d => d.coordinates,
-        iconAtlas,
-        iconMapping,
-        onHover: !hoverInfo.objects && setHoverInfo
-      };
-      showCluster
-    ? new IconClusterLayer({...layerProps, id: 'icon-cluster', sizeScale: 40})
-    : new IconLayer({
-        ...layerProps,
-        id: 'icon',
-        getIcon: d => 'marker',
-        sizeUnits: 'meters',
-        sizeScale: 2000,
-        sizeMinPixels: 6
-      });
-      */
+        getRadius: 100,
+        getColor: [155, 40, 0],
+        radiusMinPixels: 2
+      })
     ];
 
   return (
@@ -142,7 +130,7 @@ const DATA_URL =
     <div className="navContainer">
       <div className="logo-box">
         <a href="/">
-        <img src="https://html5book.ru/wp-content/uploads/2015/01/logo-header.png"></img>
+        <img src="./images/uzh_logo_e_pos_web_assoc_zone.jpg" height="70px"></img>
         </a>
       </div>
       <nav>
@@ -160,7 +148,7 @@ const DATA_URL =
       <div className="intro page" id="introNav">
         <div className="e">Remittance and Migration Flows: </div> 
         <div className="e"> 
-            <span className="s"> Development of Global Pattern</span>
+            <span className="s">Global Patterns</span>
         </div>
       </div>
       <div className="background page" id="backgroundNav">Background</div>
