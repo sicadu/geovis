@@ -11,26 +11,17 @@ import {StaticMap} from 'react-map-gl';
 import DeckGL from '@deck.gl/react';
 import {GeoJsonLayer, ArcLayer} from '@deck.gl/layers';
 import {scaleQuantile} from 'd3-scale';
-// for Icon Layer: import {IconLayer} from '@deck.gl/layers';
-// used in Scatterplot Script: import {DataFilterExtension} from '@deck.gl/extensions';
+import {IconLayer} from '@deck.gl/layers';
 import {ScatterplotLayer} from '@deck.gl/layers';
 
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { PowerTwoTone } from '@material-ui/icons';
 
 
 // Source data GeoJSON
-//const DATA_URL =
-  //'./data/e15.json'; // eslint-disable-line
+const DATA_URL =
+  './data/e15.json'; // eslint-disable-line
 
-// Source data PROP_IN
-const DATA_URL_IN = 
-'./data/remittances_IN_PROP_centroid_millions.json';  // eslint-disable-line
-// Source data PROP_OUT
-//const DATA_URL_OUT = 
-//'./data/remittances_OUT_PROP_centroid_millions.json';  // eslint-disable-line
-
+//comment to delete
 
   export const inFlowColors = [
     [255, 255, 204],
@@ -57,14 +48,12 @@ const DATA_URL_IN =
     latitude: 50,
     zoom: 3,
     maxZoom: 15,
-    pitch: 0,
+    pitch: 30, // muss 30 sein, damit arcs schön dargestellt werden können
     bearing: 0
   };
   
   const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json';
-/* 
-////////////////////////////////////////////////////////////////
-  // functions Flows
+  
   function calculateArcs(data, selectedCounty) {
     console.log(data);
     if (!data || !data.length) {
@@ -100,27 +89,9 @@ const DATA_URL_IN =
   function getTooltip({object}) {
     return object && object.properties.Country;
   }
-*/
-////////////////////////////////////////////////////////////////
-  // functions Proportional Symbols
-
-  // Pop-up
-function getTooltip({object}) {
-  return (
-    object &&
-    `\
-    Country: ${object.COUNTRY}
-    GDP: ${object.GDP_2017}
-    `
-  );
-}
   
-
-
-  ////////////////////////////////////////////////////////////////////////
-  // Add all Layers
   /* eslint-disable react/no-deprecated */
-  /*export default function App({data, strokeWidth = 1, mapStyle = MAP_STYLE}) {
+  export default function App({data, strokeWidth = 1, mapStyle = MAP_STYLE}) {
     const [selectedCounty, selectCounty] = useState(null);
   
     const arcs = useMemo(() => calculateArcs(data, selectedCounty), [data, selectedCounty]);
@@ -144,48 +115,34 @@ function getTooltip({object}) {
         getTargetColor: d => (d.gain > 0 ? outFlowColors : inFlowColors)[d.quantile],
         getWidth: strokeWidth
       })
-      
+      /*
+      const layerProps = {
+        data_remittance,
+        pickable: true,
+        getPosition: d => d.coordinates,
+        iconAtlas,
+        iconMapping,
+        onHover: !hoverInfo.objects && setHoverInfo
+      };
+      showCluster
+    ? new IconClusterLayer({...layerProps, id: 'icon-cluster', sizeScale: 40})
+    : new IconLayer({
+        ...layerProps,
+        id: 'icon',
+        getIcon: d => 'marker',
+        sizeUnits: 'meters',
+        sizeScale: 2000,
+        sizeMinPixels: 6
+      });
+      */
     ];
-*/
-export default function App({data, mapStyle = MAP_STYLE}) {
-  const [filter, setFilter] = useState(null);
-
-  const layers = [
-    data &&
-      new ScatterplotLayer({
-        id: 'proportional',
-        data,
-        opacity: 0.8,
-        radiusScale: 100,
-        radiusMinPixels: 1,
-        wrapLongitude: true,
-
-        //Formel für Farbe!
-        getPosition: d => [d.X, d.Y],
-        getRadius: d =>  Math.sqrt(d.GDP_2017)/Math.Pi,
-        getFillColor: d => {
-          const r = ((d.R_IN_2017) * Math.pow(10,6))/d.GDP_2017; //als variabel
-          return [255 - r * 15, r * 5, r * 10]; //werte für Farbschema ändern
-        }
-
-        /*getFilterValue: d => d.timestamp,
-        filterRange: [filterValue[0], filterValue[1]],
-        filterSoftRange: [
-          filterValue[0] * 0.9 + filterValue[1] * 0.1,
-          filterValue[0] * 0.1 + filterValue[1] * 0.9*/
-        //],
-        //extensions: [dataFilter], //evtl weg
-
-        //pickable: true
-      })
-  ];
 
   return (
     <>
     <div className="navContainer">
       <div className="logo-box">
         <a href="/">
-        <img src="./images/uzh_logo_e_pos_web_assoc_zone.jpg" height="70px"></img>
+        <img src="https://html5book.ru/wp-content/uploads/2015/01/logo-header.png"></img>
         </a>
       </div>
       <nav>
@@ -261,15 +218,12 @@ export default function App({data, mapStyle = MAP_STYLE}) {
   );
 }
 
-  export function renderToDOM(container) {
+export function renderToDOM(container) {
   render(<App />, container);
 
-  fetch(DATA_URL_IN)
+  fetch(DATA_URL)
     .then(response => response.json())
     .then(({features}) => {
       render(<App data={features} />, container);
     });
 }
-
-
-
