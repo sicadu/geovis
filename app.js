@@ -57,8 +57,8 @@ const DATA_URL_IN =
     latitude: 50,
     zoom: 3,
     maxZoom: 15,
-    pitch: 30,
-    bearing: 30
+    pitch: 0,
+    bearing: 0
   };
   
   const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json';
@@ -105,7 +105,7 @@ const DATA_URL_IN =
   // functions Proportional Symbols
 
   // Pop-up
-function getTooltipProp({object}) {
+function getTooltip({object}) {
   return (
     object &&
     `\
