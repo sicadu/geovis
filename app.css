@@ -53,8 +53,13 @@
 }
 
 .summary{
-    background-color: var(--color4);
+  background-color: var(--color2);
 }
+
+.references{
+  background-color: var(--color2);
+}
+
 
 .authors{
     height: 50vh;
