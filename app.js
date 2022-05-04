@@ -216,12 +216,20 @@ export default function App({data, mapStyle = MAP_STYLE}) {
             <span className="s"> Development of Global Pattern</span>
         </div>
       </div>
+<<<<<<< Updated upstream
       <div className="background page" id="backgroundNav">Background</div>
+=======
+      <div className="background page" id="backgroundNav">
+>>>>>>> Stashed changes
         <div className= "text-box"> 
           <div className= "text-section">
             <p> Hier kommt der Text hin </p>
           </div>
         </div>
+<<<<<<< Updated upstream
+=======
+      </div>
+>>>>>>> Stashed changes
       <div className="mapPage page" id="mapNav">
         <div className="mapContainer">
           <DeckGL
