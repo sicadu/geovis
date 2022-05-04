@@ -21,6 +21,8 @@
   <!-- Document data manipulation-->
   <script src="https://d3js.org/d3.v4.min.js"></script>
 
+  <script src="https://unpkg.com/deck.gl@^8.0.0/dist.min.js"></script>
+
 </head>
 
 
@@ -120,7 +122,7 @@
 
     // New Part
 
-    const {DeckGL, GeoJsonLayer, ArcLayer} = deck;
+    const {DeckGL, GeoJsonLayer, ArcLayer, ScatterplotLayer} = deck;
 
     fetch('./data/e15.json')
     .then(res => res.json())
