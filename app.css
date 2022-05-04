@@ -39,6 +39,13 @@
     -webkit-transform: translate3d(0,0,0);
 }
 
+<<<<<<< Updated upstream
+=======
+.background{
+    background-color: var(--color2);
+}
+
+>>>>>>> Stashed changes
 .mapPage{
     position: relative;
     width: 100vw;
@@ -59,7 +66,11 @@
 .authors{
     height: 50vh;
     color: black;
+<<<<<<< Updated upstream
     background-color: var(--color1)
+=======
+    background-color: var(--color6)
+>>>>>>> Stashed changes
 }
 
 /* Navbar Styling */
@@ -143,7 +154,25 @@
   }
   .logo-box img {display: block;}
 
+/* Textboxes */
 
+.text-box{
+    position: center;
+    font-family: sans-serif;
+    /*width: 686px;*/
+    height: 220px;
+    background: #fff;
+    padding: 30px;
+    box-shadow: 0 0 22px #3336;
+    margin: 30px 200.6px 30px 200.6px;
+    margin-left: 200.6px;
+    font-size: 21px
+}
+  .text-section{
+    text-align: center;
+    font-size: 15px
+  }
+/* evtl. noch .text-box .text{ */
 
 /* Team Section */
 
@@ -220,6 +249,7 @@
   .social-links a:hover{
     color: #0c52a1;
   }
+
 
 
 
