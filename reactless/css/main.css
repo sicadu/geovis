@@ -1,7 +1,7 @@
 :root{
     --color1:#ffffff;
     --color2:#dddddd;
-    --color4:#2ca25f;
+    --color4:#8a8a8a;
     --color5:#006d2c;
 }
 
@@ -24,7 +24,7 @@
     justify-content: center;
     align-items: center;
     font-size: 60px;
-    color: yellow;
+    color: rgb(45, 45, 45);
 }
 
 .intro{
@@ -62,10 +62,18 @@
     background-color: var(--color2);
 }
 
+.references{
+    background-color: var(--color2);
+}
+
+.background{
+    background-color: var(--color2);
+}
+
 .authors{
     height: 50vh;
     color: black;
-    background-color: var(--color2)
+    background-color: var(--color4)
 }
 
 /* Navbar Styling */
