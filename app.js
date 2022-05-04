@@ -11,7 +11,6 @@ import {StaticMap} from 'react-map-gl';
 import DeckGL from '@deck.gl/react';
 import {GeoJsonLayer, ArcLayer} from '@deck.gl/layers';
 import {scaleQuantile} from 'd3-scale';
-//import {IconLayer} from '@deck.gl/layers';
 import {ScatterplotLayer} from '@deck.gl/layers';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -117,11 +116,12 @@ const DATA_URL =
       }),
       // create proportional symbols layers
       new ScatterplotLayer({
+        id: 'scatterplot-layer',
         data: './aa_remittances/aa_remittances_IN_GDP_millions_WGS84.json',
         getPosition: d => [d.X, d.Y], // Koordinaten werden noch nicht richtig ausgewählt
-        getRadius: d => Math.sqrt((d.R_IN_2017)/Math.Pi),
-        getColor: [155, 40, 0],
-        radiusMinPixels: 2
+        getRadius: d => Math.sqrt(d.R_IN_2017),
+        getColor: [255, 255, 255],
+        radiusMinPixels: 5
       })
     ];
 
