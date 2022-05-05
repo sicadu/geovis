@@ -15,12 +15,22 @@ import {ScatterplotLayer} from '@deck.gl/layers';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+// colour scheme
+//teal: #d1eeea,#a8dbd9,#85c4c9,#68abb8,#4f90a6,#3b738f,#2a5674
+const POLYGON_COLORS = {
+  COLOR_1: [209, 238, 234],
+  COLOR_2: [168, 219, 217],
+  COLOR_3: [133, 196, 201],
+  COLOR_4: [104, 171, 184],
+  COLOR_5: [79, 144, 166],
+  COLOR_6: [59, 115, 143],
+  OTHER: [255,255,255]
+};
 
 // Source data GeoJSON
 const DATA_URL =
   './data/e15.json'; // eslint-disable-line
 
-//comment to delete
 
   export const inFlowColors = [
     [255, 255, 204],
@@ -118,12 +128,38 @@ const DATA_URL =
       new ScatterplotLayer({
         id: 'scatterplot-layer',
         data: './aa_remittances/aa_remittances_IN_GDP_millions_WGS84.json',
+        opacity: 0.6,
         getPosition: d => [d.X, d.Y], 
-        getRadius: a => (Math.sqrt(a.GDP_2017))/Math.PI,
-        getColor: [255, 255, 255],
-        radiusMinPixels: 5
+        getRadius: a => (Math.sqrt(a.GDP_2017))/Math.PI, //size = GDP
+        //Size = R does not work: getRadius: a => (Math.sqrt(a.R_IN_2017))/Math.PI,
+        //getColor: a => [255, 255, 255],
+        //getFillColor: colorContinuous({
+          //attr: 'R_IN_2017',
+          //domain: [0, 1e5],
+          //colors: 'BluYl'
+        //}),
+        getFillColor: a => {
+          if (((a.R_IN_2017)*10^6)/a.GDP_2017 < 0.01) { //define classes!
+            return POLYGON_COLORS.COLOR_1;
+          } else if (((a.R_IN_2017)*10^6)/a.GDP_2017 < 0.05) {
+            return POLYGON_COLORS.COLOR_2;
+          } else if (((a.R_IN_2017)*10^6)/a.GDP_2017 < 0.1) {
+            return POLYGON_COLORS.COLOR_3;
+          } else if (((a.R_IN_2017)*10^6)/a.GDP_2017 < 0.15) {
+            return POLYGON_COLORS.COLOR_4;
+          } else if (((a.R_IN_2017)*10^6)/a.GDP_2017 < 0.2) {
+            return POLYGON_COLORS.COLOR_5;
+          } else if (((a.R_IN_2017)*10^6)/a.GDP_2017 < 0.5) {
+            return POLYGON_COLORS.COLOR_6;
+          };
+          //return POLYGON_COLORS.OTHER;
+        },
+        radiusMinPixels: 2,
+        radiusMaxPixels: 70
       })
     ];
+
+    
 
   return (
     <>
