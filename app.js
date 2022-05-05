@@ -201,9 +201,10 @@ const POLYGON_COLORS = {
       </div>
       <div className="background page" id="backgroundNav">
         <div className= "text-box"> 
-          <div className= "text-section">
-            <p> Hier kommt der Text hin </p>
-          </div>
+          <div className="text-title">Background</div>
+            <div className= "text-section">
+              <p> Hier kommt der Text hin </p>
+            </div>
         </div>
       </div>
       <div className="mapPage page" id="mapNav">
@@ -220,16 +221,18 @@ const POLYGON_COLORS = {
       </div>
       <div className="summary page" id="summaryNav">
         <div className= "text-box"> 
-          <div className= "text-section">
-            <p> Hier kommt der Text hin </p>
-          </div>
+          <div className="text-title">Summary</div>
+            <div className= "text-section">
+              <p> Hier kommt der Text hin </p>
+            </div>
         </div>
       </div>
       <div className="references page" id="referencesNav">
-        <div className= "text-box"> 
-          <div className= "text-section">
-            <p> Hier kommt der Text hin </p>
-          </div>
+        <div className= "text-box">
+          <div className="text-title">References</div>
+            <div className= "text-section">
+              <p> Hier kommt der Text hin </p>
+            </div>
         </div>
       </div>
       <div className="authors page" id="authorsNav">
