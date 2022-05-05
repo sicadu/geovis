@@ -118,8 +118,8 @@ const DATA_URL =
       new ScatterplotLayer({
         id: 'scatterplot-layer',
         data: './aa_remittances/aa_remittances_IN_GDP_millions_WGS84.json',
-        getPosition: d => [d.X, d.Y], // Koordinaten werden noch nicht richtig ausgewählt
-        getRadius: d => Math.sqrt(d.R_IN_2017),
+        getPosition: d => [d.X, d.Y], 
+        getRadius: a => (Math.sqrt(a.GDP_2017))/Math.PI,
         getColor: [255, 255, 255],
         radiusMinPixels: 5
       })
