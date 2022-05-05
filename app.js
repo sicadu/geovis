@@ -16,7 +16,6 @@ import {ScatterplotLayer} from '@deck.gl/layers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
-
 // Source data GeoJSON
 const DATA_URL =
   './data/e15.json'; // eslint-disable-line
@@ -200,7 +199,13 @@ const POLYGON_COLORS = {
             <span className="s">Global Patterns</span>
         </div>
       </div>
-      <div className="background page" id="backgroundNav">Background</div>
+      <div className="background page" id="backgroundNav">
+        <div className= "text-box"> 
+          <div className= "text-section">
+            <p> Hier kommt der Text hin </p>
+          </div>
+        </div>
+      </div>
       <div className="mapPage page" id="mapNav">
         <div className="mapContainer">
           <DeckGL
@@ -213,8 +218,20 @@ const POLYGON_COLORS = {
           </DeckGL>
         </div>
       </div>
-      <div className="summary page" id="summaryNav">Summary</div>
-      <div className="references page" id="referencesNav">References</div>
+      <div className="summary page" id="summaryNav">
+        <div className= "text-box"> 
+          <div className= "text-section">
+            <p> Hier kommt der Text hin </p>
+          </div>
+        </div>
+      </div>
+      <div className="references page" id="referencesNav">
+        <div className= "text-box"> 
+          <div className= "text-section">
+            <p> Hier kommt der Text hin </p>
+          </div>
+        </div>
+      </div>
       <div className="authors page" id="authorsNav">
         <div className="profile-card">
           <div className="img">
