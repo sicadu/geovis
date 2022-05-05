@@ -15,6 +15,12 @@ import {ScatterplotLayer} from '@deck.gl/layers';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+
+
+// Source data GeoJSON
+const DATA_URL =
+  './data/e15.json'; // eslint-disable-line
+
 // colour scheme
 //teal: #d1eeea,#a8dbd9,#85c4c9,#68abb8,#4f90a6,#3b738f,#2a5674
 const POLYGON_COLORS = {
@@ -26,11 +32,6 @@ const POLYGON_COLORS = {
   COLOR_6: [59, 115, 143],
   OTHER: [255,255,255]
 };
-
-// Source data GeoJSON
-const DATA_URL =
-  './data/e15.json'; // eslint-disable-line
-
 
   export const inFlowColors = [
     [255, 255, 204],
@@ -128,34 +129,46 @@ const DATA_URL =
       new ScatterplotLayer({
         id: 'scatterplot-layer',
         data: './aa_remittances/aa_remittances_IN_GDP_millions_WGS84.json',
-        opacity: 0.6,
+        opacity: 0.7,
+        stroked: true,
         getPosition: d => [d.X, d.Y], 
-        getRadius: a => (Math.sqrt(a.GDP_2017))/Math.PI, //size = GDP
-        //Size = R does not work: getRadius: a => (Math.sqrt(a.R_IN_2017))/Math.PI,
-        //getColor: a => [255, 255, 255],
+        lineWidthMinPixels: 0.5,
+        getLineColor: d => [255, 255, 255],
+
+        //size = GDP [$]
+        getRadius: a => (Math.sqrt(a.GDP_2017))/Math.PI,
+        radiusMinPixels: 3,
+        radiusMaxPixels: 40,
+        
+        //size = Remittance [$]
+        //getRadius: f => (Math.sqrt((f.R_IN_2017)*1000000))/Math.PI,  //doesn't work when changing radiusMinPixels, therefore a scaling factor
+        //getRadius: f => (Math.sqrt((f.R_IN_2017)*1000000)/Math.PI),
+        //radiusMinPixels: 7,
+
+        //attempt: continuous colorscheme
         //getFillColor: colorContinuous({
           //attr: 'R_IN_2017',
           //domain: [0, 1e5],
           //colors: 'BluYl'
         //}),
+
+        // colorscheme: classes (arbitrary --> to be defined!)
         getFillColor: a => {
-          if (((a.R_IN_2017)*10^6)/a.GDP_2017 < 0.01) { //define classes!
+          if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.001) { //define classes!
             return POLYGON_COLORS.COLOR_1;
-          } else if (((a.R_IN_2017)*10^6)/a.GDP_2017 < 0.05) {
+          } else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.005) {
             return POLYGON_COLORS.COLOR_2;
-          } else if (((a.R_IN_2017)*10^6)/a.GDP_2017 < 0.1) {
+          } else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.01) {
             return POLYGON_COLORS.COLOR_3;
-          } else if (((a.R_IN_2017)*10^6)/a.GDP_2017 < 0.15) {
+          } else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.05) {
             return POLYGON_COLORS.COLOR_4;
-          } else if (((a.R_IN_2017)*10^6)/a.GDP_2017 < 0.2) {
+          } else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.1) {
             return POLYGON_COLORS.COLOR_5;
-          } else if (((a.R_IN_2017)*10^6)/a.GDP_2017 < 0.5) {
+          } else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.4) {
             return POLYGON_COLORS.COLOR_6;
           };
           //return POLYGON_COLORS.OTHER;
         },
-        radiusMinPixels: 2,
-        radiusMaxPixels: 70
       })
     ];
 
