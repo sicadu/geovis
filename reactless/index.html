@@ -121,16 +121,15 @@
     };
 
     // New Part
-
     const {DeckGL, GeoJsonLayer, ArcLayer, ScatterplotLayer} = deck;
 
-    fetch('./data/e15.json')
+    fetch('./data/i15.json')
     .then(res => res.json())
     .then(data => {
+      
 
-      const dataSorted = keysrt(data.features, ['properties','Country']);
+      const dataSorted = keysrt(data.features, ['properties','COUNTRY']);
 
-      console.log(dataSorted);
 
       const inFlowColors = [
         [255, 255, 204],
@@ -181,17 +180,20 @@
       });
 
       updateLayers(
-        dataSorted.find(f => f.properties.Country === 'Germany')
+        dataSorted.find(f => f.properties.COUNTRY === 'GERMANY')
       );
 
       function updateLayers(dataFeature) {
-        selectedFeature = dataSorted.find(f => f.properties.Country === dataFeature.properties.Country);
+        selectedFeature = dataSorted.find(f => f.properties.COUNTRY === dataFeature.properties.COUNTRY);
+        console.log(selectedFeature);
         
         const flows = selectedFeature.properties.flows;
         const centroid = selectedFeature.geometry.centroid;
 
         const arcs = Object.keys(flows).map(toId => {
           const f = dataSorted[toId];
+          console.log(toId);
+          console.log(f);
           return {
             source: centroid,
             target: f.geometry.centroid,
@@ -240,5 +242,21 @@
               return sortOrder * ((x < y) ? -1 : ((x > y) ? 1 : 0));
           });
       }
+
+    // How to handle layer visibility in the future
+    const layerVisibility = {e15:true, i15:false} // fill in all the layers that are needed
+
+    function toggleLayer(key){
+      layerVisibility[key] = !layerVisibility[key];
+      render();
+    }
+
+    function render() {
+      const layers = [
+        // All the layers that need to be 
+
+      ];
+      deckgl.setProps({layers:[layers]});
+    }
 
 </script>
