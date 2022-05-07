@@ -56,6 +56,40 @@
           <div class="mapContainer">
               <div class="map" id="map"></div>
           </div>
+          <div class="optionBox">
+            <fieldset class="layerSelection">
+              <legend>Select a layer:</legend>
+              <div>
+                <input type="radio" id="e" name="inout" value="e" onclick="updateLayerName(this.value, 'inout')"
+                      checked>
+                <label for="e">Emigrants</label>
+              </div>
+          
+              <div>
+                <input type="radio" id="i" name="inout" value="i" onclick="updateLayerName(this.value, 'inout')">
+                <label for="i">Immigrants</label>
+              </div>
+
+            </fieldset>
+            <fieldset class="layerSelection">
+              <legend>Select a year:</legend>
+              <div>
+                <input type="radio" id="e10" name="layername" value="10" onclick="updateLayerName(this.value, 'year')"
+                      checked>
+                <label for="e10">2010</label>
+              </div>
+          
+              <div>
+                <input type="radio" id="e15" name="layername" value="15" onclick="updateLayerName(this.value, 'year')">
+                <label for="e15">2015</label>
+              </div>
+          
+              <div>
+                <input type="radio" id="e20" name="layername" value="20" onclick="updateLayerName(this.value, 'year')">
+                <label for="e20">2020</label>
+              </div>
+            </fieldset>
+        </div>
         </div>
         <div class="summary page" id="summaryNav">Summary</div>
         <div class="references page" id="referencesNav">References</div>
@@ -120,51 +154,11 @@
     });
     };
 
-    // New Part
+    // Get components from the deckgl library
     const {DeckGL, GeoJsonLayer, ArcLayer, ScatterplotLayer} = deck;
 
-    fetch('./data/i15.json')
-    .then(res => res.json())
-    .then(data => {
-      
-
-      const dataSorted = keysrt(data.features, ['properties','COUNTRY']);
-
-
-      const inFlowColors = [
-        [255, 255, 204],
-        [199, 233, 180],
-        [127, 205, 187],
-        [65, 182, 196],
-        [29, 145, 192],
-        [34, 94, 168],
-        [12, 44, 132]
-      ];
-
-      const outFlowColors = [
-        [255, 255, 178],
-        [254, 217, 118],
-        [254, 178, 76],
-        [253, 141, 60],
-        [252, 78, 42],
-        [227, 26, 28],
-        [177, 0, 38]
-      ];
-
-      
-      
-      const countyLayer = new GeoJsonLayer({
-        id: 'geojson',
-        data,
-        stroked: false,
-        filled: true,
-        autoHighlight: true,
-        getFillColor: () => [0, 0, 0, 0],
-        onClick: info => updateLayers(info.object),
-        pickable: true
-      });
-
-      const deckgl = new DeckGL({
+    // Create deck instance 
+    const deckgl = new DeckGL({
         mapStyle: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
         container: 'map',
         initialViewState: {
@@ -179,21 +173,93 @@
         layers: []
       });
 
-      updateLayers(
-        dataSorted.find(f => f.properties.COUNTRY === 'GERMANY')
-      );
+      // create proportional symbols layers
+    const symbolsLayer = new ScatterplotLayer({
+        data: './aa_remittances/aa_remittances_IN_GDP_millions_WGS84.json',
+        getPosition: d => [d.X, d.Y], // Koordinaten werden noch nicht richtig ausgewählt
+        getRadius: d => Math.sqrt((d.R_IN_2017)/Math.Pi),
+        getColor: [155, 40, 0],
+        radiusMinPixels: 2
+      })
+      
+    // Define Arc colors
+    const inFlowColors = [
+      [255, 255, 204],
+      [199, 233, 180],
+      [127, 205, 187],
+      [65, 182, 196],
+      [29, 145, 192],
+      [34, 94, 168],
+      [12, 44, 132]
+    ];
 
-      function updateLayers(dataFeature) {
+    const outFlowColors = [
+      [255, 255, 178],
+      [254, 217, 118],
+      [254, 178, 76],
+      [253, 141, 60],
+      [252, 78, 42],
+      [227, 26, 28],
+      [177, 0, 38]
+    ];
+
+    
+
+    var dataSorted = [];
+    var countyLayer = '' ;
+    var arcLayer = '';
+    var inout = 'e';
+    var year = '10';
+    var startCountry = 'GERMANY';
+    
+
+    function updateLayerName(value, type) {
+      if (type == 'year'){
+        year = value;
+      } else {
+        inout=value;
+      }
+      layerName = inout+year;
+      layerChange(layerName);
+    }
+
+
+    layerChange("e10");
+
+    function layerChange(layerName) {
+      fetch('./data/'+ layerName +'.json')
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        dataSorted = keysrt(data.features, ['properties','COUNTRY']);
+
+        countyLayer = new GeoJsonLayer({
+          id: 'geojson',
+          data,
+          stroked: false,
+          filled: true,
+          autoHighlight: true,
+          getFillColor: () => [0, 0, 0, 0],
+          onClick: info => updateLayers(info.object),
+          pickable: true
+        });
+
+        updateLayers(
+          dataSorted.find(f => f.properties.COUNTRY === startCountry)
+        );
+      });
+      render();
+    }
+
+    function updateLayers(dataFeature) {
         selectedFeature = dataSorted.find(f => f.properties.COUNTRY === dataFeature.properties.COUNTRY);
-        console.log(selectedFeature);
-        
+        startCountry = dataFeature.properties.COUNTRY;
+
         const flows = selectedFeature.properties.flows;
         const centroid = selectedFeature.geometry.centroid;
 
         const arcs = Object.keys(flows).map(toId => {
           const f = dataSorted[toId];
-          console.log(toId);
-          console.log(f);
           return {
             source: centroid,
             target: f.geometry.centroid,
@@ -212,7 +278,7 @@
 
         console.log(arcs);
 
-        const arcLayer = new ArcLayer({
+        arcLayer = new ArcLayer({
           id: 'arc',
           data: arcs,
           getSourcePosition: d => d.source,
@@ -224,20 +290,13 @@
           getHeight: 0.1
         });
 
-        // create proportional symbols layers
-        const symbolsLayer = new ScatterplotLayer({
-        data: './aa_remittances/aa_remittances_IN_GDP_millions_WGS84.json',
-        getPosition: d => [d.X, d.Y], // Koordinaten werden noch nicht richtig ausgewählt
-        getRadius: d => Math.sqrt((d.R_IN_2017)/Math.Pi),
-        getColor: [155, 40, 0],
-        radiusMinPixels: 2
-      })
+        console.log(countyLayer);
+        console.log(arcLayer);
 
         deckgl.setProps({
           layers: [countyLayer, arcLayer]
         });
-      }
-    });
+    }
 
     function keysrt(arr, keyArr, reverse) {
           var sortOrder = 1;
@@ -252,20 +311,15 @@
           });
       }
 
-    // How to handle layer visibility in the future
-    const layerVisibility = {e15:true, i15:false} // fill in all the layers that are needed
 
-    function toggleLayer(key){
-      layerVisibility[key] = !layerVisibility[key];
-      render();
-    }
+
+    // How to handle layer visibility in the future
+    const layerVisibility = {e10:true, e15:false, e20:false, i10:false, i15:false, i20:false} // fill in all the layers that are needed
 
     function render() {
-      const layers = [
-        // All the layers that need to be 
-
-      ];
-      deckgl.setProps({layers:[layers]});
+      console.log(countyLayer);
+      console.log(arcLayer);
+      deckgl.setProps({layers:[countyLayer, arcLayer]});
     }
 
 </script>
