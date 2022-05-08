@@ -89,6 +89,37 @@
     background-color: var(--color3)
 }
 
+
+/* Textboxes*/
+.text-box{
+  /*position: center;*/
+  font-family: sans-serif;
+  /*max-width: 686px;*/
+  /*height: 220px;*/
+  background: #fff;
+  /*padding:;*/
+  box-shadow: 0 0 22px #3336;
+  /*margin: 30px 20px 30px 20px;*/
+  /* margin-left: 20px;*/
+  position: relative;
+  height: 80vh;
+  width: 65vw;
+}
+
+.text-title{
+  text-align: center;
+  padding: 20px;
+  font-size: 36px;
+  color: rgb(64, 64, 64);
+}
+
+.text-section{
+  padding: 5px;
+  text-align: center;
+  font-size: 15px
+}
+
+
 /* Navbar Styling */
 
 .navContainer {
