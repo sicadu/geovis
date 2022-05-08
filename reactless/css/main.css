@@ -80,6 +80,12 @@
 }
 
 .background{
+    height: 200%;
+    display:flex;
+    justify-content: center;
+    align-items: top;
+    font-size: 60px;
+    color: rgb(45, 45, 45);
     background-color: var(--color2);
 }
 
@@ -115,8 +121,9 @@
 
 .text-section{
   padding: 5px;
-  text-align: center;
-  font-size: 15px
+  text-align: left;
+  font-size: 15px;
+  line-height: 1.15
 }
 
 
