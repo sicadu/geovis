@@ -299,11 +299,11 @@
       layerChange(layerName);
     }
 
-
+    
     layerChange("e10");
 
     function layerChange(layerName) {
-      fetch('./data/'+ layerName +'.json')
+      fetch('https://raw.githubusercontent.com/sicadu/geovis/main/reactless/data/'+layerName+'.json')
       .then(res => res.json())
       .then(data => {
         console.log(data);
