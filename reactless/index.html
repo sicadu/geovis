@@ -29,7 +29,7 @@
 <body>
     <div class="navContainer">
         <div class="logo-box">
-          <a href="/">
+          <a href="https://www.uzh.ch/en.html">
           <img src="./images/uzh_logo_e_pos_web_assoc_zone.jpg" height="70px"></img>
           </a>
         </div>
@@ -361,7 +361,7 @@
           getTargetPosition: d => d.target,
           getSourceColor: d => (d.gain > 0 ? inFlowColors : outFlowColors)[d.quantile],
           getTargetColor: d => (d.gain > 0 ? inFlowColors : outFlowColors)[d.quantile],
-          widthMinPixels: 3,
+          widthMinPixels: 1, /* Breite von Linien*/
           greatCircle: true,
           getHeight: 0.1
         });
