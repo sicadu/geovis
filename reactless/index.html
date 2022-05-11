@@ -21,7 +21,7 @@
   <!-- Document data manipulation-->
   <script src="https://d3js.org/d3.v4.min.js"></script>
 
-  <script src="https://unpkg.com/deck.gl@^8.0.0/dist.min.js"></script>
+
 
 </head>
 
@@ -265,10 +265,10 @@
       COLOR_5: [59, 115, 143]
     };
 
+
       // create proportional symbols layers
-      scatterLayer = new ScatterplotLayer({
-        id: 'scatterplot-layer',
-        data: './aa_remittances/aa_remittances_IN_GDP_millions_WGS84.json',
+      const scatterLayer = new ScatterplotLayer({
+        data: './data/aa_remittances_IN_GDP_millions_WGS84.json',
         opacity: 0.7,
         stroked: true,
         getPosition: d => [d.X, d.Y], 
@@ -281,9 +281,8 @@
         //radiusMaxPixels: 40,
         
         //size = Remittance [$]
-        getRadius: f => (Math.sqrt((f.R_IN_2017)*1000000))/Math.PI,  //doesn't work when changing radiusMinPixels, therefore a scaling factor
-        getRadius: f => (Math.sqrt((f.R_IN_2017)*1000000)/Math.PI),
-        radiusMinPixels: 7,
+        getRadius: f => (Math.sqrt((f.R_IN_2017)*10000000)/Math.PI),
+        radiusMinPixels: 3,
 
       
         // colorscheme: classes (arbitrary --> to be defined!)
@@ -301,7 +300,6 @@
           };
         },
       });
-      render()
 
       console.log(scatterLayer);
 
@@ -398,7 +396,6 @@
           dataSorted.find(f => f.properties.COUNTRY === startCountry)
         );
       });
-      render();
     }
 
     function updateLayers(dataFeature) {
@@ -460,17 +457,5 @@
               return sortOrder * ((x < y) ? -1 : ((x > y) ? 1 : 0));
           });
       }
-
-
-
-    // How to handle layer visibility in the future
-    const layerVisibility = {e10:true, e15:false, e20:false, i10:false, i15:false, i20:false} // fill in all the layers that are needed
-
-    function render() {
-      console.log(countyLayer);
-      console.log(arcLayer);
-      deckgl.setProps({layers:[countyLayer, arcLayer]});
-      deckgl_symbols.setProps({layers:[scatterLayer]}) //Fio
-    }
 
 </script>
