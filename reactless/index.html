@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Migration Flow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="#">
+  <style> body {margin: 0; font-family: sans-serif; width: 100vw; height: 100vh; overflow: hidden;}</style>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" type="text/css" href="./css/main.css">
+
+  <!-- DeckGl library - processing geospatial data-->
+  <script src="https://unpkg.com/deck.gl@^8.4.0/dist.min.js"></script>
+	<script src="https://unpkg.com/@deck.gl/carto@^8.4.0/dist.min.js"></script>
+
+  <!-- Basemap loading -->
+  <link href="https://libs.cartocdn.com/mapbox-gl/v1.13.0/mapbox-gl.css" rel="stylesheet"/>
+  <script src="https://libs.cartocdn.com/mapbox-gl/v1.13.0/mapbox-gl.js"></script>
+
+  <!-- Document data manipulation-->
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+
+</head>
+
+
+<body>
+    <div class="navContainer">
+        <div class="logo-box">
+          <a href="/">
+          <img src="./images/uzh_logo_e_pos_web_assoc_zone.jpg" height="70px"></img>
+          </a>
+        </div>
+        <nav>
+          <ul>
+            <li className="introNav active"><a href="#introNav">Home</a></li>
+            <li className="backgroundNav"><a href="#backgroundNav">background</a></li>
+            <li className="mapNav"><a href="#mapNav">map</a></li>
+            <li className="summaryNav"><a href="#summaryNav">summary</a></li>
+            <li className="referencesNav"><a href="#referencesNav">references</a></li>
+            <li className="authorsNav"><a href="#authorsNav">authors</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="scrollableScreen" id="scrollableScreen">
+        <div class="intro page" id="introNav">
+          <div class="e">GeoVis </div> 
+          <div class="e"> 
+              <span class="s"> für es besseres Lebe</span>
+          </div>
+        </div>
+        <div class="background page" id="backgroundNav">Background</div>
+        <div class="mapPage page" id="mapNav">
+          <div class="mapContainer">
+              <div class="map" id="map"></div>
+          </div>
+          <div class="optionBox">
+            <fieldset class="layerSelection">
+              <legend>Select a layer:</legend>
+              <div>
+                <input type="radio" id="e" name="inout" value="e" onclick="updateLayerName(this.value, 'inout')"
+                      checked>
+                <label for="e">Immigration</label>
+              </div>
+          
+              <div>
+                <input type="radio" id="i" name="inout" value="i" onclick="updateLayerName(this.value, 'inout')">
+                <label for="i">Emigration</label>
+              </div>
+
+            </fieldset>
+            <fieldset class="layerSelection">
+              <legend>Select a year:</legend>
+              <div>
+                <input type="radio" id="e10" name="layername" value="10" onclick="updateLayerName(this.value, 'year')"
+                      checked>
+                <label for="e10">2010</label>
+              </div>
+          
+              <div>
+                <input type="radio" id="e15" name="layername" value="15" onclick="updateLayerName(this.value, 'year')">
+                <label for="e15">2015</label>
+              </div>
+          
+              <div>
+                <input type="radio" id="e20" name="layername" value="20" onclick="updateLayerName(this.value, 'year')">
+                <label for="e20">2020</label>
+              </div>
+            </fieldset>
+        </div>
+        </div>
+        <div class="summary page" id="summaryNav">
+          <div class= "text-box"> 
+            <div class="text-title">Summary</div>
+              <div class= "text-section">
+                <p> Hier kommt der Text hin </p>
+              </div>
+          </div>
+        </div>
+        <div class="references page" id="referencesNav">
+          <div class= "text-box"> 
+            <div class="text-title">References</div>
+              <div class= "text-section">
+                <p> International Monetary Fund (IMF) (2009) <i>International Transactions in Remittances: Guide for Compilers and Users.</i> doi: 10.1111/j.1468-2435.2009.00540.x.<br>
+                  <br>Gubert, F. (2017) <i>Migration, Remittances and Development: Insights from the Migration and Development Conference, Revue d’Economie du Developpement,</i> 25(3–4), pp. 29–44. doi: 10.3917/edd.313.0029.<br>
+                  <br>IOM (2017) <i>International dialogue on migration: Follow-up and review of migration in the sustainable development goals,</i> in.<br>
+                  <br>Portal, M. D. (no date) <i>Migration data and the Sustainable Development Goals (SDGs).</i> Available at: https://www.migrationdataportal.org/sdgs?node=0.<br>
+                  <br>UN (2019) <i>Remittances matter: 8 facts you don’t know about the money migrants send back home.</i> Available at: https://www.un.org/development/desa/en/news/population/remittances-matter.html.<br>
+                  <br>UN (2021) <i>The Sustainable Development Goals Report 2021.</i><br>
+                  <br>UN (no date) <i>Putting a spotlight on the role of migrant remittances in achieving the SDGs.</i> Available at: https://www.un.org/hi/desa/putting-spotlight-role-migrant-remittances-achieving-sdgs.
+                   </p>
+              </div>
+          </div>
+        </div>
+        <div class="summary page" id="summaryNav">Summary</div>
+        <div class="references page" id="referencesNav">References</div>
+        <div class="authors page" id="authorsNav">
+          <div class="profile-card">
+            <div class="img">
+              <img src="./images/team-1.jpg" ></img>
+            </div>
+            <div class="caption">
+              <h3>Annina Ardüser</h3>
+              <p>GeoVis Expert</p>
+            </div>
+            <div class="social-links">
+            </div>
+          </div>
+          <div class="profile-card">
+          <div class="img">
+              <img src="./images/team-2.jpg"></img>
+          </div>
+          <div class="caption">
+            <h3>Fiona Federer</h3>
+            <p>GeoVis Expert</p>
+            <div class="social-links">
+            </div>
+          </div>
+          </div>
+            <div class="profile-card">
+              <div class="img">
+                <img src="./images/team-3.jpg"></img>
+              </div>
+              <div class="caption">
+                <h3>Silvan Caduuff</h3>
+                <p>GeoVis Expert</p>
+              <div class="social-links">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+
+<script language="JavaScript">  
+    const pages = document.querySelectorAll('.page');
+    const navLi = document.querySelectorAll('nav li');
+    const scr = document.getElementById('scrollableScreen');
+    
+    scr.onscroll = () => {
+    var current = "";
+    pages.forEach((page) => {
+        const pageTop = page.offsetTop;
+        if(scr.scrollTop >= (pageTop - 400)) {
+        current = page.getAttribute('id');
+        }
+    });
+    
+    navLi.forEach((li) => {
+        li.classList.remove('active');
+        
+        if(li.classList.contains(current)){
+        li.classList.add('active');
+        }
+    });
+    };
+
+    // New Part
+
+    const {DeckGL, GeoJsonLayer, ArcLayer} = deck;
+
+    fetch('./data/e15.json')
+    .then(res => res.json())
+    .then(data => {
+
+      const dataSorted = keysrt(data.features, ['properties','Country']);
+
+      console.log(dataSorted);
+
+      const inFlowColors = [
+        [255, 255, 204],
+        [199, 233, 180],
+        [127, 205, 187],
+        [65, 182, 196],
+        [29, 145, 192],
+        [34, 94, 168],
+        [12, 44, 132]
+      ];
+
+      const outFlowColors = [
+        [255, 255, 178],
+        [254, 217, 118],
+        [254, 178, 76],
+        [253, 141, 60],
+        [252, 78, 42],
+        [227, 26, 28],
+        [177, 0, 38]
+      ];
+
+      
+      
+      const countyLayer = new GeoJsonLayer({
+        id: 'geojson',
+        data,
+        stroked: false,
+        filled: true,
+        autoHighlight: true,
+        getFillColor: () => [0, 0, 0, 0],
+        onClick: info => updateLayers(info.object),
+        pickable: true
+      });
+
+      const deckgl = new DeckGL({
+        mapStyle: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
+        container: 'map',
+        initialViewState: {
+          longitude: 6,
+          latitude: 50,
+          zoom: 3,
+          maxZoom: 15,
+          pitch: 30,
+          bearing: 30
+        },
+        controller: true,
+        layers: []
+      });
+    
+    // Define Symbol colors
+    const POLYGON_COLORS = {
+      COLOR_1: [209, 238, 234],
+      COLOR_2: [168, 219, 217],
+      COLOR_3: [133, 196, 201],
+      COLOR_4: [104, 171, 184],
+      COLOR_5: [79, 144, 166],
+      COLOR_6: [59, 115, 143],
+    };
+
+    
+    //neu
+    const scatterLayer = new ScatterplotLayer({
+      id: 'scatterplot-layer',
+      data: './aa_remittances/aa_remittances_IN_GDP_millions_WGS84.json',
+      opacity: 0.7,
+      stroked: true,
+      getPosition: d => [d.X, d.Y], 
+      lineWidthMinPixels: 0.5,
+      getLineColor: d => [255, 255, 255],
+
+      //size = GDP [$]
+      getRadius: a => (Math.sqrt(a.GDP_2017))/Math.PI,
+      radiusMinPixels: 3,
+      radiusMaxPixels: 40,
+    
+      //size = Remittance [$]
+      //getRadius: f => (Math.sqrt((f.R_IN_2017)*1000000))/Math.PI,  //doesn't work when changing radiusMinPixels, therefore a scaling factor
+      //getRadius: f => (Math.sqrt((f.R_IN_2017)*1000000)/Math.PI),
+      //radiusMinPixels: 7,
+
+      // colorscheme: classes (arbitrary --> to be defined!)
+      getFillColor: a => {
+        if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.001) { //define classes!
+          return POLYGON_COLORS.COLOR_1;
+        } 
+        else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.005) {
+          return POLYGON_COLORS.COLOR_2;
+        } 
+        else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.01) {
+          return POLYGON_COLORS.COLOR_3;
+        } 
+        else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.05) {
+          return POLYGON_COLORS.COLOR_4;
+        } 
+        else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.1) {
+          return POLYGON_COLORS.COLOR_5;
+        } 
+        else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.4) {
+          return POLYGON_COLORS.COLOR_6;
+        };
+      },
+    })
+
+    // Define Arc colors
+    const inFlowColors = [
+      [255, 255, 204],
+      [199, 233, 180],
+      [127, 205, 187],
+      [65, 182, 196],
+      [29, 145, 192],
+      [34, 94, 168],
+      [12, 44, 132]
+    ];
+
+    const outFlowColors = [
+      [255, 255, 178],
+      [254, 217, 118],
+      [254, 178, 76],
+      [253, 141, 60],
+      [252, 78, 42],
+      [227, 26, 28],
+      [177, 0, 38]
+    ];
+
+    
+
+    var dataSorted = [];
+    var countyLayer = '' ;
+    var arcLayer = '';
+    var inout = 'e';
+    var year = '10';
+    var startCountry = 'GERMANY';
+    
+
+    function updateLayerName(value, type) {
+      if (type == 'year'){
+        year = value;
+      } else {
+        inout=value;
+      }
+      layerName = inout+year;
+      layerChange(layerName);
+    }
+
+
+    layerChange("e10");
+
+    function layerChange(layerName) {
+      fetch('./data/'+ layerName +'.json')
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        dataSorted = keysrt(data.features, ['properties','COUNTRY']);
+
+        countyLayer = new GeoJsonLayer({
+          id: 'geojson',
+          data,
+          stroked: false,
+          filled: true,
+          autoHighlight: true,
+          getFillColor: () => [0, 0, 0, 0],
+          onClick: info => updateLayers(info.object),
+          pickable: true
+        });
+
+        updateLayers(
+          dataSorted.find(f => f.properties.COUNTRY === startCountry)
+        );
+      });
+      render();
+    }
+
+    function updateLayers(dataFeature) {
+        selectedFeature = dataSorted.find(f => f.properties.COUNTRY === dataFeature.properties.COUNTRY);
+        startCountry = dataFeature.properties.COUNTRY;
+
+      function updateLayers(dataFeature) {
+        selectedFeature = dataSorted.find(f => f.properties.Country === dataFeature.properties.Country);
+        
+        const flows = selectedFeature.properties.flows;
+        const centroid = selectedFeature.geometry.centroid;
+
+        const arcs = Object.keys(flows).map(toId => {
+          const f = dataSorted[toId];
+          return {
+            source: centroid,
+            target: f.geometry.centroid,
+            value: flows[toId]
+          };
+        });
+
+        const scale = d3.scaleQuantile()
+          .domain(arcs.map(a => Math.abs(a.value)))
+          .range(inFlowColors.map((c, i) => i));
+
+        arcs.forEach(a => {
+          a.gain = Math.sign(a.value);
+          a.quantile = scale(Math.abs(a.value));
+        });
+
+        console.log(arcs);
+
+        const arcLayer = new ArcLayer({
+          id: 'arc',
+          data: arcs,
+          getSourcePosition: d => d.source,
+          getTargetPosition: d => d.target,
+          getSourceColor: d => (d.gain > 0 ? inFlowColors : outFlowColors)[d.quantile],
+          getTargetColor: d => (d.gain > 0 ? inFlowColors : outFlowColors)[d.quantile],
+          widthMinPixels: 3,
+          greatCircle: true,
+          getHeight: 0.1
+        });
+
+        deckgl.setProps({
+          layers: [countyLayer, arcLayer]
+        });
+
+    }
+
+    function keysrt(arr, keyArr, reverse) {
+          var sortOrder = 1;
+          if(reverse)sortOrder = -1;
+          return arr.sort(function(a, b) {
+              var x=a,y=b;
+              for (var i=0; i < keyArr.length; i++) {
+                x = x[keyArr[i]];
+                y = y[keyArr[i]];
+              }
+              return sortOrder * ((x < y) ? -1 : ((x > y) ? 1 : 0));
+          });
+      }
+
+
+    // How to handle layer visibility in the future
+    const layerVisibility = {e10:true, e15:false, e20:false, i10:false, i15:false, i20:false} // fill in all the layers that are needed
+
+    function render() {
+      console.log(countyLayer);
+      console.log(arcLayer);
+      console.log(scatterLayer);//neu
+      deckgl.setProps({layers:[countyLayer, arcLayer, scatterLayer]});
+    }
+
+</script>
