@@ -11,10 +11,14 @@ import {StaticMap} from 'react-map-gl';
 import DeckGL from '@deck.gl/react';
 import {GeoJsonLayer, ArcLayer} from '@deck.gl/layers';
 import {scaleQuantile} from 'd3-scale';
-import {ScatterplotLayer} from '@deck.gl/layers';
+import {ScatterplotLayer, IconLayer} from '@deck.gl/layers';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+
+const ICON_MAPPING = {
+  marker: {x: 0, y: 0, width: 128, height: 128, mask: true}
+};
 
 // Source data GeoJSON
 const DATA_URL =
@@ -151,6 +155,7 @@ const POLYGON_COLORS = {
           //colors: 'BluYl'
         //}),
 
+
         // colorscheme: classes (arbitrary --> to be defined!)
         getFillColor: a => {
           if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.001) { //define classes!
@@ -168,7 +173,24 @@ const POLYGON_COLORS = {
           };
           //return POLYGON_COLORS.OTHER;
         },
-      })
+      }),
+
+      new IconLayer({
+        //id: 'icon-layer',
+        data: './aa_remittances/aa_remittances_IN_GDP_millions_WGS84.json',
+        pickable: true,
+        // iconAtlas and iconMapping are required
+        // getIcon: return a string
+        iconAtlas: './images/Remi_in.png',
+        iconMapping: ICON_MAPPING,
+        getIcon: d => 'marker',
+      
+        sizeScale: 15,
+        getPosition: d => [d.X, d.Y],
+        getSize: d => 30,
+        //(Math.sqrt(a.GDP_2017))/Math.PI,
+        getColor: d => [0, 0, 0, 255]
+      }),
     ];
 
     
