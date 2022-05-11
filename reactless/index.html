@@ -147,7 +147,7 @@
         </div>
         <div class="mapPage page" id="mapNav">
           <div class="mapContainer">
-            <div class="map" id="map"></div>
+            <div class="map" id="map_symbols"></div>
           </div>
         </div>
         <div class="summary page" id="summaryNav">
@@ -238,7 +238,83 @@
     // Get components from the deckgl library
     const {DeckGL, GeoJsonLayer, ArcLayer, ScatterplotLayer} = deck;
 
-    // Create deck instance 
+    // Fio: Create deck instance symbols
+    const deckgl_symbols = new DeckGL({
+        mapStyle: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
+        container: 'map_symbols',
+        initialViewState: {
+          longitude: 6,
+          latitude: 50,
+          zoom: 3,
+          maxZoom: 15,
+          pitch: 30,
+          bearing: 0
+        },
+        controller: true,
+        layers: []
+      });
+
+    //////////////////////// Start Fio
+    // colour scheme
+    //teal: #d1eeea,#a8dbd9,#85c4c9,#68abb8,#4f90a6,#3b738f,#2a5674
+    const POLYGON_COLORS = {
+      COLOR_1: [168, 219, 217],
+      COLOR_2: [133, 196, 201],
+      COLOR_3: [104, 171, 184],
+      COLOR_4: [79, 144, 166],
+      COLOR_5: [59, 115, 143]
+    };
+
+      // create proportional symbols layers
+      scatterLayer = new ScatterplotLayer({
+        id: 'scatterplot-layer',
+        data: './aa_remittances/aa_remittances_IN_GDP_millions_WGS84.json',
+        opacity: 0.7,
+        stroked: true,
+        getPosition: d => [d.X, d.Y], 
+        lineWidthMinPixels: 0.5,
+        getLineColor: d => [255, 255, 255],
+
+        //size = GDP [$]
+        //getRadius: a => (Math.sqrt(a.GDP_2017))/Math.PI,
+        //radiusMinPixels: 3,
+        //radiusMaxPixels: 40,
+        
+        //size = Remittance [$]
+        getRadius: f => (Math.sqrt((f.R_IN_2017)*1000000))/Math.PI,  //doesn't work when changing radiusMinPixels, therefore a scaling factor
+        getRadius: f => (Math.sqrt((f.R_IN_2017)*1000000)/Math.PI),
+        radiusMinPixels: 7,
+
+      
+        // colorscheme: classes (arbitrary --> to be defined!)
+        getFillColor: a => {
+          if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.016429) { //define classes!
+            return POLYGON_COLORS.COLOR_1;
+          } else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.04617) {
+            return POLYGON_COLORS.COLOR_2;
+          } else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.090018) {
+            return POLYGON_COLORS.COLOR_3;
+          } else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.1725) {
+            return POLYGON_COLORS.COLOR_4;
+          } else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.371782) {
+            return POLYGON_COLORS.COLOR_5;
+          };
+        },
+      });
+      render()
+
+      console.log(scatterLayer);
+
+      deckgl_symbols.setProps({
+          layers: [scatterLayer]
+      });
+
+    ////////////////// End Fio 
+
+    
+
+
+    // Create deck instance arcs
     const deckgl = new DeckGL({
         mapStyle: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
         container: 'map',
@@ -254,15 +330,8 @@
         layers: []
       });
 
-      // create proportional symbols layers
-    const symbolsLayer = new ScatterplotLayer({
-        data: './aa_remittances/aa_remittances_IN_GDP_millions_WGS84.json',
-        getPosition: d => [d.X, d.Y], // Koordinaten werden noch nicht richtig ausgewählt
-        getRadius: d => Math.sqrt((d.R_IN_2017)/Math.Pi),
-        getColor: [155, 40, 0],
-        radiusMinPixels: 2
-      })
-      
+
+
     // Define Arc colors
     const inFlowColors = [
       [255, 255, 204],
@@ -401,6 +470,7 @@
       console.log(countyLayer);
       console.log(arcLayer);
       deckgl.setProps({layers:[countyLayer, arcLayer]});
+      deckgl_symbols.setProps({layers:[scatterLayer]}) //Fio
     }
 
 </script>
