@@ -23,13 +23,11 @@ const DATA_URL =
 // colour scheme
 //teal: #d1eeea,#a8dbd9,#85c4c9,#68abb8,#4f90a6,#3b738f,#2a5674
 const POLYGON_COLORS = {
-  COLOR_1: [209, 238, 234],
-  COLOR_2: [168, 219, 217],
-  COLOR_3: [133, 196, 201],
-  COLOR_4: [104, 171, 184],
-  COLOR_5: [79, 144, 166],
-  COLOR_6: [59, 115, 143],
-  OTHER: [255,255,255]
+  COLOR_1: [168, 219, 217],
+  COLOR_2: [133, 196, 201],
+  COLOR_3: [104, 171, 184],
+  COLOR_4: [79, 144, 166],
+  COLOR_5: [59, 115, 143]
 };
 
   export const inFlowColors = [
@@ -135,36 +133,28 @@ const POLYGON_COLORS = {
         getLineColor: d => [255, 255, 255],
 
         //size = GDP [$]
-        getRadius: a => (Math.sqrt(a.GDP_2017))/Math.PI,
-        radiusMinPixels: 3,
-        radiusMaxPixels: 40,
+        //getRadius: a => (Math.sqrt(a.GDP_2017))/Math.PI,
+        //radiusMinPixels: 3,
+        //radiusMaxPixels: 40,
         
         //size = Remittance [$]
-        //getRadius: f => (Math.sqrt((f.R_IN_2017)*1000000))/Math.PI,  //doesn't work when changing radiusMinPixels, therefore a scaling factor
-        //getRadius: f => (Math.sqrt((f.R_IN_2017)*1000000)/Math.PI),
-        //radiusMinPixels: 7,
+        getRadius: f => (Math.sqrt((f.R_IN_2017)*1000000))/Math.PI,  //doesn't work when changing radiusMinPixels, therefore a scaling factor
+        getRadius: f => (Math.sqrt((f.R_IN_2017)*1000000)/Math.PI),
+        radiusMinPixels: 7,
 
-        //attempt: continuous colorscheme
-        //getFillColor: colorContinuous({
-          //attr: 'R_IN_2017',
-          //domain: [0, 1e5],
-          //colors: 'BluYl'
-        //}),
-
+      
         // colorscheme: classes (arbitrary --> to be defined!)
         getFillColor: a => {
-          if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.001) { //define classes!
+          if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.016429) { //define classes!
             return POLYGON_COLORS.COLOR_1;
-          } else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.005) {
+          } else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.04617) {
             return POLYGON_COLORS.COLOR_2;
-          } else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.01) {
+          } else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.090018) {
             return POLYGON_COLORS.COLOR_3;
-          } else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.05) {
+          } else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.1725) {
             return POLYGON_COLORS.COLOR_4;
-          } else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.1) {
+          } else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.371782) {
             return POLYGON_COLORS.COLOR_5;
-          } else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.4) {
-            return POLYGON_COLORS.COLOR_6;
           };
           //return POLYGON_COLORS.OTHER;
         },
