@@ -54,6 +54,66 @@
           <div class="mapContainer">
               <div class="map" id="map"></div>
           </div>
+<<<<<<< Updated upstream
+=======
+          <div class="optionBox">
+            <fieldset class="layerSelection">
+              <legend>Select a layer:</legend>
+              <div>
+                <input type="radio" id="e" name="inout" value="e" onclick="updateLayerName(this.value, 'inout')"
+                      checked>
+                <label for="e">Immigration</label>
+              </div>
+          
+              <div>
+                <input type="radio" id="i" name="inout" value="i" onclick="updateLayerName(this.value, 'inout')">
+                <label for="i">Emigration</label>
+              </div>
+
+            </fieldset>
+            <fieldset class="layerSelection">
+              <legend>Select a year:</legend>
+              <div>
+                <input type="radio" id="e10" name="layername" value="10" onclick="updateLayerName(this.value, 'year')"
+                      checked>
+                <label for="e10">2010</label>
+              </div>
+          
+              <div>
+                <input type="radio" id="e15" name="layername" value="15" onclick="updateLayerName(this.value, 'year')">
+                <label for="e15">2015</label>
+              </div>
+          
+              <div>
+                <input type="radio" id="e20" name="layername" value="20" onclick="updateLayerName(this.value, 'year')">
+                <label for="e20">2020</label>
+              </div>
+            </fieldset>
+        </div>
+        </div>
+        <div class="summary page" id="summaryNav">
+          <div class= "text-box"> 
+            <div class="text-title">Summary</div>
+              <div class= "text-section">
+                <p> Hier kommt der Text hin </p>
+              </div>
+          </div>
+        </div>
+        <div class="references page" id="referencesNav">
+          <div class= "text-box"> 
+            <div class="text-title">References</div>
+              <div class= "text-section">
+                <p> International Monetary Fund (IMF) (2009) <i>International Transactions in Remittances: Guide for Compilers and Users.</i> doi: 10.1111/j.1468-2435.2009.00540.x.<br>
+                  <br>Gubert, F. (2017) <i>Migration, Remittances and Development: Insights from the Migration and Development Conference, Revue d’Economie du Developpement,</i> 25(3–4), pp. 29–44. doi: 10.3917/edd.313.0029.<br>
+                  <br>IOM (2017) <i>International dialogue on migration: Follow-up and review of migration in the sustainable development goals,</i> in.<br>
+                  <br>Portal, M. D. (no date) <i>Migration data and the Sustainable Development Goals (SDGs).</i> Available at: https://www.migrationdataportal.org/sdgs?node=0.<br>
+                  <br>UN (2019) <i>Remittances matter: 8 facts you don’t know about the money migrants send back home.</i> Available at: https://www.un.org/development/desa/en/news/population/remittances-matter.html.<br>
+                  <br>UN (2021) <i>The Sustainable Development Goals Report 2021.</i><br>
+                  <br>UN (no date) <i>Putting a spotlight on the role of migrant remittances in achieving the SDGs.</i> Available at: https://www.un.org/hi/desa/putting-spotlight-role-migrant-remittances-achieving-sdgs.
+                   </p>
+              </div>
+          </div>
+>>>>>>> Stashed changes
         </div>
         <div class="summary page" id="summaryNav">Summary</div>
         <div class="references page" id="referencesNav">References</div>
@@ -177,10 +237,140 @@
         controller: true,
         layers: []
       });
+    
+    // Define Symbol colors
+    const POLYGON_COLORS = {
+      COLOR_1: [209, 238, 234],
+      COLOR_2: [168, 219, 217],
+      COLOR_3: [133, 196, 201],
+      COLOR_4: [104, 171, 184],
+      COLOR_5: [79, 144, 166],
+      COLOR_6: [59, 115, 143],
+      OTHER: [255,255,255]
+    };
 
+    
+    //neu
+    const scatterLayer = new ScatterplotLayer({
+      id: 'scatterplot-layer',
+      data: './aa_remittances/aa_remittances_IN_GDP_millions_WGS84.json',
+      opacity: 0.7,
+      stroked: true,
+      getPosition: d => [d.X, d.Y], 
+      lineWidthMinPixels: 0.5,
+      getLineColor: d => [255, 255, 255],
+
+      //size = GDP [$]
+      getRadius: a => (Math.sqrt(a.GDP_2017))/Math.PI,
+      radiusMinPixels: 3,
+      radiusMaxPixels: 40,
+    
+      //size = Remittance [$]
+      //getRadius: f => (Math.sqrt((f.R_IN_2017)*1000000))/Math.PI,  //doesn't work when changing radiusMinPixels, therefore a scaling factor
+      //getRadius: f => (Math.sqrt((f.R_IN_2017)*1000000)/Math.PI),
+      //radiusMinPixels: 7,
+
+      // colorscheme: classes (arbitrary --> to be defined!)
+      getFillColor: a => {
+        if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.001) { //define classes!
+          return POLYGON_COLORS.COLOR_1;
+        } 
+        else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.005) {
+          return POLYGON_COLORS.COLOR_2;
+        } 
+        else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.01) {
+          return POLYGON_COLORS.COLOR_3;
+        } 
+        else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.05) {
+          return POLYGON_COLORS.COLOR_4;
+        } 
+        else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.1) {
+          return POLYGON_COLORS.COLOR_5;
+        } 
+        else if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.4) {
+          return POLYGON_COLORS.COLOR_6;
+        };
+      },
+    })
+
+<<<<<<< Updated upstream
       updateLayers(
         dataSorted.find(f => f.properties.Country === 'Germany')
       );
+=======
+    // Define Arc colors
+    const inFlowColors = [
+      [255, 255, 204],
+      [199, 233, 180],
+      [127, 205, 187],
+      [65, 182, 196],
+      [29, 145, 192],
+      [34, 94, 168],
+      [12, 44, 132]
+    ];
+
+    const outFlowColors = [
+      [255, 255, 178],
+      [254, 217, 118],
+      [254, 178, 76],
+      [253, 141, 60],
+      [252, 78, 42],
+      [227, 26, 28],
+      [177, 0, 38]
+    ];
+
+    
+
+    var dataSorted = [];
+    var countyLayer = '' ;
+    var arcLayer = '';
+    var inout = 'e';
+    var year = '10';
+    var startCountry = 'GERMANY';
+    
+
+    function updateLayerName(value, type) {
+      if (type == 'year'){
+        year = value;
+      } else {
+        inout=value;
+      }
+      layerName = inout+year;
+      layerChange(layerName);
+    }
+
+
+    layerChange("e10");
+
+    function layerChange(layerName) {
+      fetch('./data/'+ layerName +'.json')
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        dataSorted = keysrt(data.features, ['properties','COUNTRY']);
+
+        countyLayer = new GeoJsonLayer({
+          id: 'geojson',
+          data,
+          stroked: false,
+          filled: true,
+          autoHighlight: true,
+          getFillColor: () => [0, 0, 0, 0],
+          onClick: info => updateLayers(info.object),
+          pickable: true
+        });
+
+        updateLayers(
+          dataSorted.find(f => f.properties.COUNTRY === startCountry)
+        );
+      });
+      render();
+    }
+
+    function updateLayers(dataFeature) {
+        selectedFeature = dataSorted.find(f => f.properties.COUNTRY === dataFeature.properties.COUNTRY);
+        startCountry = dataFeature.properties.COUNTRY;
+>>>>>>> Stashed changes
 
       function updateLayers(dataFeature) {
         selectedFeature = dataSorted.find(f => f.properties.Country === dataFeature.properties.Country);
@@ -223,8 +413,13 @@
         deckgl.setProps({
           layers: [countyLayer, arcLayer]
         });
+<<<<<<< Updated upstream
       }
     });
+=======
+
+    }
+>>>>>>> Stashed changes
 
     function keysrt(arr, keyArr, reverse) {
           var sortOrder = 1;
@@ -239,4 +434,18 @@
           });
       }
 
+<<<<<<< Updated upstream
+=======
+
+    // How to handle layer visibility in the future
+    const layerVisibility = {e10:true, e15:false, e20:false, i10:false, i15:false, i20:false} // fill in all the layers that are needed
+
+    function render() {
+      console.log(countyLayer);
+      console.log(arcLayer);
+      console.log(scatterLayer);//neu
+      deckgl.setProps({layers:[countyLayer, arcLayer]});
+    }
+
+>>>>>>> Stashed changes
 </script>
