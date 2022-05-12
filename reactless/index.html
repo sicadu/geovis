@@ -21,6 +21,9 @@
   <!-- Document data manipulation-->
   <script src="https://d3js.org/d3.v4.min.js"></script>
 
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
 
 
 </head>
@@ -97,59 +100,77 @@
                   policy makers in sending and receiving countries (Gubert, 2017).
                 </p>
               </div>
-          </div>
-        </div>
-        <div class="background page" id="backgoundNav">
-          <iframe src="https://embed.ted.com/talks/lang/en/dilip_ratha_the_hidden_force_in_global_economics_sending_money_home"
-                      height=80% 
-                      width=80%
-                      allowfullscreen=true>    
-          </iframe>
-        </div>
-        <div class="mapPage page" id="mapNav">
-          <div class="mapContainer">
-              <div class="map" id="map"></div>
-          </div>
-          <div class="optionBox">
-            <fieldset class="layerSelection">
-              <legend>Select a layer:</legend>
-              <div>
-                <input type="radio" id="e" name="inout" value="e" onclick="updateLayerName(this.value, 'inout')"
-                      checked>
-                <label for="e">Emigrants</label>
-              </div>
-          
-              <div>
-                <input type="radio" id="i" name="inout" value="i" onclick="updateLayerName(this.value, 'inout')">
-                <label for="i">Immigrants</label>
-              </div>
 
-            </fieldset>
-            <fieldset class="layerSelection">
-              <legend>Select a year:</legend>
-              <div>
-                <input type="radio" id="e10" name="layername" value="10" onclick="updateLayerName(this.value, 'year')"
-                      checked>
-                <label for="e10">2010</label>
-              </div>
-          
-              <div>
-                <input type="radio" id="e15" name="layername" value="15" onclick="updateLayerName(this.value, 'year')">
-                <label for="e15">2015</label>
-              </div>
-          
-              <div>
-                <input type="radio" id="e20" name="layername" value="20" onclick="updateLayerName(this.value, 'year')">
-                <label for="e20">2020</label>
-              </div>
-            </fieldset>
-        </div>
-        </div>
-        <div class="mapPage page" id="mapNav">
-          <div class="mapContainer">
-            <div class="map" id="map_symbols"></div>
+              <iframe src="https://embed.ted.com/talks/lang/en/dilip_ratha_the_hidden_force_in_global_economics_sending_money_home"
+                      height=40% 
+                      width=60%
+                      allowfullscreen=true>    
+              </iframe>
           </div>
         </div>
+
+        <div class="mapPage page" id="mapNav">
+            <div class="mapSwitch">
+              <label> <input type="radio" name="switch" value="migration" checked>Migration</label>
+              <label> <input type="radio" name="switch" value="remittance">Remittance</label>
+            </div>
+          <div class="migration selectt slide1">
+            <div class="mapContainer">
+                <div class="map" id="map"></div>
+            </div>
+            <div class="optionBox">
+              <fieldset class="layerSelection">
+                <legend>Select a layer:</legend>
+                <div>
+                  <input type="radio" id="e" name="inout" value="e" onclick="updateLayerName(this.value, 'inout')"
+                        checked>
+                  <label for="e">Emigrants</label>
+                </div>
+                <div>
+                  <input type="radio" id="i" name="inout" value="i" onclick="updateLayerName(this.value, 'inout')">
+                  <label for="i">Immigrants</label>
+                </div>
+              </fieldset>
+              <fieldset class="layerSelection">
+                <legend>Select a year:</legend>
+                <div>
+                  <input type="radio" id="e10" name="layername" value="10" onclick="updateLayerName(this.value, 'year')"
+                        checked>
+                  <label for="e10">2010</label>
+                </div>
+                <div>
+                  <input type="radio" id="e15" name="layername" value="15" onclick="updateLayerName(this.value, 'year')">
+                  <label for="e15">2015</label>
+                </div>
+                <div>
+                  <input type="radio" id="e20" name="layername" value="20" onclick="updateLayerName(this.value, 'year')">
+                  <label for="e20">2020</label>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="remittance selectt slide2">
+            <div class="mapContainer">
+              <div class="map" id="map_symbols"></div>
+            </div>
+          </div>
+        </div>
+
+        <script type="text/javascript">
+            $(".remittance").hide();
+            $(document).ready(function() {
+                $('input[type="radio"]').click(function() {
+                    var inputValue = $(this).attr("value");
+                    var targetBox = $("." + inputValue);
+                    if(inputValue === "migration" || inputValue ==="remittance"){  
+                      showElement = $(targetBox);
+                      $(".selectt").not(targetBox).hide();
+                      showElement.show();
+                    }
+                });
+            });
+        </script>
+
         <div class="summary page" id="summaryNav">
           <div class= "text-box"> 
             <div class="text-title">Summary</div>
@@ -158,6 +179,7 @@
               </div>
           </div>
         </div>
+
         <div class="references page" id="referencesNav">
           <div class= "text-box"> 
             <div class="text-title">References</div>
