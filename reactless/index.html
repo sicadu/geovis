@@ -21,8 +21,16 @@
   <!-- Document data manipulation-->
   <script src="https://d3js.org/d3.v4.min.js"></script>
 
+  <!-- Chart plotting -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0/dist/chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+  <!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 
@@ -147,6 +155,10 @@
                   <label for="e20">2020</label>
                 </div>
               </fieldset>
+              <div class="chartWrapper chartSelector">
+                <button type="button" class="expandChart btn"><i class="fa-solid fa-expand"></i></button>
+                <canvas id="myChart" height="250"></canvas>
+              </div>
             </div>
           </div>
           <div class="remittance selectt slide2">
@@ -169,6 +181,21 @@
                     }
                 });
             });
+
+            $(document).ready(function() {
+              $('.expandChart').click(function() {
+                var chartWrapper = $('.chartSelector');
+                if (chartWrapper.hasClass('chartWrapper')) {
+                  console.log('right');
+                  $('.chartWrapper').removeClass("chartWrapper").addClass("chartBigWrapper");
+                  createPlot(countryNumbers, 15);
+                } else {
+                  $('.chartBigWrapper').removeClass("chartBigWrapper").addClass("chartWrapper")
+                  createPlot(countryNumbers, 5);
+                }
+
+              })
+            })
         </script>
 
         <div class="summary page" id="summaryNav">
@@ -323,8 +350,6 @@
         },
       });
 
-      console.log(scatterLayer);
-
       deckgl_symbols.setProps({
           layers: [scatterLayer]
       });
@@ -378,6 +403,7 @@
     var dataSorted = [];
     var countyLayer = '' ;
     var arcLayer = '';
+    var countryNumbers;
     var inout = 'e';
     var year = '10';
     var startCountry = 'GERMANY';
@@ -400,7 +426,6 @@
       fetch('https://raw.githubusercontent.com/sicadu/geovis/main/reactless/data/'+layerName+'.json')
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         dataSorted = keysrt(data.features, ['properties','COUNTRY']);
 
         countyLayer = new GeoJsonLayer({
@@ -436,6 +461,16 @@
           };
         });
 
+        countryNumbers = Object.keys(flows).map(toId => {
+          const r = dataSorted[toId];
+          return {
+            country: r.properties.COUNTRY,
+            migration: flows[toId]
+          };
+        });
+
+        createPlot(countryNumbers, 5);
+
         const scale = d3.scaleQuantile()
           .domain(arcs.map(a => Math.abs(a.value)))
           .range(inFlowColors.map((c, i) => i));
@@ -444,8 +479,6 @@
           a.gain = Math.sign(a.value);
           a.quantile = scale(Math.abs(a.value));
         });
-
-        console.log(arcs);
 
         arcLayer = new ArcLayer({
           id: 'arc',
@@ -458,9 +491,6 @@
           greatCircle: true,
           getHeight: 0.1
         });
-
-        console.log(countyLayer);
-        console.log(arcLayer);
 
         deckgl.setProps({
           layers: [countyLayer, arcLayer]
@@ -479,5 +509,82 @@
               return sortOrder * ((x < y) ? -1 : ((x > y) ? 1 : 0));
           });
       }
+
+    var myChart;
+
+
+    function createPlot(data, n){
+      if (myChart){
+        myChart.destroy();
+      }
+
+      var topCountries = getTopN(data, 'migration', n);
+      var migrationValues = [];
+      var countryKey = [];
+
+      for (let i =0; i<n ;i++) {
+        migrationValues.push(topCountries[i]['migration']);
+        countryKey.push(topCountries[i]['country']);
+      } 
+
+      Chart.register(ChartDataLabels)
+
+      const config = {
+        type: 'bar',
+        data: {
+          labels: countryKey,
+          datasets: [
+            {
+              backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+              data: migrationValues,
+              datalabels: {
+                color: 'white',
+                anchor: 'end',
+                align: 'start',
+
+              }
+            }
+          ]
+        },
+        options: {
+          maintainAspectRatio: false,
+          indexAxis: 'y',
+          plugins: {
+            title: {display: true, 
+              text: 'Top Migration',
+              font: {
+                size: 15,
+              }},
+            legend: {display: false},
+            tooltips: {enabled: false}
+          },
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        },
+        plugins: [ChartDataLabels]
+      };
+
+      myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+      );
+    }
+
+    function getTopN(arr, prop, n) {
+      // clone before sorting, to preserve the original array
+      var clone = arr.slice(0); 
+
+      // sort descending
+      clone.sort(function(x, y) {
+          if (x[prop] == y[prop]) return 0;
+          else if (parseInt(x[prop]) < parseInt(y[prop])) return 1;
+          else return -1;
+      });
+
+      return clone.slice(0, n || 1);
+  }    
 
 </script>
