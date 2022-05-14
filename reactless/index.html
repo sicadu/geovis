@@ -355,9 +355,9 @@
       COLOR_5: [59, 115, 143]
     };
 
-/*////////////////////
+
     const ICON_MAPPING = {
-      marker: {x: 1242, y: 0, width: 1242, height: 2479, mask: false}
+      marker: {x: 1242, y: 0, width: 1242, height: 2479, mask: true}
     }
 
       //ANNINA: IconLayer 
@@ -372,10 +372,11 @@
         getIcon: d => 'marker',
         sizeScale: 15,
         getPosition: d => [d.X, d.Y],
-        getSize: d => 3,
+        getSize: d => (Math.sqrt(d.R_IN_2017)/10),
         //(Math.sqrt(a.GDP_2017))/Math.PI,
-        getColor: d => [255, 255, 0, 255]
+        getColor: d => [255, 255, 0, 100]
       })
+      
       /*
       // create proportional symbols layers
       const scatterLayer = new ScatterplotLayer({
@@ -411,9 +412,9 @@
           };
         },
       });
-      
+      */
       deckgl_symbols.setProps({
-          layers: [scatterLayer] 
+          layers: [iconLayer] 
       });
 
 
