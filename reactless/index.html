@@ -356,25 +356,37 @@
     };
 
 
-    const ICON_MAPPING = {
+    const ICON_MAPPING_IN = {
+      marker: {x: 0, y: 0, width: 1242, height: 2479, mask: true}
+    }
+
+    const ICON_MAPPING_OUT = {
       marker: {x: 1242, y: 0, width: 1242, height: 2479, mask: true}
     }
 
-      //ANNINA: IconLayer 
-      const iconLayer = new IconLayer({
-        //id: 'icon-layer',
-        data: './data/aa_remittances_IN_GDP_millions_WGS84.json',
+      const iconLayer_in = new IconLayer({
+        data: './data/r17.json',
         pickable: true,
-        // getIcon: return a string
         iconAtlas: './images/Remi_in_out.png',
-        //iconMapping: ICON_MAPPING,
-        iconMapping: ICON_MAPPING,
+        iconMapping: ICON_MAPPING_IN,
         getIcon: d => 'marker',
         sizeScale: 15,
         getPosition: d => [d.X, d.Y],
-        getSize: d => (Math.sqrt(d.R_IN_2017)/10),
-        //(Math.sqrt(a.GDP_2017))/Math.PI,
+        getSize: d => (Math.sqrt(d.REMI_I)/10),
         getColor: d => [255, 255, 0, 100]
+      })
+
+      const iconLayer_out = new IconLayer({
+        data: './data/r17.json',
+        pickable: true,
+        iconAtlas: './images/Remi_in_out.png',
+        iconMapping: ICON_MAPPING_OUT,
+        getIcon: d => 'marker',
+        sizeScale: 15,
+        getPosition: d => [d.X, d.Y],
+        //getPixelOffset: a => [((a.REMI_I/a.REMI_O)*10),0],
+        getSize: d => (Math.sqrt(d.REMI_O)/10),
+        getColor: d => [0, 255, 0, 100]
       })
       
       /*
@@ -414,7 +426,7 @@
       });
       */
       deckgl_symbols.setProps({
-          layers: [iconLayer] 
+          layers: [iconLayer_in, iconLayer_out] 
       });
 
 
