@@ -356,7 +356,7 @@
     };
 
     const ICON_MAPPING = {
-      marker: {x:0, y:0, width: 128, height: 128, mask: true}
+      marker: {x: 1242, y: 0, width: 1242, height: 2479, mask: false}
     }
 
       //FIO: IconLayer 
@@ -365,7 +365,7 @@
         data: './data/aa_remittances_IN_GDP_millions_WGS84.json',
         pickable: true,
         // getIcon: return a string
-        iconAtlas: './images/Remi_in.jpeg',
+        iconAtlas: './images/Remi_in_out.png',
         //iconMapping: ICON_MAPPING,
         iconMapping: ICON_MAPPING,
         getIcon: d => 'marker',
@@ -374,7 +374,7 @@
         getPosition: d => [d.X, d.Y],
         getSize: d => 3,
         //(Math.sqrt(a.GDP_2017))/Math.PI,
-        getColor: d => [0, 255, 0, 255]
+        getColor: d => [255, 255, 0, 255]
       })
       /*
       // create proportional symbols layers
