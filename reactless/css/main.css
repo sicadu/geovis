@@ -1,6 +1,6 @@
 :root{
-    --color1:#ffffff;
-    --color2:#dddddd;
+    --color1:rgb(255, 255, 255);
+    --color2:rgb(221, 221, 221);
     --color3:#8a8a8a;
 }
 
