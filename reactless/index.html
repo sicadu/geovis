@@ -161,12 +161,53 @@
               </div>
             </div>
           </div>
+
+
           <div class="remittance selectt slide2">
             <div class="mapContainer">
               <div class="map" id="map_symbols"></div>
             </div>
+
+          <!--
+            <div class="optionBox">
+              <fieldset class="layerSelection">
+                <legend>Select a layer:</legend>
+                <div>
+                  <input type="radio" id="e" name="inout" value="e" onclick="updateLayerName(this.value, 'inout')"
+                        checked>
+                  <label for="e">Emigrants</label>
+                </div>
+                <div>
+                  <input type="radio" id="i" name="inout" value="i" onclick="updateLayerName(this.value, 'inout')">
+                  <label for="i">Immigrants</label>
+                </div>
+              </fieldset>
+              <fieldset class="layerSelection">
+                <legend>Select a year:</legend>
+                <div>
+                  <input type="radio" id="e10" name="layername" value="10" onclick="updateLayerName(this.value, 'year')"
+                        checked>
+                  <label for="e10">2010</label>
+                </div>
+                <div>
+                  <input type="radio" id="e15" name="layername" value="15" onclick="updateLayerName(this.value, 'year')">
+                  <label for="e15">2015</label>
+                </div>
+                <div>
+                  <input type="radio" id="e20" name="layername" value="20" onclick="updateLayerName(this.value, 'year')">
+                  <label for="e20">2020</label>
+                </div>
+              </fieldset>
+              <div class="chartWrapper chartSelector">
+                <button type="button" class="expandChart btn"><i class="fa-solid fa-expand"></i></button>
+                <canvas id="myChart" height="250"></canvas>
+              </div>
+            </div>
+          </div>-->
           </div>
         </div>
+
+      
 
         <script type="text/javascript">
             $(".remittance").hide();
@@ -285,7 +326,7 @@
     };
 
     // Get components from the deckgl library
-    const {DeckGL, GeoJsonLayer, ArcLayer, ScatterplotLayer} = deck;
+    const {DeckGL, GeoJsonLayer, ArcLayer, ScatterplotLayer, IconLayer} = deck;
 
     // Fio: Create deck instance symbols
     const deckgl_symbols = new DeckGL({
@@ -314,7 +355,28 @@
       COLOR_5: [59, 115, 143]
     };
 
+    const ICON_MAPPING = {
+      marker: {x:0, y:0, width: 128, height: 128, mask: true}
+    }
 
+      //FIO: IconLayer 
+      const iconLayer = new IconLayer({
+        //id: 'icon-layer',
+        data: './data/aa_remittances_IN_GDP_millions_WGS84.json',
+        pickable: true,
+        // getIcon: return a string
+        iconAtlas: './images/Remi_in.jpeg',
+        //iconMapping: ICON_MAPPING,
+        iconMapping: ICON_MAPPING,
+        getIcon: d => 'marker',
+      
+        sizeScale: 15,
+        getPosition: d => [d.X, d.Y],
+        getSize: d => 3,
+        //(Math.sqrt(a.GDP_2017))/Math.PI,
+        getColor: d => [0, 255, 0, 255]
+      })
+      /*
       // create proportional symbols layers
       const scatterLayer = new ScatterplotLayer({
         data: './data/aa_remittances_IN_GDP_millions_WGS84.json',
@@ -349,9 +411,9 @@
           };
         },
       });
-
+      */
       deckgl_symbols.setProps({
-          layers: [scatterLayer]
+          layers: [iconLayer] 
       });
 
     ////////////////// End Fio 
