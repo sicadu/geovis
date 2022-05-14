@@ -344,7 +344,7 @@
         layers: []
       });
 
-    //////////////////////// Start Fio
+
     // colour scheme
     //teal: #d1eeea,#a8dbd9,#85c4c9,#68abb8,#4f90a6,#3b738f,#2a5674
     const POLYGON_COLORS = {
@@ -355,11 +355,12 @@
       COLOR_5: [59, 115, 143]
     };
 
+/*////////////////////
     const ICON_MAPPING = {
       marker: {x: 1242, y: 0, width: 1242, height: 2479, mask: false}
     }
 
-      //FIO: IconLayer 
+      //ANNINA: IconLayer 
       const iconLayer = new IconLayer({
         //id: 'icon-layer',
         data: './data/aa_remittances_IN_GDP_millions_WGS84.json',
@@ -369,7 +370,6 @@
         //iconMapping: ICON_MAPPING,
         iconMapping: ICON_MAPPING,
         getIcon: d => 'marker',
-      
         sizeScale: 15,
         getPosition: d => [d.X, d.Y],
         getSize: d => 3,
@@ -392,11 +392,11 @@
         //radiusMaxPixels: 40,
         
         //size = Remittance [$]
-        getRadius: f => (Math.sqrt((f.R_IN_2017)*10000000)/Math.PI),
+        getRadius: f => (Math.sqrt(((f.R_IN_2017)*10000000))*1.5/Math.PI),
         radiusMinPixels: 3,
 
       
-        // colorscheme: classes (arbitrary --> to be defined!)
+        // colorscheme: classes
         getFillColor: a => {
           if (((a.R_IN_2017)*1000000)/a.GDP_2017 < 0.016429) { //define classes!
             return POLYGON_COLORS.COLOR_1;
@@ -411,12 +411,12 @@
           };
         },
       });
-      */
+      
       deckgl_symbols.setProps({
-          layers: [iconLayer] 
+          layers: [scatterLayer] 
       });
 
-    ////////////////// End Fio 
+
 
     
 
