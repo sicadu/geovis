@@ -132,11 +132,11 @@
                 <div>
                   <input type="radio" id="e" name="inout" value="e" onclick="updateLayerName(this.value, 'inout')"
                         checked>
-                  <label for="e">Emigrants</label>
+                  <label for="e">Emigration</label>
                 </div>
                 <div>
                   <input type="radio" id="i" name="inout" value="i" onclick="updateLayerName(this.value, 'inout')">
-                  <label for="i">Immigrants</label>
+                  <label for="i">Immigration</label>
                 </div>
               </fieldset>
               <fieldset class="layerSelection">
@@ -313,7 +313,7 @@
     };
 
     // Get components from the deckgl library
-    const {DeckGL, GeoJsonLayer, ArcLayer, ScatterplotLayer, IconLayer} = deck;
+    const {DeckGL, GeoJsonLayer, ArcLayer, ScatterplotLayer, IconLayer, PolygonLayer} = deck;
 
 
     // Create deck instance symbols
@@ -564,6 +564,20 @@
             }
       }});*/
 
+    // create choropleth map  
+    const choroplethMap = new PolygonLayer({
+      data: './data/netMig_2010_2015_2020.json',
+      pickable: true,
+      stroked: true,
+      filled: true,
+      wireframe: true,
+      lineWidthMinPixels: 1,
+      getPolygon: d => d.features.geometry.coordinates,
+      //getElevation: d => d.population / d.area / 10,
+      getFillColor: d => d.F2010_2015,
+      getLineColor: [80, 80, 80],
+      getLineWidth: 1
+    })
 
 
 
@@ -702,7 +716,7 @@
         });
 
         deckgl.setProps({
-          layers: [countyLayer, arcLayer]
+          layers: [countyLayer, arcLayer, choroplethMap]
         });
     }
 
