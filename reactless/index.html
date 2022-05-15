@@ -66,7 +66,7 @@
           <div class= "text-box"> 
             <div class="text-title">Background</div>
               <div class= "text-section">
-                <p> <b>Why remittances matter:</b><br>
+                <p style="text-align: justify"> <b>Why remittances matter:</b><br>
                   The Sustainable Development Goals (SDG) are an urgent call
                   for action to reduce all forms of inequality and deprivation 
                   as well as to preserve the nature of our planet (UN, 2021). 
@@ -88,7 +88,7 @@
                   Concrete examples in the Global Forum on Remittances, Investment 
                   and Development (GFRID, 2017) have shown how migrant remittances 
                   and diaspora investments were reducing poverty and hunger and 
-                  promoting access to health and education (UN, no date).<br>
+                  promoting access to health and education (UN, no date).<br></p>
                   <br>
                   <b>7 facts about remittances:</b>
                   <li>About one in nine people worldwide are supported by migrant workers’ remittances.</li>
@@ -100,7 +100,7 @@
                   <li>Remittances remain expensive to send.</li>
                   <li style="display: inline">(UN, 2019)</li><br>
                   <br><br>
-                  In order to approach the reduction of inequalities – especially 
+                <p style="text-align: justify">In order to approach the reduction of inequalities – especially 
                   the remittance costs, it is crucial to better understand the global 
                   pattern and dynamics of migration and financial flows between countries. 
                   According to the Global Knowledge Partnership on Migration and Development 
@@ -173,20 +173,20 @@
               <fieldset class="layerSelection">
                 <legend>Select a year:</legend>
                 <div>
-                  <input type="radio" id="r17" name="layername" value="17" onclick="updateLayerNameR(this.value, 'year')"
+                  <input type="radio" id="r17" name="layername" value="17" onclick="updateLayerNameR(this.value)"
                         checked>
                   <label for="r17">2017</label>
                 </div>
                 <div>
-                  <input type="radio" id="r18" name="layername" value="18" onclick="updateLayerNameR(this.value, 'year')">
+                  <input type="radio" id="r18" name="layername" value="18" onclick="updateLayerNameR(this.value)">
                   <label for="r18">2018</label>
                 </div>
                 <div>
-                  <input type="radio" id="r19" name="layername" value="19" onclick="updateLayerNameR(this.value, 'year')">
+                  <input type="radio" id="r19" name="layername" value="19" onclick="updateLayerNameR(this.value)">
                   <label for="r19">2019</label>
                 </div>
                 <div>
-                  <input type="radio" id="r20" name="layername" value="20" onclick="updateLayerNameR(this.value, 'year')">
+                  <input type="radio" id="r20" name="layername" value="20" onclick="updateLayerNameR(this.value)">
                   <label for="r20">2020</label>
                 </div>
               </fieldset>
@@ -357,8 +357,8 @@
     var year_r = '17';
 
     function updateLayerNameR(value) {
-      year = value;
-      layerNameR = in_out+year;
+      year_r = value;
+      layerNameR = in_out+year_r;
       layerChangeR(layerNameR);
     }
 
@@ -366,10 +366,14 @@
 
     function layerChangeR(name) {
       fetch('https://raw.githubusercontent.com/sicadu/geovis/main/reactless/data/'+name+'.json')
-      .then(res => res.json());
+      .then(res => res.json())
+      .then(d => updateLayersR(d));
+    }
+    
+    function updateLayersR(data_r) {
 
-        const iconLayer_out = new IconLayer({
-          data: './data/r17.json',
+      const iconLayer_out = new IconLayer({
+          data: data_r,
           pickable: true,
           iconAtlas: './images/Remi_in_out.png',
           iconMapping: ICON_MAPPING_OUT,
@@ -379,11 +383,11 @@
           //sizeScale: 10,
           //sizeMinPixels: 10,
           //sizeMaxPixels: 80,
-          getColor: d => [148, 217, 212, 150] 
+          getColor: d => [233, 53, 80, 100] 
         });
-
+        
         const iconLayer_in = new IconLayer({
-          data: './data/r17.json',
+          data: data_r,
           pickable: true,
           iconAtlas: './images/Remi_in_out.png',
           iconMapping: ICON_MAPPING_IN,
@@ -393,7 +397,7 @@
           //sizeScale: 0,
           //sizeMinPixels: 10,
           //sizeMaxPixels: 80,
-          getColor: d => [233, 53, 80, 100],
+          getColor: d => [148, 217, 212, 150],
           pickable: true
         });
 
@@ -414,7 +418,55 @@
             }
           }});
     }
-/*
+
+    /*
+    const iconLayer_out = new IconLayer({
+          data: './data/r17.json',
+          pickable: true,
+          iconAtlas: './images/Remi_in_out.png',
+          iconMapping: ICON_MAPPING_OUT,
+          getIcon: d => 'marker',
+          getPosition: d => [d.X, d.Y],
+          getSize: d => (Math.sqrt(d.REMI_O))/2,
+          //sizeScale: 10,
+          //sizeMinPixels: 10,
+          //sizeMaxPixels: 80,
+          getColor: d => [233, 53, 80, 100] 
+        });
+        
+        const iconLayer_in = new IconLayer({
+          data: './data/r17.json',
+          pickable: true,
+          iconAtlas: './images/Remi_in_out.png',
+          iconMapping: ICON_MAPPING_IN,
+          getIcon: d => 'marker',
+          getPosition: d => [d.X, d.Y],
+          getSize: d => (Math.sqrt(d.REMI_I))/2,
+          //sizeScale: 0,
+          //sizeMinPixels: 10,
+          //sizeMaxPixels: 80,
+          getColor: d => [148, 217, 212, 150],
+          pickable: true
+        });
+
+        // evtl remittance costs hinzunehmen / remittance cost charts
+        deckgl_symbols.setProps({
+          layers: [iconLayer_in, iconLayer_out],
+          getTooltip: ({object}) => object && {
+            html: `
+            <p><b> Country: </b>${object.COUNTRY}</p>
+            <p><b> Incoming Remittances: </b>${object.REMI_I} Mio.</p>
+            <p><b> Outgoing Remittances: </b>${object.REMI_O} Mio.</p>
+            `,
+            style: {
+              color: '#000000',
+              fontSize: '0.2em',
+              backgroundColor: '#f5f5f5',
+              opacity: 0.85
+            }
+          }});
+    }
+
     function keysrt(arr, keyArr, reverse) {
           var sortOrder = 1;
           if(reverse)sortOrder = -1;
