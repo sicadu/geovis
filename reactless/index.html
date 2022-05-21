@@ -153,12 +153,12 @@
               <fieldset class="layerSelection">
                 <legend>Select a layer:</legend>
                 <div>
-                  <input type="radio" id="e" name="inout" value="e20" onclick="layerChange(this.value)"
+                  <input type="radio" id="e" name="inout" value="e20_w0" onclick="layerChange(this.value)"
                         checked>
                   <label for="e">Emigration</label>
                 </div>
                 <div>
-                  <input type="radio" id="i" name="inout" value="i20" onclick="layerChange(this.value)">
+                  <input type="radio" id="i" name="inout" value="i20_w0" onclick="layerChange(this.value)">
                   <label for="i">Immigration</label>
                 </div>
               </fieldset>
@@ -386,6 +386,7 @@
     function updateLayersR(data_r) {
 
       const iconLayer_out = new IconLayer({
+          id:'icon_out',
           data: data_r,
           pickable: true,
           iconAtlas: './images/Remi_in_out.png',
@@ -400,6 +401,7 @@
         });
         
         const iconLayer_in = new IconLayer({
+          id: 'icon_in',
           data: data_r,
           pickable: true,
           iconAtlas: './images/Remi_in_out.png',
@@ -493,7 +495,7 @@
     var year = '10';
     var startCountry = 'GERMANY';
 
-    layerChange("e10");
+    layerChange("e20_w0");
 
     function layerChange(layerName) {
       fetch('https://raw.githubusercontent.com/sicadu/geovis/main/reactless/data/'+layerName+'.json')
@@ -527,6 +529,7 @@
 
         const arcs = Object.keys(flows).map(toId => {
           const f = dataSorted[toId];
+          console.log(f);
           return {
             source: centroid,
             target: f.geometry.centroid,
