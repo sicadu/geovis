@@ -334,7 +334,7 @@
     };
 
     // Get components from the deckgl library
-    const {DeckGL, GeoJsonLayer, ArcLayer, ScatterplotLayer, IconLayer, PolygonLayer} = deck;
+    const {DeckGL, GeoJsonLayer, ArcLayer, ScatterplotLayer, IconLayer} = deck;
 
 
     // Create deck instance symbols
@@ -357,11 +357,11 @@
     //teal: #d1eeea,#a8dbd9,#85c4c9,#68abb8,#4f90a6,#3b738f,#2a5674
 
     const POLYGON_COLORS = {
-      COLOR_1: [168, 219, 217],
-      COLOR_2: [133, 196, 201],
-      COLOR_3: [104, 171, 184],
-      COLOR_4: [79, 144, 166],
-      COLOR_5: [59, 115, 143]
+      COLOR_1: [255, 0, 0],
+      COLOR_2: [255, 255, 0],
+      COLOR_3: [0, 255, 255],
+      COLOR_4: [255, 0, 255],
+      COLOR_5: [0, 0, 255]
     };
   
     const ICON_MAPPING_OUT = {
@@ -438,19 +438,32 @@
     }
 
     // create choropleth map  
-    const choroplethMap = new PolygonLayer({
+    const choroplethMap = new GeoJsonLayer({
       data: './data/netMig_2010_2015_2020.json',
       pickable: true,
       stroked: true,
       filled: true,
       wireframe: true,
-      lineWidthMinPixels: 1,
       getPolygon: d => d.features.geometry.coordinates,
-      //getElevation: d => d.population / d.area / 10,
-      getFillColor: d => d.F2010_2015,
-      getLineColor: [80, 80, 80],
-      getLineWidth: 1
-    })
+      getLineColor: [255, 80, 80],
+      getLineWidth: 1,
+      lineWidthMinPixels: 1,
+      getFillColor: a => {
+        if (a.features.properties.F2010_2015 < -20.0) {
+          return POLYGON_COLORS.COLOR_1;
+        } else if (a.features.properties.F2010_2015 < -7.0) {
+          return POLYGON_COLORS.COLOR_2;
+        } else if (a.features.properties.F2010_2015 < 3.0) {
+          return POLYGON_COLORS.COLOR_3;
+        } else if (a.features.properties.F2010_2015 < 18.0) {
+          return POLYGON_COLORS.COLOR_4;
+        } else if (a.features.properties.F2010_2015 < 55.0) {
+          return POLYGON_COLORS.COLOR_5;
+        };
+      },
+    });
+
+
 
     // Create deck instance arcs
     const deckgl = new DeckGL({
@@ -664,7 +677,7 @@
       });
 
       return clone.slice(0, n || 1);
-  
+    }
 
     const toTop = document.querySelector('.to-top');
   
@@ -675,5 +688,5 @@
         toTop.classList.remove("active");
       }
     })
-  }
+  
 </script>

@@ -109,7 +109,7 @@
   position: absolute;
   right: 0;
   margin: 5px;
-  background-color: DodgerBlue; /* Blue background */
+  background-color: rgb(127, 160, 194); /* Blue background */
   border: none; /* Remove borders */
   color: white; /* White text */
   padding: 8px 11px; /* Some padding */
