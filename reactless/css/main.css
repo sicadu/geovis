@@ -510,3 +510,29 @@ animation-fill-mode: forwards;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
+
+
+/* Top button*/
+.to-top {
+  background: white;
+  position: fixed;
+  bottom: 16px;
+  right: 32px;
+  width: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color:#0c52a1;
+  text-decoration: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: all .4s
+}
+
+.to-top.active {
+  bottom: 32px;
+  pointer-events: auto;
+  opacity: 1;
+}

@@ -304,6 +304,9 @@
           </div>
         </div>
       </div>
+      <a href="#" class="to-top">
+        <i class="fas fa-chevron-up"></i>
+      </a>
 </body>
 
 
@@ -661,6 +664,16 @@
       });
 
       return clone.slice(0, n || 1);
-  }    
+  
 
+    const toTop = document.querySelector('.to-top');
+  
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 100) {
+        toTop.classList.add("active");
+      } else {
+        toTop.classList.remove("active");
+      }
+    })
+  }
 </script>
