@@ -122,21 +122,91 @@
   background-color: RoyalBlue;
 }
 
-#myChart{
-
-}
-
-
 
 .mapSwitch {
   position:relative;
-  padding-top: 2.5%;
-  padding-bottom: 2.5%;
+  padding-top: 1.5%;
+  padding-bottom: 1%;
   margin-left: auto;
   margin-right:auto;
   width: 30%;
   font-size: 30px;
 }
+
+.switch {
+  position: relative;
+  height: 40px;
+  width: 460px;
+  margin: 20px auto;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.switch-label {
+  position: relative;
+  z-index: 2;
+  float: left;
+  width: 228px;
+  line-height: 40px;
+  font-size: 30px;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+}
+.switch-label:active {
+  font-weight: bold;
+}
+
+.switch-label-off {
+  padding-left: 2px;
+}
+
+.switch-label-on {
+  padding-right: 2px;
+}
+
+.switch-input {
+  display: none;
+}
+.switch-input:checked + .switch-label {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.65);
+  text-shadow: 0 1px rgba(255, 255, 255, 0.6);
+  -webkit-transition: 0.15s ease-out;
+  -moz-transition: 0.15s ease-out;
+  -ms-transition: 0.15s ease-out;
+  -o-transition: 0.15s ease-out;
+  transition: 0.15s ease-out;
+  -webkit-transition-property: color, text-shadow;
+  -moz-transition-property: color, text-shadow;
+  -ms-transition-property: color, text-shadow;
+  -o-transition-property: color, text-shadow;
+  transition-property: color, text-shadow;
+}
+.switch-input:checked + .switch-label-on ~ .switch-selection {
+  left: 230px;
+  /* Note: left: 50%; doesn't transition in WebKit */
+}
+
+.switch-selection {
+  position: absolute;
+  z-index: 1;
+  top: 2px;
+  left: 2px;
+  display: block;
+  width: 228px;
+  height: 36px;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);
+  transition: left 0.3s ease-out;
+}
+
+
+
 
 @keyframes mapSlideFromRight{
   from {transform: translateX(300px)}

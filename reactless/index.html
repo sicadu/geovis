@@ -115,10 +115,17 @@
         </div>
 
         <div class="mapPage page" id="mapNav">
-            <div class="mapSwitch">
-              <label> <input type="radio" name="switch" value="migration" checked>Migration</label>
-              <label> <input type="radio" name="switch" value="remittance">Remittance</label>
+          <div class="mapSwitch">
+            <div class="switch">
+              <input type="radio" class="switch-input" name="view" value="migration" id="migration" checked>
+              <label for="migration" class="switch-label switch-label-off">Migration</label>
+
+              <input type="radio" class="switch-input" name="view" value="remittance" id="remittance">
+              <label for="remittance" class="switch-label switch-label-on">Remittance</label>
+
+              <span class="switch-selection"></span>
             </div>
+          </div>
           <div class="migration selectt slide1">
             <div class="mapContainer">
                 <div class="map" id="map"></div>
@@ -542,14 +549,9 @@
         const flows = selectedFeature.properties.flows;
         const centroid = selectedFeature.geometry.centroid;
 
-        console.log(flows);
 
         const arcs = Object.keys(flows).map(toId => {
           const f = dataSorted[toId];
-
-          if (typeof f === 'undefined'){
-            console.log(toId);
-          }
           return {
             source: centroid,
             target: f.geometry.centroid,
