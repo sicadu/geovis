@@ -180,13 +180,14 @@
 }
 
 .background{
-    /*height: 200%;
+/*height: 200%;
     display:flex;
     justify-content: center;
     align-items: top;
     font-size: 60px;
     color: rgb(45, 45, 45);*/
     background-color: var(--color2);
+
 }
 
 .authors{
@@ -199,7 +200,7 @@
 .center-cropped {
   object-fit: cover; /* Do not scale the image */
   object-position: center; /* Center the image within the element */
-  height: 35%;
+  height: 45%;
   width: 100%;
 }
 
@@ -340,7 +341,7 @@
     position: relative;
     font-family: sans-serif;
     width: 220px;
-    height: 220px;
+    height: 230px;
     background: #fff;
     padding: 30px;
     border-radius: 50%;
@@ -354,7 +355,7 @@
 
   .profile-card:hover{
     border-radius: 10px;
-    height: 260px;
+    height: 230px;
   }
 
 .profile-card .img{
@@ -416,7 +417,7 @@
 
 .e {
     position: relative;
-    top: -80%;
+    top: -85%;
     display:inline-flex;
     overflow:hidden;
     white-space:nowrap;
