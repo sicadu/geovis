@@ -30,291 +30,289 @@
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
   <!-- Add icon library -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 
+
+
 <body>
-    <div class="navContainer">
-        <div class="logo-box">
-          <a href="https://www.uzh.ch/en.html">
-          <img src="https://www.geo.uzh.ch/microsite/giva/projects2021/Group9/Webpage/images/uzh_logo_e_pos.svg" height="68px" display="block"></img>
-          </a>
+  <div class="navContainer">
+     <div class="logo-box">
+        <a href="https://www.uzh.ch/en.html">
+        <img src="https://www.geo.uzh.ch/microsite/giva/projects2021/Group9/Webpage/images/uzh_logo_e_pos.svg" height="68px" display="block"></img>
+        </a>
+     </div>
+     <nav>
+        <ul>
+           <li className="introNav active"><a href="#introNav">Home</a></li>
+           <li className="backgroundNav"><a href="#backgroundNav">background</a></li>
+           <li className="mapNav"><a href="#mapNav">map</a></li>
+           <li className="summaryNav"><a href="#summaryNav">summary</a></li>
+           <li className="referencesNav"><a href="#referencesNav">references</a></li>
+           <li className="authorsNav"><a href="#authorsNav">authors</a></li>
+        </ul>
+     </nav>
+  </div>
+  <div class="scrollableScreen" id="scrollableScreen">
+  <div class="intro page" id="introNav">
+     <div class="introWrapper">
+        <img class="introImages"src="./images/mig_background.jpg" width="100%" height="100%" >
+        <div class="e"><b>Remittance and Migration Flows</b></div>
+        <div class="e"> 
+           <span class="s">Global Patterns</span>
         </div>
-        <nav>
-          <ul>
-            <li className="introNav active"><a href="#introNav">Home</a></li>
-            <li className="backgroundNav"><a href="#backgroundNav">background</a></li>
-            <li className="mapNav"><a href="#mapNav">map</a></li>
-            <li className="summaryNav"><a href="#summaryNav">summary</a></li>
-            <li className="referencesNav"><a href="#referencesNav">references</a></li>
-            <li className="authorsNav"><a href="#authorsNav">authors</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="scrollableScreen" id="scrollableScreen">
-        <div class="intro page" id="introNav">
-          <div class="introWrapper">
-            <img class="introImages"src="./images/mig_background.jpg" width="100%">
-            <div class="e"><b>Remittance and Migration Flows</b></div> 
-            <div class="e"> 
-                <span class="s">Global Patterns</span>
-            </div>
-          </div>
+     </div>
+  </div>
+  <div class="background page" id="backgroundNav">
+     <div class= "text-box">
+        <div class="text-title">Background</div>
+        <div class= "text-section">
+           <p style="text-align: justify"> <b>Why remittances matter:</b><br>
+              The Sustainable Development Goals (SDG) are an urgent call
+              for action to reduce all forms of inequality and deprivation 
+              as well as to preserve the nature of our planet (UN, 2021). 
+              These goals are to be achieved by 2030. Migration is a cross-cutting 
+              issue and is relevant to all seventeen goals (Migration Data 
+              Portal, no date). While it is not explicitly one of the goals, 
+              it is crucial to understand migration patterns because of its 
+              relationship to the goals above. This Web Page provides an 
+              overview of migration and its aftereffect: Remittances.<br>
+              <br>Remittances are household incomes from foreign countries 
+              that result from the temporary or permanent movement of people 
+              to those countries (IMF, 2009). In the past years the interest 
+              in remittances increased and bridges between academic and 
+              political spheres were created (Gubert, 2017). A specific United 
+              Nation goal is to decrease transaction costs (SDG 10.c) of migrant 
+              remittances, as this is one of the most important and mature steps 
+              taken to increase incomes in developing countries (IOM, 2017). 
+              Concrete examples in the Global Forum on Remittances, Investment 
+              and Development (GFRID, 2017) have shown how migrant remittances 
+              and diaspora investments were reducing poverty and hunger and 
+              promoting access to health and education (UN, no date).<br>
+           </p>
+           <b>7 facts about remittances:</b>
+           <br>
         </div>
-        <div class="background page" id="backgroundNav">
-          <div class= "text-box"> 
-            <div class="text-title">Background</div>
-              <div class= "text-section">
-                <p style="text-align: justify"> <b>Why remittances matter:</b><br>
-                  The Sustainable Development Goals (SDG) are an urgent call
-                  for action to reduce all forms of inequality and deprivation 
-                  as well as to preserve the nature of our planet (UN, 2021). 
-                  These goals are to be achieved by 2030. Migration is a cross-cutting 
-                  issue and is relevant to all seventeen goals (Migration Data 
-                  Portal, no date). While it is not explicitly one of the goals, 
-                  it is crucial to understand migration patterns because of its 
-                  relationship to the goals above. This Web Page provides an 
-                  overview of migration and its aftereffect: Remittances.<br>
-                  
-                  <br>Remittances are household incomes from foreign countries 
-                  that result from the temporary or permanent movement of people 
-                  to those countries (IMF, 2009). In the past years the interest 
-                  in remittances increased and bridges between academic and 
-                  political spheres were created (Gubert, 2017). A specific United 
-                  Nation goal is to decrease transaction costs (SDG 10.c) of migrant 
-                  remittances, as this is one of the most important and mature steps 
-                  taken to increase incomes in developing countries (IOM, 2017). 
-                  Concrete examples in the Global Forum on Remittances, Investment 
-                  and Development (GFRID, 2017) have shown how migrant remittances 
-                  and diaspora investments were reducing poverty and hunger and 
-                  promoting access to health and education (UN, no date).<br></p>
-                  <b>7 facts about remittances:</b>
-                  <br>
-              </div>
-              <img class="center-cropped" src="./images/Graphik_7Punkte_2.png" />
-              <div class= "text-section">
-                <p style="text-align: justify">In order to approach the reduction of inequalities – especially 
-                  the remittance costs, it is crucial to better understand the global 
-                  pattern and dynamics of migration and financial flows between countries. 
-                  According to the Global Knowledge Partnership on Migration and Development 
-                  (KNOMAD), which has the same objective, this knowledge can be used by 
-                  policy makers in sending and receiving countries (Gubert, 2017).
-                </p>
-              </div>
-
-              <iframe src="https://embed.ted.com/talks/lang/en/dilip_ratha_the_hidden_force_in_global_economics_sending_money_home"
-                      height=40% 
-                      width=60%
-                      allowfullscreen=true>    
-              </iframe>
-          </div>
+        <img class="center-cropped" src="./images/Graphik_7Punkte_2.png" />
+        <div class= "text-section">
+           <p style="text-align: justify">In order to approach the reduction of inequalities – especially 
+              the remittance costs, it is crucial to better understand the global 
+              pattern and dynamics of migration and financial flows between countries. 
+              According to the Global Knowledge Partnership on Migration and Development 
+              (KNOMAD), which has the same objective, this knowledge can be used by 
+              policy makers in sending and receiving countries (Gubert, 2017).
+           </p>
         </div>
-
-        <div class="mapPage page" id="mapNav">
-          <div class="mapSwitch">
-            <div class="switch">
-              <input type="radio" class="switch-input" name="view" value="migration" id="migration" checked>
-              <label for="migration" class="switch-label switch-label-off">Migration</label>
-
-              <input type="radio" class="switch-input" name="view" value="remittance" id="remittance">
-              <label for="remittance" class="switch-label switch-label-on">Remittance</label>
-
-              <span class="switch-selection"></span>
-            </div>
-          </div>
-          <div class="migration selectt slide1">
-            <div class="mapContainer">
-                <div class="map" id="map"></div>
-                <div class="arcslegend">
-                  <div class="text-legend">
-                    <p style="font-size:15px;display:inline;text-align:justify"><b>Migration from 2010 to 2015</b>
-                    <p style="font-size:12px;text-align:justify">Estimated Migration [Number of people]</p>
-                    <div class="legend-break">
-                      <span style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(240,249,232);"></span>
-                      <span> Legendeneintrag 1</span>
-                    </div>
-                    <div class="legend-break">
-                      <span style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(186,228,188);"></span>
-                      <span> Legendeneintrag 2</span>
-                    </div>
-                    <div class="legend-break">
-                      <span style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(123,204,196);"></span>
-                      <span> Legendeneintrag 3</span>
-                    </div>
-                    <div class="legend-break">
-                      <span style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(67,162,202);"></span>
-                      <span> Legendeneintrag 4</span>
-                    </div>
-                    <div class="legend-break">
-                      <span style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(8,104,172);"></span>
-                      <span> Legendeneintrag 5</span>
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <div class="optionBox">
-              <fieldset class="layerSelection">
-                <legend>Select a layer:</legend>
-                <div>
-                  <input type="radio" id="e" name="inout" value="e20_w0" onclick="layerChange(this.value)"
-                        checked>
-                  <label for="e">Emigration</label>
-                </div>
-                <div>
-                  <input type="radio" id="i" name="inout" value="i20_w0" onclick="layerChange(this.value)">
-                  <label for="i">Immigration</label>
-                </div>
-              </fieldset>
-              <div class="chartWrapper chartSelector">
-                <button type="button" class="expandChart btn"><i class="fa-solid fa-expand"></i></button>
-                <canvas id="myChart" height="250"></canvas>
+        <iframe src="https://embed.ted.com/talks/lang/en/dilip_ratha_the_hidden_force_in_global_economics_sending_money_home"
+          height=40% 
+           width=60%
+           allowfullscreen=true>    
+        </iframe>
+     </div>
+  </div>
+  <div class="mapPage page" id="mapNav">
+     <div class="mapSwitch">
+        <div class="switch">
+           <input type="radio" class="switch-input" name="view" value="migration" id="migration" checked>
+           <label for="migration" class="switch-label switch-label-off">Migration</label>
+           <input type="radio" class="switch-input" name="view" value="remittance" id="remittance">
+           <label for="remittance" class="switch-label switch-label-on">Remittance</label>
+           <span class="switch-selection"></span>
+        </div>
+     </div>
+     <div class="migration selectt slide1">
+        <div class="mapContainer">
+           <div class="map" id="map"></div>
+           <div class="arcslegend">
+              <div class="text-legend">
+                 <p style="font-size:15px;display:inline;text-align:justify"><b>Migration from 2010 to 2015</b>
+                 <p style="font-size:12px;text-align:justify">Estimated Migration [Number of people]</p>
+                 <div class="legend-break">
+                    <span style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(240,249,232);"></span>
+                    <span> Legendeneintrag 1</span>
+                 </div>
+                 <div class="legend-break">
+                    <span style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(186,228,188);"></span>
+                    <span> Legendeneintrag 2</span>
+                 </div>
+                 <div class="legend-break">
+                    <span style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(123,204,196);"></span>
+                    <span> Legendeneintrag 3</span>
+                 </div>
+                 <div class="legend-break">
+                    <span style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(67,162,202);"></span>
+                    <span> Legendeneintrag 4</span>
+                 </div>
+                 <div class="legend-break">
+                    <span style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(8,104,172);"></span>
+                    <span> Legendeneintrag 5</span>
+                 </div>
               </div>
-            </div>
-          </div>
-
-
-          <div class="remittance selectt slide2">
-            <div class="mapContainer">
-              <div class="map" id="map_symbols"></div>
-              <div class="symbolslegend">
-                <div class="text-legend">
-                  <p style="font-size:15px;display:inline;text-align:justify"><b>Worldwide Remittance Flows between 2017 and 2020</b>
-                  <p style="font-size:12px;text-align:justify">Amount of Remittances received and sent [Mio US$]</p>
-                  <div class="legend-break">
+           </div>
+        </div>
+        <div class="optionBox">
+           <fieldset class="layerSelection">
+              <legend>Select a layer:</legend>
+              <div class="wrapper">
+                 <input type="radio" name="inout" id="option-1" value="e20_w0" onclick="layerChange(this.value)" checked>
+                 <input type="radio" name="inout" id="option-2" value="i20_w0" onclick="layerChange(this.value)" >
+                 <label for="option-1" class="option option-1">
+                    <div class="dot"></div>
+                    <span>Emigration</span>
+                 </label>
+                 <label for="option-2" class="option option-2">
+                    <div class="second dot"></div>
+                    <span>Immigration</span>
+                 </label>
+              </div>
+           </fieldset>
+           <div class="chartWrapper chartSelector">
+              <button type="button" class="expandChart btn"><i class="fa-solid fa-expand"></i></button>
+              <canvas id="myChart" height="250"></canvas>
+           </div>
+        </div>
+     </div>
+     <div class="remittance selectt slide2">
+        <div class="mapContainer">
+           <div class="map" id="map_symbols"></div>
+           <div class="symbolslegend">
+              <div class="text-legend">
+                 <p style="font-size:15px;display:inline;text-align:justify"><b>Worldwide Remittance Flows between 2017 and 2020</b>
+                 <p style="font-size:12px;text-align:justify">Amount of Remittances received and sent [Mio US$]</p>
+                 <div class="legend-break">
                     <span style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgba(148, 217, 212, 150);"></span>
                     <span> Remittance received</span>
-                  </div>
-                  <div class="legend-break">
+                 </div>
+                 <div class="legend-break">
                     <span style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgba(233, 53, 80, 100);"></span>
                     <span> Remittances sent</span>
-                  </div>
-                </div>
-            </div>
-
-           
-          </div>
-           <!--FIO-->
-           <div class="optionBox">
-            <fieldset class="layerSelection">
+                 </div>
+              </div>
+           </div>
+        </div>
+        <div class="optionBox">
+           <fieldset class="layerSelection">
               <legend>Select a year:</legend>
-              <div>
-                <input type="radio" id="r17" name="layername" value="r17" onclick="layerChangeR(this.value)"
-                      checked>
-                <label for="r17">2017</label>
-              </div>
-              <div>
-                <input type="radio" id="r18" name="layername" value="r18" onclick="layerChangeR(this.value)">
-                <label for="r18">2018</label>
-              </div>
-              <div>
-                <input type="radio" id="r19" name="layername" value="r19" onclick="layerChangeR(this.value)">
-                <label for="r19">2019</label>
-              </div>
-              <div>
-                <input type="radio" id="r20" name="layername" value="r20" onclick="layerChangeR(this.value)">
-                <label for="r20">2020</label>
-              </div>
-            </fieldset>
-          </div>
-        </div>      
 
-        <script type="text/javascript">
-            $(".remittance").hide();
-            $(document).ready(function() {
-                $('input[type="radio"]').click(function() {
-                    var inputValue = $(this).attr("value");
-                    var targetBox = $("." + inputValue);
-                    if(inputValue === "migration" || inputValue ==="remittance"){  
-                      showElement = $(targetBox);
-                      $(".selectt").not(targetBox).hide();
-                      showElement.show();
-                    }
-                });
-            });
-
-            $(document).ready(function() {
-              $('.expandChart').click(function() {
-                var chartWrapper = $('.chartSelector');
-                if (chartWrapper.hasClass('chartWrapper')) {
-                  $('.chartWrapper').removeClass("chartWrapper").addClass("chartBigWrapper");
-                  createPlot(countryNumbers, 15);
-                } else {
-                  $('.chartBigWrapper').removeClass("chartBigWrapper").addClass("chartWrapper")
-                  createPlot(countryNumbers, 5);
+              <div class="wrapper">
+                <input type="radio" name="layerYear" id="option-4" value="r17" onclick="layerChangeR(this.value)" checked>
+                <input type="radio" name="layerYear" id="option-5" value="r18" onclick="layerChangeR(this.value)" >
+                <input type="radio" name="layerYear" id="option-6" value="r19" onclick="layerChangeR(this.value)" >
+                <input type="radio" name="layerYear" id="option-7" value="r20" onclick="layerChangeR(this.value)" >
+                <label for="option-4" class="option option-4">
+                   <div class="dot"></div>
+                   <span>2017</span>
+                </label>
+                <label for="option-5" class="option option-5">
+                   <div class="dot"></div>
+                   <span>2018</span> 
+                </label>
+                <label for="option-6" class="option option-6">
+                  <div class="dot"></div>
+                  <span>2019</span>
+               </label>
+               <label for="option-7" class="option option-7">
+                  <div class="dot"></div>
+                  <span>2020</span> 
+               </label>
+             </div>
+           </fieldset>
+        </div>
+     </div>
+     <script type="text/javascript">
+        $(".remittance").hide();
+        $(document).ready(function() {
+            $('input[type="radio"]').click(function() {
+                var inputValue = $(this).attr("value");
+                var targetBox = $("." + inputValue);
+                if(inputValue === "migration" || inputValue ==="remittance"){  
+                  showElement = $(targetBox);
+                  $(".selectt").not(targetBox).hide();
+                  showElement.show();
                 }
-
-              })
-            })
-        </script>
-
-        <div class="summary page" id="summaryNav">
-          <div class= "text-box"> 
-            <div class="text-title">Summary</div>
-              <div class= "text-section">
-                <p> Hier kommt der Text hin </p>
-              </div>
-          </div>
+            });
+        });
+        
+        $(document).ready(function() {
+          $('.expandChart').click(function() {
+            var chartWrapper = $('.chartSelector');
+            if (chartWrapper.hasClass('chartWrapper')) {
+              $('.chartWrapper').removeClass("chartWrapper").addClass("chartBigWrapper");
+              createPlot(countryNumbers, 15);
+            } else {
+              $('.chartBigWrapper').removeClass("chartBigWrapper").addClass("chartWrapper")
+              createPlot(countryNumbers, 5);
+            }
+        
+          })
+        })
+     </script>
+     <div class="summary page" id="summaryNav">
+        <div class= "text-box">
+           <div class="text-title">Summary</div>
+           <div class= "text-section">
+              <p> Hier kommt der Text hin </p>
+           </div>
         </div>
-
-        <div class="references page" id="referencesNav">
-          <div class= "text-box"> 
-            <div class="text-title">References</div>
-              <div class= "text-section">
-                <p> International Monetary Fund (IMF) (2009) <i>International Transactions in Remittances: Guide for Compilers and Users.</i> doi: 10.1111/j.1468-2435.2009.00540.x.<br>
-                  <br>Gubert, F. (2017) <i>Migration, Remittances and Development: Insights from the Migration and Development Conference, Revue d’Economie du Developpement,</i> 25(3–4), pp. 29–44. doi: 10.3917/edd.313.0029.<br>
-                  <br>IOM (2017) <i>International dialogue on migration: Follow-up and review of migration in the sustainable development goals,</i> in.<br>
-                  <br>Portal, M. D. (no date) <i>Migration data and the Sustainable Development Goals (SDGs).</i> Available at: https://www.migrationdataportal.org/sdgs?node=0.<br>
-                  <br>UN (2019) <i>Remittances matter: 8 facts you don’t know about the money migrants send back home.</i> Available at: https://www.un.org/development/desa/en/news/population/remittances-matter.html.<br>
-                  <br>UN (2021) <i>The Sustainable Development Goals Report 2021.</i><br>
-                  <br>UN (no date) <i>Putting a spotlight on the role of migrant remittances in achieving the SDGs.</i> Available at: https://www.un.org/hi/desa/putting-spotlight-role-migrant-remittances-achieving-sdgs.
-                   </p>
-              </div>
-          </div>
+     </div>
+     <div class="references page" id="referencesNav">
+        <div class= "text-box">
+           <div class="text-title">References</div>
+           <div class= "text-section">
+              <p> International Monetary Fund (IMF) (2009) <i>International Transactions in Remittances: Guide for Compilers and Users.</i> doi: 10.1111/j.1468-2435.2009.00540.x.<br>
+                 <br>Gubert, F. (2017) <i>Migration, Remittances and Development: Insights from the Migration and Development Conference, Revue d’Economie du Developpement,</i> 25(3–4), pp. 29–44. doi: 10.3917/edd.313.0029.<br>
+                 <br>IOM (2017) <i>International dialogue on migration: Follow-up and review of migration in the sustainable development goals,</i> in.<br>
+                 <br>Portal, M. D. (no date) <i>Migration data and the Sustainable Development Goals (SDGs).</i> Available at: https://www.migrationdataportal.org/sdgs?node=0.<br>
+                 <br>UN (2019) <i>Remittances matter: 8 facts you don’t know about the money migrants send back home.</i> Available at: https://www.un.org/development/desa/en/news/population/remittances-matter.html.<br>
+                 <br>UN (2021) <i>The Sustainable Development Goals Report 2021.</i><br>
+                 <br>UN (no date) <i>Putting a spotlight on the role of migrant remittances in achieving the SDGs.</i> Available at: https://www.un.org/hi/desa/putting-spotlight-role-migrant-remittances-achieving-sdgs.
+              </p>
+           </div>
         </div>
-        <div class="authors page" id="authorsNav">
-          <div class="profile-card">
-            <div class="img">
+     </div>
+     <div class="authors page" id="authorsNav">
+        <div class="profile-card">
+           <div class="img">
               <img src="./images/annina_stroke_2_cropped.png" ></img>
-            </div>
-            <div class="caption">
+           </div>
+           <div class="caption">
               <h3>Annina Ardüser</h3>
               <p>Master Student GIS</p>
-            </div>
-            <div class="social-links">
-            </div>
-          </div>
-          <div class="profile-card">
-          <div class="img">
+           </div>
+           <div class="social-links">
+           </div>
+        </div>
+        <div class="profile-card">
+           <div class="img">
               <img src="./images/team-2.jpg"></img>
-          </div>
-          <div class="caption">
-            <h3>Fiona Federer</h3>
-            <p>Master Student GIS</p>
-            <div class="social-links">
-            </div>
-          </div>
-          </div>
-            <div class="profile-card">
-              <div class="img">
-                <img src="./images/annina_portrait.png"></img>
-              </div>
-              <div class="caption">
-                <h3>Silvan Caduff</h3>
-                <p>Master Student GIS</p>
+           </div>
+           <div class="caption">
+              <h3>Fiona Federer</h3>
+              <p>Master Student GIS</p>
               <div class="social-links">
               </div>
-            </div>
-          </div>
+           </div>
         </div>
-      </div>
-      <a href="#" class="to-top">
-        <i class="fas fa-chevron-up"></i>
-      </a>
+        <div class="profile-card">
+           <div class="img">
+              <img src="./images/annina_portrait.png"></img>
+           </div>
+           <div class="caption">
+              <h3>Silvan Caduff</h3>
+              <p>Master Student GIS</p>
+              <div class="social-links">
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>
+  <a href="#" class="to-top">
+  <i class="fas fa-chevron-up"></i>
+  </a>
 </body>
+
+
 
 
 <script language="JavaScript">  
@@ -634,7 +632,7 @@
           labels: countryKey,
           datasets: [
             {
-              backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+              backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#14c38e", "#B8F1B0"],
               data: migrationValues,
               datalabels: {
                 color: 'white',
