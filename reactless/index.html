@@ -430,8 +430,8 @@
           getTooltip: ({object}) => object && {
             html: `
             <p><b> Country: </b>${object.COUNTRY}</p>
-            <p><b> Incoming Remittances: </b>${object.REMI_I} Mio.</p>
-            <p><b> Outgoing Remittances: </b>${object.REMI_O} Mio.</p>
+            <p><b> Incoming Remittances (IR): </b>${object.REMI_I} Mio. | ${Math.round(object.REMI_I*100000000/object.GDP)}% of GDP</p>
+            <p><b> Outgoing Remittances (OR): </b>${object.REMI_O} Mio. | ${Math.round(object.REMI_O*100000000/object.GDP)}% of GDP</p>
             `,
             style: {
               color: '#000000',
