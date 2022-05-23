@@ -232,7 +232,6 @@
               $('.expandChart').click(function() {
                 var chartWrapper = $('.chartSelector');
                 if (chartWrapper.hasClass('chartWrapper')) {
-                  console.log('right');
                   $('.chartWrapper').removeClass("chartWrapper").addClass("chartBigWrapper");
                   createPlot(countryNumbers, 15);
                 } else {
@@ -543,9 +542,14 @@
         const flows = selectedFeature.properties.flows;
         const centroid = selectedFeature.geometry.centroid;
 
+        console.log(flows);
+
         const arcs = Object.keys(flows).map(toId => {
           const f = dataSorted[toId];
-          console.log(f);
+
+          if (typeof f === 'undefined'){
+            console.log(toId);
+          }
           return {
             source: centroid,
             target: f.geometry.centroid,
