@@ -148,6 +148,23 @@
                     <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(240,249,232)"></span>
                     <span> Legendeneintrag 5</span>
                  </div>
+                 <p style="font-size:12px;text-align:justify">Average Anual Net Migration [number of migrants per 1000 inhabitants]</p>
+                 <div class="legend-break">
+                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(8,104,172);"></span>
+                    <span> Legendeneintrag 1</span>
+                 </div>
+                 <div class="legend-break">
+                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(123,204,196);"></span>
+                    <span> Legendeneintrag 3</span>
+                </div>
+                <div class="legend-break">
+                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(186,228,188);"></span>
+                    <span> Legendeneintrag 4</span>
+                </div>
+                <div class="legend-break">
+                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(240,249,232)"></span>
+                    <span> Legendeneintrag 5</span>
+                </div>
               </div>
            </div>
         </div>
@@ -181,11 +198,11 @@
                  <p style="font-size:15px;display:inline;text-align:justify"><b>Worldwide Remittance Flows between 2017 and 2020</b>
                  <p style="font-size:12px;text-align:justify">Amount of Remittances received and sent [Mio US$]</p>
                  <div class="legend-break">
-                    <span style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgba(148, 217, 212, 150);"></span>
+                    <span style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgba(255, 187, 67, 150);"></span>
                     <span> Remittance received</span>
                  </div>
                  <div class="legend-break">
-                    <span style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgba(233, 53, 80, 100);"></span>
+                    <span style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgba(109, 160, 111, 100);"></span>
                     <span> Remittances sent</span>
                  </div>
               </div>
@@ -362,11 +379,11 @@
     //teal: #d1eeea,#a8dbd9,#85c4c9,#68abb8,#4f90a6,#3b738f,#2a5674
 
     const POLYGON_COLORS = {
-      COLOR_1: [255, 0, 0],
-      COLOR_2: [255, 255, 0],
-      COLOR_3: [0, 255, 255],
-      COLOR_4: [255, 0, 255],
-      COLOR_5: [0, 0, 255]
+      COLOR_1: [119,135,105,150],
+      COLOR_2: [181,185,145,150],
+      COLOR_3: [246,237,189,150],
+      COLOR_4: [238,187,138,150],
+      COLOR_5: [222,137,90,150]
     };
   
     const ICON_MAPPING_OUT = {
@@ -406,7 +423,7 @@
           //sizeScale: 10,
           //sizeMinPixels: 10,
           //sizeMaxPixels: 80,
-          getColor: d => [233, 53, 80, 100] 
+          getColor: d => [109, 160, 111, 100] 
         });
         
         const iconLayer_in = new IconLayer({
@@ -421,7 +438,7 @@
           //sizeScale: 0,
           //sizeMinPixels: 10,
           //sizeMaxPixels: 80,
-          getColor: d => [148, 217, 212, 150],
+          getColor: d => [255, 187, 67, 150],
           pickable: true
         });
 
