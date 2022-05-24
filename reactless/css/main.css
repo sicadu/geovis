@@ -178,8 +178,8 @@ input[type="radio"]{
 #option-5:checked:checked ~ .option-5,
 #option-6:checked:checked ~ .option-6,
 #option-7:checked:checked ~ .option-7{
-  border-color: rgb(123,204,196);
-  background: rgb(123,204,196);
+  border-color: rgb(176,172,172);
+  background: rgb(176,172,172);
 }
 
 #option-4:checked:checked ~ .option-4 .dot,
@@ -684,6 +684,7 @@ animation-fill-mode: forwards;
   color: rgb(49, 49, 49);
   padding: 7px;
   font-family: sans-serif;
+  border: whitesmoke 2px solid;
 }
 
 .legend-break {
