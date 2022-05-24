@@ -2376,18 +2376,6 @@
    "Y": -54.48814392
  },
  {
-   "OBJECTID": 199,
-   "COUNTRY": "Antarctica",
-   "ISO": "AQ",
-   "COUNTRYAFF": "Antarctica",
-   "AFF_ISO": "AQ",
-   "REMI_O": null,
-   "REMI_I": null,
-   "GDP": null,
-   "X": 22.65528488,
-   "Y": -79.87136078
- },
- {
    "OBJECTID": 200,
    "COUNTRY": "Saint Helena",
    "ISO": "SH",

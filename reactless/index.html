@@ -430,8 +430,8 @@
           getTooltip: ({object}) => object && {
             html: `
             <p><b> Country: </b>${object.COUNTRY}</p>
-            <p><b> Incoming Remittances (IR): </b>${object.REMI_I} Mio. | ${Math.round(object.REMI_I*100000000/object.GDP)}% of GDP</p>
-            <p><b> Outgoing Remittances (OR): </b>${object.REMI_O} Mio. | ${Math.round(object.REMI_O*100000000/object.GDP)}% of GDP</p>
+            <p><b> Remittances received: </b>${object.REMI_I} Mio. | ${Math.round(object.REMI_I*100000000/object.GDP)}% of GDP</p>
+            <p><b> Remittances sent: </b>${object.REMI_O} Mio. | ${Math.round(object.REMI_O*100000000/object.GDP)}% of GDP</p>
             `,
             style: {
               color: '#000000',
@@ -456,13 +456,17 @@
       getFillColor: a => {
         if (a.features.properties.F2010_2015 < -20.0) {
           return POLYGON_COLORS.COLOR_1;
-        } else if (a.features.properties.F2010_2015 < -7.0) {
+        } 
+        else if (a.features.properties.F2010_2015 < -7.0) {
           return POLYGON_COLORS.COLOR_2;
-        } else if (a.features.properties.F2010_2015 < 3.0) {
+        } 
+        else if (a.features.properties.F2010_2015 < 3.0) {
           return POLYGON_COLORS.COLOR_3;
-        } else if (a.features.properties.F2010_2015 < 18.0) {
+        } 
+        else if (a.features.properties.F2010_2015 < 18.0) {
           return POLYGON_COLORS.COLOR_4;
-        } else if (a.features.properties.F2010_2015 < 55.0) {
+        } 
+        else if (a.features.properties.F2010_2015 < 55.0) {
           return POLYGON_COLORS.COLOR_5;
         };
       },
@@ -530,7 +534,6 @@
           stroked: false,
           filled: true,
           autoHighlight: true,
-          getFillColor: () => [0, 0, 0, 0],
           onClick: info => updateLayers(info.object),
           pickable: true
         });
