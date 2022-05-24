@@ -455,19 +455,19 @@
       getLineWidth: 1,
       lineWidthMinPixels: 1,
       getFillColor: a => {
-        if (a.features.properties.F2010_2015 < -20.0) {
+        if (a.properties.F2010_2015 < -20.0) {
           return POLYGON_COLORS.COLOR_1;
         } 
-        else if (a.features.properties.F2010_2015 < -7.0) {
+        else if (a.properties.F2010_2015 < -7.0) {
           return POLYGON_COLORS.COLOR_2;
         } 
-        else if (a.features.properties.F2010_2015 < 3.0) {
+        else if (a.properties.F2010_2015 < 3.0) {
           return POLYGON_COLORS.COLOR_3;
         } 
-        else if (a.features.properties.F2010_2015 < 18.0) {
+        else if (a.properties.F2010_2015 < 18.0) {
           return POLYGON_COLORS.COLOR_4;
         } 
-        else if (a.features.properties.F2010_2015 < 55.0) {
+        else if (a.properties.F2010_2015 < 55.0) {
           return POLYGON_COLORS.COLOR_5;
         };
       },
@@ -536,8 +536,10 @@
         countyLayer = new GeoJsonLayer({
           id: 'geojson',
           data,
-          stroked: false,
+          stroked: true,
           filled: true,
+          getFillColor: [0,0,0,0],
+          getLineColor: [240,249,232],
           autoHighlight: true,
           onClick: info => updateLayers(info.object),
           pickable: true
@@ -598,7 +600,7 @@
         });
 
         deckgl.setProps({
-          layers: [countyLayer, arcLayer, choroplethMap]
+          layers: [choroplethMap, countyLayer, arcLayer]
         });
     }
 
