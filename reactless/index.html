@@ -129,23 +129,23 @@
                  <p style="font-size:15px;display:inline;text-align:justify"><b>Migration from 2010 to 2015</b>
                  <p style="font-size:12px;text-align:justify">Estimated Migration [Number of people]</p>
                  <div class="legend-break">
-                    <span style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(240,249,232);"></span>
+                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(8,104,172);"></span>
                     <span> Legendeneintrag 1</span>
                  </div>
                  <div class="legend-break">
-                    <span style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(186,228,188);"></span>
+                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(67,162,202);"></span>
                     <span> Legendeneintrag 2</span>
                  </div>
                  <div class="legend-break">
-                    <span style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(123,204,196);"></span>
+                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(123,204,196);"></span>
                     <span> Legendeneintrag 3</span>
                  </div>
                  <div class="legend-break">
-                    <span style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(67,162,202);"></span>
+                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(186,228,188);"></span>
                     <span> Legendeneintrag 4</span>
                  </div>
                  <div class="legend-break">
-                    <span style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(8,104,172);"></span>
+                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(240,249,232)"></span>
                     <span> Legendeneintrag 5</span>
                  </div>
               </div>
@@ -382,6 +382,7 @@
     var iconLayer_out = '';
     var in_out = 'r';
     var year_r = '17';
+    var colorD3 = [];
 
     layerChangeR("r17");
 
@@ -450,7 +451,7 @@
       filled: true,
       wireframe: true,
       getPolygon: d => d.features.geometry.coordinates,
-      getLineColor: [255, 80, 80],
+      getLineColor: [240,249,232],
       getLineWidth: 1,
       lineWidthMinPixels: 1,
       getFillColor: a => {
@@ -502,12 +503,14 @@
       [8,104,172],
     ];
 
+
+    [237,248,251],[178,226,226],[102,194,164],[44,162,95],[0,109,44]
     const outFlowColors = [
-      [240,249,232],
-      [186,228,188],
-      [123,204,196],
-      [67,162,202],
-      [8,104,172],
+      [237,248,251],
+      [178,226,226],
+      [102,194,164],
+      [44,162,95],
+      [0,109,44]
     ];
 
     
@@ -516,13 +519,15 @@
     var countyLayer = '' ;
     var arcLayer = '';
     var countryNumbers;
-    var inout = 'e';
-    var year = '10';
+    var migration = 'e20_w0'
     var startCountry = 'GERMANY';
+    var breaks_e = [32, 177, 866.6, 6156.2]
+    var breaks_i = [25, 136.8, 693, 5097]
 
     layerChange("e20_w0");
 
     function layerChange(layerName) {
+      migration = layerName;
       fetch('https://raw.githubusercontent.com/sicadu/geovis/main/reactless/data/'+layerName+'.json')
       .then(res => res.json())
       .then(data => {
@@ -537,11 +542,15 @@
           onClick: info => updateLayers(info.object),
           pickable: true
         });
-
         updateLayers(
           dataSorted.find(f => f.properties.COUNTRY === startCountry)
         );
-      });
+      }); 
+      if (layerName === 'e20_w0'){
+        updateLegend(inFlowColors);
+      } else {
+        updateLegend(outFlowColors);
+      }
     }
 
     function updateLayers(dataFeature) {
@@ -571,23 +580,19 @@
 
         createPlot(countryNumbers, 5);
 
-        const scale = d3.scaleQuantile()
-          .domain(arcs.map(a => Math.abs(a.value)))
-          .range(inFlowColors.map((c, i) => i));
+        colorList(arcs);
 
-        arcs.forEach(a => {
-          a.gain = Math.sign(a.value);
-          a.quantile = scale(Math.abs(a.value));
-        });
+
 
         arcLayer = new ArcLayer({
           id: 'arc',
           data: arcs,
           getSourcePosition: d => d.source,
           getTargetPosition: d => d.target,
-          getSourceColor: d => (d.gain > 0 ? inFlowColors : outFlowColors)[d.quantile],
-          getTargetColor: d => (d.gain > 0 ? inFlowColors : outFlowColors)[d.quantile],
+          getSourceColor: d => checkBreaksForColor(d.value),
+          getTargetColor: d => checkBreaksForColor(d.value),
           widthMinPixels: 1, /* Breite von Linien*/
+          getWidth: d => {checkBreaksForWidth(d.value)},
           greatCircle: true,
           getHeight: 0.1
         });
@@ -635,7 +640,7 @@
           labels: countryKey,
           datasets: [
             {
-              backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#14c38e", "#B8F1B0"],
+              backgroundColor: colorD3,
               data: migrationValues,
               datalabels: {
                 color: 'white',
@@ -687,6 +692,26 @@
       return clone.slice(0, n || 1);
     }
 
+    function colorList(arr) {
+      colorD3 = [];
+      for (var i = 0; i < arr.length; i++) {
+        color_rgb = checkBreaksForColor(arr[i]);
+        color_hex = rgbToHex(color_rgb[0], color_rgb[1], color_rgb[2]);
+        colorD3.push(color_hex);
+      }
+      console.log(colorD3);
+    }
+
+    // helper function for colorList
+    function componentToHex(c) {
+      var hex = c.toString(16);
+      return hex.length == 1 ? "0" + hex : hex;
+    }
+
+    function rgbToHex(r, g, b) {
+      return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+    }
+
     const toTop = document.querySelector('.to-top');
   
     window.addEventListener("scroll", () => {
@@ -696,5 +721,57 @@
         toTop.classList.remove("active");
       }
     })
+
+    function checkBreaksForColor(color){
+      if (migration == 'e20_w0') {
+        console.log('emigration')
+        if (color < breaks_e[0]){
+          return inFlowColors[0]
+        } else if (color < breaks_e[1]){
+          return inFlowColors[1]
+        } else if (color < breaks_e[2]){
+          return inFlowColors[2]
+        } else if (color < breaks_e[3]){
+          return inFlowColors[3]
+        } else {
+          return inFlowColors[4]
+        }
+      } else {
+        console.log('immigration')
+        if (color < breaks_i[0]){
+          return outFlowColors[0]
+        } else if (color < breaks_i[1]){
+          return outFlowColors[1]
+        } else if (color < breaks_i[2]){
+          return outFlowColors[2]
+        } else if (color < breaks_i[3]){
+          return outFlowColors[3]
+        } else {
+          return outFlowColors[4]
+        }
+
+      }
+    }
+
+    function checkBreaksForWidth(color){
+      if (color < breaks_e[0]){
+        return 1
+      } else if (color < breaks_e[1]){
+        return 4
+      } else if (color < breaks_e[2]){
+        return 7
+      } else if (color < breaks_e[3]){
+        return 10
+      } else {
+        return 13
+      }
+    }
   
-</script>
+  function updateLegend(sign){
+    legend_colors = $('.lg-area');
+    for (let i = 0; i < legend_colors.length; i++){
+        legend_colors[i].style.backgroundColor = "rgb(" + sign[4-i][0] + "," + sign[4-i][1] + "," + sign[4-i][2] + ")";
+    }
+  }
+
+  </script>
