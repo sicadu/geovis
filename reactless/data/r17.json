@@ -5,8 +5,6 @@
    "ISO": "AS",
    "AFF_ISO": "US",
    "COUNTRYAFF": "United States",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": 612000000,
    "X": -170.70784,
    "Y": -14.30440426
@@ -77,6 +75,7 @@
    "ISO": "MX",
    "AFF_ISO": "MX",
    "COUNTRYAFF": "Mexico",
+   "REMI_I": 32271,
    "REMI_O": 806,
    "GDP": 1160000000000,
    "X": -102.5328827,
@@ -304,8 +303,6 @@
    "ISO": "CU",
    "AFF_ISO": "CU",
    "COUNTRYAFF": "Cuba",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": 96851000000,
    "X": -79.03635406,
    "Y": 21.62117004
@@ -436,8 +433,6 @@
    "ISO": "PR",
    "AFF_ISO": "US",
    "COUNTRYAFF": "United States",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": 103000000000,
    "X": -66.46234131,
    "Y": 18.22132874
@@ -628,8 +623,6 @@
    "ISO": "GL",
    "AFF_ISO": "DK",
    "COUNTRYAFF": "Denmark",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": 2851610656,
    "X": -41.38949966,
    "Y": 74.72091675
@@ -652,8 +645,6 @@
    "ISO": "IM",
    "AFF_ISO": "GB",
    "COUNTRYAFF": "United Kingdom",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": 6979581725,
    "X": -4.525850773,
    "Y": 54.2290802
@@ -1217,7 +1208,6 @@
    "AFF_ISO": "AD",
    "COUNTRYAFF": "Andorra",
    "REMI_O": 0,
-   "REMI_I": null,
    "GDP": 3000180750,
    "X": 1.576765895,
    "Y": 42.54865265
@@ -1252,8 +1242,6 @@
    "ISO": "LI",
    "AFF_ISO": "LI",
    "COUNTRYAFF": "Liechtenstein",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": 6474256119,
    "X": 9.554269791,
    "Y": 47.15184784
@@ -1264,8 +1252,6 @@
    "ISO": "MC",
    "AFF_ISO": "MC",
    "COUNTRYAFF": "Monaco",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": 6431314957,
    "X": 7.412820816,
    "Y": 43.74798203
@@ -1456,8 +1442,6 @@
    "ISO": "SM",
    "AFF_ISO": "SM",
    "COUNTRYAFF": "San Marino",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": 1528630708,
    "X": 12.46097755,
    "Y": 43.94294357
@@ -1661,7 +1645,6 @@
    "AFF_ISO": "BH",
    "COUNTRYAFF": "Bahrain",
    "REMI_O": 2466,
-   "REMI_I": null,
    "GDP": 35473776596,
    "X": 50.55964279,
    "Y": 26.02240562
@@ -1805,7 +1788,6 @@
    "AFF_ISO": "AE",
    "COUNTRYAFF": "United Arab Emirates",
    "REMI_O": 44753,
-   "REMI_I": null,
    "GDP": 386000000000,
    "X": 54.33515549,
    "Y": 23.91093254
@@ -2069,7 +2051,6 @@
    "AFF_ISO": "BN",
    "COUNTRYAFF": "Brunei Darussalam",
    "REMI_O": 0,
-   "REMI_I": null,
    "GDP": 12128104859,
    "X": 114.7611008,
    "Y": 4.521445751
@@ -2104,8 +2085,6 @@
    "ISO": "GU",
    "AFF_ISO": "US",
    "COUNTRYAFF": "United States",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": 6013000000,
    "X": 144.7756042,
    "Y": 13.44356537
@@ -2140,8 +2119,6 @@
    "ISO": "MP",
    "AFF_ISO": "US",
    "COUNTRYAFF": "United States",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": 1560000000,
    "X": 145.6792145,
    "Y": 15.08851814
@@ -2189,7 +2166,6 @@
    "AFF_ISO": "GB",
    "COUNTRYAFF": "United Kingdom",
    "REMI_O": 0,
-   "REMI_I": null,
    "GDP": null,
    "X": -64.53042603,
    "Y": 18.44458961
@@ -2201,7 +2177,6 @@
    "AFF_ISO": "GB",
    "COUNTRYAFF": "United Kingdom",
    "REMI_O": 19,
-   "REMI_I": null,
    "GDP": null,
    "X": -5.344892979,
    "Y": 36.13821411
@@ -2213,7 +2188,6 @@
    "AFF_ISO": "DK",
    "COUNTRYAFF": "Denmark",
    "REMI_O": 123,
-   "REMI_I": null,
    "GDP": 2899226098,
    "X": -6.88410902,
    "Y": 62.03106308
@@ -2225,7 +2199,6 @@
    "AFF_ISO": "ZW",
    "COUNTRYAFF": "Zimbabwe",
    "REMI_O": 0,
-   "REMI_I": null,
    "GDP": 17584890937,
    "X": 29.87183762,
    "Y": -19.00009727
@@ -2237,7 +2210,6 @@
    "AFF_ISO": "SS",
    "COUNTRYAFF": "South Sudan",
    "REMI_O": 262,
-   "REMI_I": null,
    "GDP": null,
    "X": 30.32024193,
    "Y": 7.27866745
@@ -2249,7 +2221,6 @@
    "AFF_ISO": "SD",
    "COUNTRYAFF": "Sudan",
    "REMI_O": 28,
-   "REMI_I": null,
    "GDP": 41283617976,
    "X": 29.9605217,
    "Y": 15.99964428
@@ -2261,7 +2232,6 @@
    "AFF_ISO": "SO",
    "COUNTRYAFF": "Somalia",
    "REMI_O": 21,
-   "REMI_I": null,
    "GDP": 5609000000,
    "X": 45.86259079,
    "Y": 6.063723087
@@ -2272,8 +2242,6 @@
    "ISO": "NR",
    "AFF_ISO": "NR",
    "COUNTRYAFF": "Nauru",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": 109359680,
    "X": 166.9293823,
    "Y": -0.522102118
@@ -2285,7 +2253,6 @@
    "AFF_ISO": "US",
    "COUNTRYAFF": "United States",
    "REMI_O": 12,
-   "REMI_I": null,
    "GDP": null,
    "X": -5.07808876,
    "Y": 15.932971
@@ -2297,7 +2264,6 @@
    "AFF_ISO": "NZ",
    "COUNTRYAFF": "New Zealand",
    "REMI_O": 104,
-   "REMI_I": null,
    "GDP": null,
    "X": -158.9089203,
    "Y": -20.93399429
@@ -2308,8 +2274,6 @@
    "ISO": "NU",
    "AFF_ISO": "NZ",
    "COUNTRYAFF": "New Zealand",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": -169.8687744,
    "Y": -19.05230904
@@ -2321,7 +2285,6 @@
    "AFF_ISO": "GB",
    "COUNTRYAFF": "United Kingdom",
    "REMI_O": 0,
-   "REMI_I": null,
    "GDP": null,
    "X": -128.5931549,
    "Y": -24.47649765
@@ -2333,7 +2296,6 @@
    "AFF_ISO": "NZ",
    "COUNTRYAFF": "New Zealand",
    "REMI_O": 847,
-   "REMI_I": null,
    "GDP": null,
    "X": -171.8526611,
    "Y": -9.195175171
@@ -2345,7 +2307,6 @@
    "AFF_ISO": "FR",
    "COUNTRYAFF": "France",
    "REMI_O": 17,
-   "REMI_I": null,
    "GDP": null,
    "X": -177.1507874,
    "Y": -13.78743362
@@ -2357,7 +2318,6 @@
    "AFF_ISO": "GB",
    "COUNTRYAFF": "United Kingdom",
    "REMI_O": 0,
-   "REMI_I": null,
    "GDP": null,
    "X": -59.36330032,
    "Y": -51.73711777
@@ -2369,7 +2329,6 @@
    "AFF_ISO": "GB",
    "COUNTRYAFF": "United Kingdom",
    "REMI_O": 532,
-   "REMI_I": null,
    "GDP": null,
    "X": -36.38237381,
    "Y": -54.48814392
@@ -2381,7 +2340,6 @@
    "AFF_ISO": "GB",
    "COUNTRYAFF": "United Kingdom",
    "REMI_O": 27,
-   "REMI_I": null,
    "GDP": null,
    "X": -5.717151642,
    "Y": -15.96154594
@@ -2393,7 +2351,6 @@
    "AFF_ISO": "GB",
    "COUNTRYAFF": "United Kingdom",
    "REMI_O": 0,
-   "REMI_I": null,
    "GDP": null,
    "X": -63.0600853,
    "Y": 18.22287369
@@ -2405,7 +2362,6 @@
    "AFF_ISO": "BS",
    "COUNTRYAFF": "Bahamas",
    "REMI_O": 271,
-   "REMI_I": null,
    "GDP": null,
    "X": -76.54662323,
    "Y": 24.20112038
@@ -2417,7 +2373,6 @@
    "AFF_ISO": "NL",
    "COUNTRYAFF": "Netherlands",
    "REMI_O": 0,
-   "REMI_I": null,
    "GDP": null,
    "X": -68.28430939,
    "Y": 12.18761826
@@ -2441,7 +2396,6 @@
    "AFF_ISO": "FR",
    "COUNTRYAFF": "France",
    "REMI_O": 476,
-   "REMI_I": null,
    "GDP": null,
    "X": -61.53674698,
    "Y": 16.20346069
@@ -2453,7 +2407,6 @@
    "AFF_ISO": "FR",
    "COUNTRYAFF": "France",
    "REMI_O": 103,
-   "REMI_I": null,
    "GDP": null,
    "X": -61.02128601,
    "Y": 14.65254688
@@ -2465,7 +2418,6 @@
    "AFF_ISO": "GB",
    "COUNTRYAFF": "United Kingdom",
    "REMI_O": 12888,
-   "REMI_I": null,
    "GDP": null,
    "X": -62.18693161,
    "Y": 16.73536301
@@ -2477,7 +2429,6 @@
    "AFF_ISO": "NL",
    "COUNTRYAFF": "Netherlands",
    "REMI_O": 0,
-   "REMI_I": null,
    "GDP": null,
    "X": -63.23753738,
    "Y": 17.63223076
@@ -2489,7 +2440,6 @@
    "AFF_ISO": "FR",
    "COUNTRYAFF": "France",
    "REMI_O": 363,
-   "REMI_I": null,
    "GDP": null,
    "X": -62.82920074,
    "Y": 17.902668
@@ -2500,8 +2450,6 @@
    "ISO": "BQ",
    "AFF_ISO": "NL",
    "COUNTRYAFF": "Netherlands",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": -62.97813797,
    "Y": 17.49090576
@@ -2512,8 +2460,6 @@
    "ISO": "KN",
    "AFF_ISO": "KN",
    "COUNTRYAFF": "Saint Kitts and Nevis",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": -62.75351715,
    "Y": 17.32618904
@@ -2524,8 +2470,6 @@
    "ISO": "LC",
    "AFF_ISO": "LC",
    "COUNTRYAFF": "Saint Lucia",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": -60.96871185,
    "Y": 13.89786625
@@ -2536,8 +2480,6 @@
    "ISO": "MF",
    "AFF_ISO": "FR",
    "COUNTRYAFF": "France",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": -63.05878448,
    "Y": 18.07946014
@@ -2548,8 +2490,6 @@
    "ISO": "PM",
    "AFF_ISO": "FR",
    "COUNTRYAFF": "France",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": -56.30610275,
    "Y": 46.93091965
@@ -2560,8 +2500,6 @@
    "ISO": "VC",
    "AFF_ISO": "VC",
    "COUNTRYAFF": "Saint Vincent and the Grenadines",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": -61.19376755,
    "Y": 13.25480843
@@ -2572,8 +2510,6 @@
    "ISO": "SX",
    "AFF_ISO": "NL",
    "COUNTRYAFF": "Netherlands",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": -63.06328583,
    "Y": 18.03794479
@@ -2584,8 +2520,6 @@
    "ISO": "VI",
    "AFF_ISO": "US",
    "COUNTRYAFF": "United States",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": -64.80702972,
    "Y": 17.90510178
@@ -2596,8 +2530,6 @@
    "ISO": "VE",
    "AFF_ISO": "VE",
    "COUNTRYAFF": "Venezuela",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": -66.16956329,
    "Y": 7.122448921
@@ -2608,8 +2540,6 @@
    "ISO": "CI",
    "AFF_ISO": "CI",
    "COUNTRYAFF": "Côte d'Ivoire",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": -5.55561924,
    "Y": 7.631533146
@@ -2620,8 +2550,6 @@
    "ISO": "GM",
    "AFF_ISO": "GM",
    "COUNTRYAFF": "Gambia",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": -15.38664055,
    "Y": 13.45265007
@@ -2632,8 +2560,6 @@
    "ISO": "GG",
    "AFF_ISO": "GB",
    "COUNTRYAFF": "United Kingdom",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": -2.576392651,
    "Y": 49.4587059
@@ -2644,8 +2570,6 @@
    "ISO": "JE",
    "AFF_ISO": "GB",
    "COUNTRYAFF": "United Kingdom",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": -2.128652573,
    "Y": 49.21911621
@@ -2656,8 +2580,6 @@
    "ISO": "SJ",
    "AFF_ISO": "NO",
    "COUNTRYAFF": "Norway",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 18.36346626,
    "Y": 78.82863617
@@ -2668,8 +2590,6 @@
    "ISO": "BV",
    "AFF_ISO": "NO",
    "COUNTRYAFF": "Norway",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 3.412521362,
    "Y": -54.42190552
@@ -2680,8 +2600,6 @@
    "ISO": "CG",
    "AFF_ISO": "CG",
    "COUNTRYAFF": "Congo",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 15.22429371,
    "Y": -0.840231836
@@ -2692,8 +2610,6 @@
    "ISO": "CD",
    "AFF_ISO": "CD",
    "COUNTRYAFF": "Congo DRC",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 23.65500641,
    "Y": -2.87623477
@@ -2704,8 +2620,6 @@
    "ISO": "TF",
    "AFF_ISO": "FR",
    "COUNTRYAFF": "France",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 42.74374771,
    "Y": -17.06449127
@@ -2716,8 +2630,6 @@
    "ISO": "IO",
    "AFF_ISO": "GB",
    "COUNTRYAFF": "United Kingdom",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 72.43402863,
    "Y": -7.334268093
@@ -2728,8 +2640,6 @@
    "ISO": "TF",
    "AFF_ISO": "FR",
    "COUNTRYAFF": "France",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 68.86193085,
    "Y": -49.19179535
@@ -2740,8 +2650,6 @@
    "ISO": "HM",
    "AFF_ISO": "AU",
    "COUNTRYAFF": "Australia",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 73.49837494,
    "Y": -53.09133148
@@ -2752,8 +2660,6 @@
    "ISO": "YT",
    "AFF_ISO": "FR",
    "COUNTRYAFF": "France",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 45.13869858,
    "Y": -12.81871223
@@ -2764,8 +2670,6 @@
    "ISO": "TF",
    "AFF_ISO": "FR",
    "COUNTRYAFF": "France",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 47.29094696,
    "Y": -11.56622505
@@ -2776,8 +2680,6 @@
    "ISO": "RE",
    "AFF_ISO": "FR",
    "COUNTRYAFF": "France",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 55.5381813,
    "Y": -21.12166214
@@ -2788,8 +2690,6 @@
    "ISO": "EG",
    "AFF_ISO": "EG",
    "COUNTRYAFF": "Egypt",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 29.87195778,
    "Y": 26.49425507
@@ -2800,8 +2700,6 @@
    "ISO": "PS",
    "AFF_ISO": "PS",
    "COUNTRYAFF": "Palestinian Territory",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 35.20410156,
    "Y": 31.91438293
@@ -2812,8 +2710,6 @@
    "ISO": "SY",
    "AFF_ISO": "SY",
    "COUNTRYAFF": "Syria",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 38.50513077,
    "Y": 35.013134
@@ -2824,8 +2720,6 @@
    "ISO": "SK",
    "AFF_ISO": "SK",
    "COUNTRYAFF": "Slovakia",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 19.49165154,
    "Y": 48.70753098
@@ -2836,8 +2730,6 @@
    "ISO": "VA",
    "AFF_ISO": "VA",
    "COUNTRYAFF": "Vatican City",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 12.45135498,
    "Y": 41.90398788
@@ -2848,8 +2740,6 @@
    "ISO": "IR",
    "AFF_ISO": "IR",
    "COUNTRYAFF": "Iran",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 54.19776535,
    "Y": 32.73946381
@@ -2860,8 +2750,6 @@
    "ISO": "YE",
    "AFF_ISO": "YE",
    "COUNTRYAFF": "Yemen",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 47.59996796,
    "Y": 15.90561867
@@ -2872,8 +2760,6 @@
    "ISO": "KG",
    "AFF_ISO": "KG",
    "COUNTRYAFF": "Kyrgyzstan",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 74.5555954,
    "Y": 41.46505356
@@ -2884,8 +2770,6 @@
    "ISO": "CX",
    "AFF_ISO": "AU",
    "COUNTRYAFF": "Australia",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 105.7036972,
    "Y": -10.44411659
@@ -2896,8 +2780,6 @@
    "ISO": "CC",
    "AFF_ISO": "AU",
    "COUNTRYAFF": "Australia",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 96.83689117,
    "Y": -12.17124939
@@ -2908,8 +2790,6 @@
    "ISO": "NF",
    "AFF_ISO": "AU",
    "COUNTRYAFF": "Australia",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 167.9525909,
    "Y": -29.03765488
@@ -2920,8 +2800,6 @@
    "ISO": "LA",
    "AFF_ISO": "LA",
    "COUNTRYAFF": "Laos",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 103.7632904,
    "Y": 18.50274277
@@ -2932,8 +2810,6 @@
    "ISO": "KR",
    "AFF_ISO": "KR",
    "COUNTRYAFF": "South Korea",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 127.8347702,
    "Y": 36.37509155
@@ -2944,8 +2820,6 @@
    "ISO": "KP",
    "AFF_ISO": "KP",
    "COUNTRYAFF": "North Korea",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 127.1819534,
    "Y": 40.14306259
@@ -2956,8 +2830,6 @@
    "ISO": "FM",
    "AFF_ISO": "FM",
    "COUNTRYAFF": "Micronesia",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": 159.4042206,
    "Y": 6.492378712
@@ -2968,8 +2840,6 @@
    "ISO": "ES",
    "AFF_ISO": "ES",
    "COUNTRYAFF": "Spain",
-   "REMI_O": null,
-   "REMI_I": null,
    "GDP": null,
    "X": -15.67404747,
    "Y": 28.33662605
