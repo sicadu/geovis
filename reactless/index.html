@@ -415,7 +415,7 @@
           id:'icon_out',
           data: data_r,
           pickable: true,
-          iconAtlas: './images/Remi_in_out.png',
+          iconAtlas: 'https://raw.githubusercontent.com/sicadu/geovis/main/reactless/images/Remi_in_out.png',
           iconMapping: ICON_MAPPING_OUT,
           getIcon: d => 'marker',
           getPosition: d => [d.X, d.Y],
@@ -430,7 +430,7 @@
           id: 'icon_in',
           data: data_r,
           pickable: true,
-          iconAtlas: './images/Remi_in_out.png',
+          iconAtlas: 'https://raw.githubusercontent.com/sicadu/geovis/main/reactless/images/Remi_in_out.png',
           iconMapping: ICON_MAPPING_IN,
           getIcon: d => 'marker',
           getPosition: d => [d.X, d.Y],
@@ -462,7 +462,7 @@
 
     // create choropleth map  
     const choroplethMap = new GeoJsonLayer({
-      data: './data/netMig_2010_2015_2020.json',
+      data: 'https://raw.githubusercontent.com/sicadu/geovis/main/reactless/data/netMig_2010_2015_2020.json',
       pickable: true,
       stroked: true,
       filled: true,
@@ -492,7 +492,7 @@
 
 
     const backgroundMap_symbols = new GeoJsonLayer({
-      data: './data/WorldCountries.geojson',
+      data: 'https://raw.githubusercontent.com/sicadu/geovis/main/reactless/data/WorldCountries.geojson',
       pickable: true,
       stroked: true,
       filled: false,
