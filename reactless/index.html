@@ -379,11 +379,11 @@
     //teal: #d1eeea,#a8dbd9,#85c4c9,#68abb8,#4f90a6,#3b738f,#2a5674
 
     const POLYGON_COLORS = {
-      COLOR_1: [234,173,142],
-      COLOR_2: [243,207,175],
-      COLOR_3: [249,242,209],
-      COLOR_4: [203,205,178],
-      COLOR_5: [160,172,150]
+      COLOR_1: [0, 0, 255, 50], //Blau
+      COLOR_2: [255,255,255, 50],
+      COLOR_3: [0, 255, 0, 50], // Grün
+      COLOR_nodata: [255,0,0,50],
+      /*COLOR_5: [160,172,150]*/
     };
   
     const ICON_MAPPING_OUT = {
@@ -468,24 +468,27 @@
       filled: true,
       wireframe: true,
       getPolygon: d => d.features.geometry.coordinates,
-      getLineColor: [240,249,232],
+      getLineColor: [150,150,150],
       getLineWidth: 1,
       lineWidthMinPixels: 1,
       getFillColor: a => {
-        if (a.properties.F2010_2015 < -20.0) {
+        if (a.properties.F2010_2015 == null) {
+          return POLYGON_COLORS.COLOR_nodata
+        }
+        else if (a.properties.F2010_2015 < -1.0) {
           return POLYGON_COLORS.COLOR_1;
         } 
-        else if (a.properties.F2010_2015 < -7.0) {
+        else if (a.properties.F2010_2015 < 1.0) {
           return POLYGON_COLORS.COLOR_2;
         } 
-        else if (a.properties.F2010_2015 < 3.0) {
+        else if (a.properties.F2010_2015 < 55.0) {
           return POLYGON_COLORS.COLOR_3;
-        } 
+        /*} 
         else if (a.properties.F2010_2015 < 18.0) {
           return POLYGON_COLORS.COLOR_4;
         } 
         else if (a.properties.F2010_2015 < 55.0) {
-          return POLYGON_COLORS.COLOR_5;
+          return POLYGON_COLORS.COLOR_5;*/
         };
       },
     });
