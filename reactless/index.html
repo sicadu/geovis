@@ -151,19 +151,19 @@
                  <p style="font-size:12px;text-align:justify">Average Anual Net Migration [number of migrants per 1000 inhabitants]</p>
                  <div class="legend-break">
                     <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(8,104,172);"></span>
-                    <span> Legendeneintrag 1</span>
+                    <span> Positive Net Migration</span>
                  </div>
                  <div class="legend-break">
                     <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(123,204,196);"></span>
-                    <span> Legendeneintrag 3</span>
+                    <span> Negative Net Migration</span>
                 </div>
                 <div class="legend-break">
                     <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(186,228,188);"></span>
-                    <span> Legendeneintrag 4</span>
+                    <span> Net Migration around 0</span>
                 </div>
                 <div class="legend-break">
                     <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(240,249,232)"></span>
-                    <span> Legendeneintrag 5</span>
+                    <span> <i> No data available</i> </span>
                 </div>
               </div>
            </div>
@@ -188,6 +188,10 @@
               <button type="button" class="expandChart btn"><i class="fa-solid fa-expand"></i></button>
               <canvas id="myChart" height="250"></canvas>
            </div>
+           <div class="chartWrapper chartSelector">
+            <button type="button" class="expandChart btn"><i class="fa-solid fa-expand"></i></button>
+            <canvas id="myChart" height="250"></canvas>
+         </div>
         </div>
      </div>
      <div class="remittance selectt slide2">
@@ -235,6 +239,10 @@
                </label>
              </div>
            </fieldset>
+           <div class="chartWrapper chartSelector">
+            <button type="button" class="expandChart btn"><i class="fa-solid fa-expand"></i></button>
+            <canvas id="myChart" height="250"></canvas>
+         </div>
         </div>
      </div>
      <script type="text/javascript">
@@ -381,8 +389,8 @@
     const POLYGON_COLORS = {
       COLOR_1: [0, 0, 255, 50], //Blau
       COLOR_2: [255,255,255, 50],
-      COLOR_3: [0, 255, 0, 50], // Grün
-      COLOR_nodata: [255,0,0,50],
+      COLOR_3: [0, 255, 0, 80], // Grün
+      COLOR_nodata: [180,180,180,50],
       /*COLOR_5: [160,172,150]*/
     };
   
