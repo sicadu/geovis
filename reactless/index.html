@@ -429,8 +429,21 @@
           getPosition: d => [d.X, d.Y],
           getSize: d => (Math.sqrt(d.REMI_O))/2,
           //sizeScale: 10,
+          // Option A: if funktion, geht nicht egal ob ''/""/- und auch egal ob (REMI_O !== undefined return 10 oder REMI_O >=0 return 10)
+          sizeMinPixels: d => {
+            if (d.REMI_O == "undefined") {
+              return 0;
+            } 
+            else {
+              return 10;
+            }},
+
+          //Option B: definiere minSize 
           //sizeMinPixels: 10,
-          //sizeMaxPixels: 80,
+
+          //Option C: definiere nichts: alle herausgelöschten Remis werden nicht angezeigt
+
+          //Option D: lösche ganze Geometrien raus, wenn nicht komplett > am wenigsten
           getColor: d => [109, 160, 111, 150]
         });
         
@@ -444,8 +457,13 @@
           getPosition: d => [d.X, d.Y],
           getSize: d => (Math.sqrt(d.REMI_I))/2,
           //sizeScale: 0,
-          //sizeMinPixels: 10,
-          //sizeMaxPixels: 80,
+          sizeMinPixels: d => {
+            if (d.REMI_I == "undefined" ) {
+              return 0;
+            }
+            else {
+              return 10;
+            }},
           getColor: d => [255, 187, 67, 150],
           pickable: true
         });
@@ -456,8 +474,8 @@
           getTooltip: ({object}) => object && {
             html: `
             <p><b> Country: </b>${object.COUNTRY}</p>
-            <p><b> Remittances received: </b>${object.REMI_I} Mio. | ${Math.round(object.REMI_I*100000000/object.GDP)}% of GDP</p>
-            <p><b> Remittances sent: </b>${object.REMI_O} Mio. | ${Math.round(object.REMI_O*100000000/object.GDP)}% of GDP</p>
+            <p><b> Remittances received: </b>${object.REMI_I} Mio. | ${(object.REMI_I*100000000/object.GDP).toFixed(2)}% of GDP</p>
+            <p><b> Remittances sent: </b>${object.REMI_O} Mio. | ${(object.REMI_O*100000000/object.GDP).toFixed(2)}% of GDP</p>
             `,
             style: {
               color: '#000000',
