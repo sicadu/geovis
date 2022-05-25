@@ -31,6 +31,9 @@
 
   <!-- Add icon library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Materilize library - Mainly for the slider-->
+
 </head>
 
 
@@ -104,11 +107,13 @@
               policy makers in sending and receiving countries (Gubert, 2017).
            </p>
         </div>
+        <!-- 
         <iframe src="https://embed.ted.com/talks/lang/en/dilip_ratha_the_hidden_force_in_global_economics_sending_money_home"
           height=40% 
            width=60%
            allowfullscreen=true>    
         </iframe>
+        -->
      </div>
   </div>
   <div class="mapPage page" id="mapNav">
@@ -184,6 +189,106 @@
                  </label>
               </div>
            </fieldset>
+
+           <div class="controlPanel">
+
+             
+             <div class="range-input1">
+               <input type="range" min="1" max="7" value="1" step="1">
+               <div class="value1">
+                 <div></div>
+              </div>
+            </div>
+            
+            <script type="text/javascript">
+              let rangeInput1 = document.querySelector(".range-input1 input");
+              let rangeValue1 = document.querySelector(".range-input1 .value1 div");
+
+              let start = parseFloat(rangeInput1.min);
+              let end = parseFloat(rangeInput1.max);
+              let step = parseFloat(rangeInput1.step);
+
+              for(let i=start;i<=end;i+=step){
+                rangeValue1.innerHTML += '<div>'+i+'</div>';
+              }
+              
+              rangeInput1.addEventListener("input",function(){
+                let top = (parseFloat(rangeInput1.value)-1)/step * -40;
+                rangeValue1.style.marginTop = top+"px";
+                console.log(rangeInput1.value);
+                scale = rangeInput1.value;
+                updateLayers(updateStartCountry, false);
+              });
+              </script>
+            
+            <div class="wrapper2">
+              <div class="price-input">
+                <div class="field">
+                  <span>Min</span>
+                  <input type="number" class="input-min" value="2500">
+                </div>
+                <div class="separator">-</div>
+                <div class="field">
+                  <span>Max</span>
+                  <input type="number" class="input-max" value="7500">
+                </div>
+              </div>
+              <div class="slider">
+                <div class="progress"></div>
+              </div>
+              <div class="range-input">
+                <input type="range" class="range-min" min="0" max="100000" value="2500" step="1">
+                <input type="range" class="range-max" min="0" max="100000" value="7500" step="1">
+              </div>
+            </div>
+          </div>
+
+            <script type="text/javascript">
+              const rangeInput = document.querySelectorAll(".range-input input"),
+              priceInput = document.querySelectorAll(".price-input input"),
+              range = document.querySelector(".slider .progress");
+              let priceGap = 1000;
+              console.log(priceInput[0].value)
+              priceInput.forEach(input =>{
+                input.addEventListener("input", e =>{
+                  let minPrice = parseInt(priceInput[0].value),
+                  maxPrice = parseInt(priceInput[1].value);
+                      
+                      if((maxPrice - minPrice >= priceGap) && maxPrice <= rangeInput[1].max){
+                          if(e.target.className === "input-min"){
+                              rangeInput[0].value = minPrice;
+                              range.style.left = ((minPrice / rangeInput[0].max) * 100) + "%";
+                          }else{
+                              rangeInput[1].value = maxPrice;
+                              range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+                          }
+                      }
+                  });
+              });
+              rangeInput.forEach(input =>{
+                  input.addEventListener("input", e =>{
+                      let minVal = parseInt(rangeInput[0].value),
+                      maxVal = parseInt(rangeInput[1].value);
+                      if((maxVal - minVal) < priceGap){
+                          if(e.target.className === "range-min"){
+                              rangeInput[0].value = maxVal - priceGap
+                          }else{
+                              rangeInput[1].value = minVal + priceGap;
+                          }
+                      }else{
+                          priceInput[0].value = minVal;
+                          priceInput[1].value = maxVal;
+                          range.style.left = ((minVal / rangeInput[0].max) * 100) + "%";
+                          range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+                      }
+
+                      updateLayers(updateStartCountry, false);
+                  });
+              });
+            </script>
+            
+
+
            <div class="chartWrapper chartSelector">
               <button type="button" class="expandChart btn"><i class="fa-solid fa-expand"></i></button>
               <canvas id="myChart" height="250"></canvas>
@@ -265,6 +370,7 @@
           })
         })
      </script>
+     </div>
      <div class="summary page" id="summaryNav">
         <div class= "text-box">
            <div class="text-title">Summary</div>
@@ -324,9 +430,6 @@
         </div>
      </div>
   </div>
-  <a href="#" class="to-top">
-  <i class="fas fa-chevron-up"></i>
-  </a>
 </body>
 
 
@@ -572,8 +675,13 @@
     var countryNumbers;
     var migration = 'e20_w0'
     var startCountry = 'GERMANY';
-    var breaks_e = [32, 177, 866.6, 6156.2]
-    var breaks_i = [25, 136.8, 693, 5097]
+    var breaks_e = [32, 177, 866, 6156];
+    var breaks_i = [25, 136, 693, 5097];
+    var scale = 1;
+    var arc_data;
+    var updateStartCountry;
+
+    const widthScale = () => scale
 
     layerChange("e20_w0");
 
@@ -582,21 +690,20 @@
       fetch('https://raw.githubusercontent.com/sicadu/geovis/main/reactless/data/'+layerName+'.json')
       .then(res => res.json())
       .then(data => {
+        arc_data = data
         dataSorted = keysrt(data.features, ['properties','COUNTRY']);
 
         countyLayer = new GeoJsonLayer({
           id: 'geojson',
           data,
           stroked: true,
-          filled: true,
           getFillColor: [0,0,0,0],
           getLineColor: [240,249,232],
-          autoHighlight: true,
-          onClick: info => updateLayers(info.object),
+          onClick: info => updateLayers(info.object, true),
           pickable: true
         });
         updateLayers(
-          dataSorted.find(f => f.properties.COUNTRY === startCountry)
+          dataSorted.find(f => f.properties.COUNTRY === startCountry), true
         );
       }); 
       if (layerName === 'e20_w0'){
@@ -606,8 +713,9 @@
       }
     }
 
-    function updateLayers(dataFeature) {
+    function updateLayers(dataFeature, truePlot) {
         selectedFeature = dataSorted.find(f => f.properties.COUNTRY === dataFeature.properties.COUNTRY);
+        updateStartCountry = dataFeature; 
         startCountry = dataFeature.properties.COUNTRY;
 
         const flows = selectedFeature.properties.flows;
@@ -631,11 +739,10 @@
           };
         });
 
+        if (truePlot){
         createPlot(countryNumbers, 5);
-
+        }
         colorList(arcs);
-
-
 
         arcLayer = new ArcLayer({
           id: 'arc',
@@ -646,14 +753,29 @@
           getTargetColor: d => checkBreaksForColor(d.value),
           widthMinPixels: 1, /* Breite von Linien*/
           getWidth: d => {checkBreaksForWidth(d.value)},
-          greatCircle: true,
-          getHeight: 0.1
+          getHeight: 0.5,
+          widthScale: scale,
+          updateTriggers: {
+            widthScale: [scale]
+          },
+          getFilterValue: d => d.value,
+          filterRange: [parseInt(priceInput[0].value), parseInt(priceInput[1].value)],
+          extensions: [new deck.DataFilterExtension({filterSize: 1})]
         });
 
         deckgl.setProps({
           layers: [choroplethMap, countyLayer, arcLayer]
         });
     }
+
+    function updateScaleWidth() {
+      arcLayer.setProps({ 
+        widthScale,
+        updateTriggers: {
+          widthScale: scale
+        }
+      });
+    };
 
     function keysrt(arr, keyArr, reverse) {
           var sortOrder = 1;
@@ -752,7 +874,6 @@
         color_hex = rgbToHex(color_rgb[0], color_rgb[1], color_rgb[2]);
         colorD3.push(color_hex);
       }
-      console.log(colorD3);
     }
 
     // helper function for colorList
@@ -764,8 +885,6 @@
     function rgbToHex(r, g, b) {
       return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
     }
-
-    const toTop = document.querySelector('.to-top');
   
     window.addEventListener("scroll", () => {
       if (window.pageYOffset > 100) {
@@ -777,7 +896,6 @@
 
     function checkBreaksForColor(color){
       if (migration == 'e20_w0') {
-        console.log('emigration')
         if (color < breaks_e[0]){
           return inFlowColors[0]
         } else if (color < breaks_e[1]){
@@ -790,7 +908,6 @@
           return inFlowColors[4]
         }
       } else {
-        console.log('immigration')
         if (color < breaks_i[0]){
           return outFlowColors[0]
         } else if (color < breaks_i[1]){
@@ -826,5 +943,6 @@
         legend_colors[i].style.backgroundColor = "rgb(" + sign[4-i][0] + "," + sign[4-i][1] + "," + sign[4-i][2] + ")";
     }
   }
-
+  
+  
   </script>
