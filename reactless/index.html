@@ -118,6 +118,7 @@
   </div>
   <div class="mapPage page" id="mapNav">
      <div class="mapSwitch">
+        <span class="mapSpan">Switch between the maps - </span>
         <div class="switch">
            <input type="radio" class="switch-input" name="view" value="migration" id="migration" checked>
            <label for="migration" class="switch-label switch-label-off">Migration</label>
@@ -692,7 +693,9 @@
       .then(data => {
         arc_data = data
         dataSorted = keysrt(data.features, ['properties','COUNTRY']);
-
+        updateLayers(
+          dataSorted.find(f => f.properties.COUNTRY === startCountry), true
+        );
         countyLayer = new GeoJsonLayer({
           id: 'geojson',
           data,
@@ -702,9 +705,6 @@
           onClick: info => updateLayers(info.object, true),
           pickable: true
         });
-        updateLayers(
-          dataSorted.find(f => f.properties.COUNTRY === startCountry), true
-        );
       }); 
       if (layerName === 'e20_w0'){
         updateLegend(inFlowColors);
@@ -739,10 +739,8 @@
           };
         });
 
-        if (truePlot){
-        createPlot(countryNumbers, 5);
-        }
         colorList(arcs);
+        if(truePlot){createPlot(countryNumbers, 5);}
 
         arcLayer = new ArcLayer({
           id: 'arc',
