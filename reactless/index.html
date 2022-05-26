@@ -133,7 +133,7 @@
            <div class="arcslegend">
               <div class="text-legend">
                  <p style="font-size:15px;display:inline;text-align:justify"><b>Migration from 2010 to 2015</b>
-                 <p style="font-size:12px;text-align:justify">Estimated Migration [Number of people]</p>
+                 <p style="font-size:13px;text-align:justify">Estimated Migration [Number of people]</p>
                  <div class="legend-break">
                     <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(8,104,172);"></span>
                     <span> Legendeneintrag 1</span>
@@ -154,21 +154,21 @@
                     <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(240,249,232)"></span>
                     <span> Legendeneintrag 5</span>
                  </div>
-                 <p style="font-size:12px;text-align:justify">Average Anual Net Migration [number of migrants per 1000 inhabitants]</p>
+                 <p style="font-size:13px;text-align:justify">Average Annual Net Migration [number of migrants per 1000 inhabitants]</p>
                  <div class="legend-break">
-                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(8,104,172);"></span>
-                    <span> Positive Net Migration</span>
+                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgba(8,81,156,50);"></span>
+                    <span> Negative Net Migration</span>
                  </div>
                  <div class="legend-break">
-                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(123,204,196);"></span>
-                    <span> Negative Net Migration</span>
+                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgba(255,255,255,50);"></span>
+                    <span> Net Migration ~ 0</span>
                 </div>
                 <div class="legend-break">
-                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(186,228,188);"></span>
-                    <span> Net Migration around 0</span>
+                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgba(0,109,44,50);"></span>
+                    <span> Positive Net Migration</span>
                 </div>
                 <div class="legend-break">
-                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(240,249,232)"></span>
+                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgba(249,237,237,30)"></span>
                     <span> <i> No data available</i> </span>
                 </div>
               </div>
@@ -486,7 +486,7 @@
       COLOR_1: [8,81,156, 50], //blue
       COLOR_2: [255,255,255, 50], //grey
       COLOR_3: [0,109,44, 50], //green
-      COLOR_nodata: [249,237,237,30],
+      COLOR_nodata: [249,237,237,30]
     };
   
     const ICON_MAPPING_OUT = {
@@ -604,12 +604,6 @@
         } 
         else if (a.properties.F2010_2015 < 55.0) {
           return POLYGON_COLORS.COLOR_3; //positive Net Migation = green
-        /*} 
-        else if (a.properties.F2010_2015 < 18.0) {
-          return POLYGON_COLORS.COLOR_4;
-        } 
-        else if (a.properties.F2010_2015 < 55.0) {
-          return POLYGON_COLORS.COLOR_5;*/
         };
       },
     });
