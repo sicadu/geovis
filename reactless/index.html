@@ -525,16 +525,16 @@
           getSize: d => (Math.sqrt(d.REMI_O))/2,
           //sizeScale: 10,
           // Option A: if funktion, geht nicht egal ob ''/""/- und auch egal ob (REMI_O !== undefined return 10 oder REMI_O >=0 return 10)
-          sizeMinPixels: d => {
-            if (d.REMI_O == "undefined") {
-              return 0;
-            } 
-            else {
-              return 10;
-            }},
+          //sizeMinPixels: d => {
+            //if (d.REMI_O == "undefined") {
+              //return 0;
+            //} 
+            //else {
+              //return 10;
+            //}},
 
           //Option B: definiere minSize 
-          //sizeMinPixels: 10,
+          sizeMinPixels: 10,
 
           //Option C: definiere nichts: alle herausgelöschten Remis werden nicht angezeigt
 
@@ -552,13 +552,14 @@
           getPosition: d => [d.X, d.Y],
           getSize: d => (Math.sqrt(d.REMI_I))/2,
           //sizeScale: 0,
-          sizeMinPixels: d => {
+          sizeMinPixels: 10,
+          /*sizeMinPixels: d => {
             if (d.REMI_I == "undefined" ) {
               return 0;
             }
             else {
               return 10;
-            }},
+            }},*/
           getColor: d => [255, 187, 67, 150],
           pickable: true
         });
