@@ -182,11 +182,11 @@
                  <input type="radio" name="inout" id="option-2" value="i20_w0" onclick="layerChange(this.value)" >
                  <label for="option-1" class="option option-1">
                     <div class="dot"></div>
-                    <span>Emigration</span>
+                    <span>Immigration</span>
                  </label>
                  <label for="option-2" class="option option-2">
                     <div class="second dot"></div>
-                    <span>Immigration</span>
+                    <span>Emigration</span>
                  </label>
               </div>
            </fieldset>
@@ -483,11 +483,10 @@
     //teal: #d1eeea,#a8dbd9,#85c4c9,#68abb8,#4f90a6,#3b738f,#2a5674
 
     const POLYGON_COLORS = {
-      COLOR_1: [0, 0, 255, 50], //Blau
-      COLOR_2: [255,255,255, 50],
-      COLOR_3: [0, 255, 0, 80], // Grün
-      COLOR_nodata: [180,180,180,50],
-      /*COLOR_5: [160,172,150]*/
+      COLOR_1: [8,81,156, 50], //blue
+      COLOR_2: [255,255,255, 50], //grey
+      COLOR_3: [0,109,44, 50], //green
+      COLOR_nodata: [249,237,237,30],
     };
   
     const ICON_MAPPING_OUT = {
@@ -598,13 +597,13 @@
           return POLYGON_COLORS.COLOR_nodata
         }
         else if (a.properties.F2010_2015 < -1.0) {
-          return POLYGON_COLORS.COLOR_1;
+          return POLYGON_COLORS.COLOR_1; //negative Net Migration = blue
         } 
         else if (a.properties.F2010_2015 < 1.0) {
-          return POLYGON_COLORS.COLOR_2;
+          return POLYGON_COLORS.COLOR_2; //~0 = grey
         } 
         else if (a.properties.F2010_2015 < 55.0) {
-          return POLYGON_COLORS.COLOR_3;
+          return POLYGON_COLORS.COLOR_3; //positive Net Migation = green
         /*} 
         else if (a.properties.F2010_2015 < 18.0) {
           return POLYGON_COLORS.COLOR_4;
@@ -651,21 +650,21 @@
     
     // Define Arc colors -- Color with colorBrewer sequential 5 Colors 
     const inFlowColors = [ 
-      [240,249,232],
-      [186,228,188],
-      [123,204,196],
-      [67,162,202],
-      [8,104,172],
-    ];
-
-
-    [237,248,251],[178,226,226],[102,194,164],[44,162,95],[0,109,44]
-    const outFlowColors = [
       [237,248,251],
       [178,226,226],
       [102,194,164],
       [44,162,95],
       [0,109,44]
+    ];
+
+
+    [237,248,251],[178,226,226],[102,194,164],[44,162,95],[0,109,44]
+    const outFlowColors = [
+      [240,249,232],
+      [186,228,188],
+      [123,204,196],
+      [67,162,202],
+      [8,104,172],
     ];
 
     

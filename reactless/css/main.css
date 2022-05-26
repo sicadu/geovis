@@ -138,20 +138,20 @@ legend {
 }
 
 .wrapper .option .second::before {
-   background: rgb(0,109,44);
+   background: rgb(176,172,172);
 }
 
 input[type="radio"]{
   display: none;
 }
 #option-1:checked:checked ~ .option-1{
-  border-color: rgb(8,104,172);
-  background: rgb(8,104,172);
+  border-color: rgb(0,109,44); 
+  background: rgb(0,109,44);
 }
 
 #option-2:checked:checked ~ .option-2{
-   border-color: rgb(0,109,44);
-   background: rgb(0,109,44);
+   border-color: rgb(8,81,156); 
+   background: rgb(8,81,156);
 }
 
 #option-1:checked:checked ~ .option-1 .dot,
