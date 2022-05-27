@@ -1,15 +1,5 @@
 [
  {
-   "OBJECTID": 1,
-   "COUNTRY": "American Samoa",
-   "ISO": "AS",
-   "COUNTRYAFF": "United States",
-   "AFF_ISO": "US",
-   "GDP": 648000000,
-   "X": -170.70784,
-   "Y": -14.30440426
- },
- {
    "OBJECTID": 2,
    "COUNTRY": "French Polynesia",
    "ISO": "PF",
@@ -298,16 +288,6 @@
    "Y": 9.970202446
  },
  {
-   "OBJECTID": 26,
-   "COUNTRY": "Cuba",
-   "ISO": "CU",
-   "COUNTRYAFF": "Cuba",
-   "AFF_ISO": "CU",
-   "GDP": 103000000000,
-   "X": -79.03635406,
-   "Y": 21.62117004
- },
- {
    "OBJECTID": 27,
    "COUNTRY": "Curacao",
    "ISO": "CW",
@@ -426,16 +406,6 @@
    "GDP": 66984427150,
    "X": -80.10266113,
    "Y": 8.50718689
- },
- {
-   "OBJECTID": 37,
-   "COUNTRY": "Puerto Rico",
-   "ISO": "PR",
-   "COUNTRYAFF": "United States",
-   "AFF_ISO": "US",
-   "GDP": 105000000000,
-   "X": -66.46234131,
-   "Y": 18.22132874
  },
  {
    "OBJECTID": 38,
@@ -618,16 +588,6 @@
    "Y": 8.560284615
  },
  {
-   "OBJECTID": 53,
-   "COUNTRY": "Greenland",
-   "ISO": "GL",
-   "COUNTRYAFF": "Denmark",
-   "AFF_ISO": "DK",
-   "GDP": 2982247279,
-   "X": -41.38949966,
-   "Y": 74.72091675
- },
- {
    "OBJECTID": 54,
    "COUNTRY": "Ireland",
    "ISO": "IE",
@@ -638,16 +598,6 @@
    "GDP": 399000000000,
    "X": -8.150580406,
    "Y": 53.17638016
- },
- {
-   "OBJECTID": 55,
-   "COUNTRY": "Isle of Man",
-   "ISO": "IM",
-   "COUNTRYAFF": "United Kingdom",
-   "AFF_ISO": "GB",
-   "GDP": 7315388052,
-   "X": -4.525850773,
-   "Y": 54.2290802
  },
  {
    "OBJECTID": 56,
@@ -1202,17 +1152,6 @@
    "Y": 1.279963851
  },
  {
-   "OBJECTID": 102,
-   "COUNTRY": "Andorra",
-   "ISO": "AD",
-   "COUNTRYAFF": "Andorra",
-   "AFF_ISO": "AD",
-   "REMI_O": 92,
-   "GDP": 3155065488,
-   "X": 1.576765895,
-   "Y": 42.54865265
- },
- {
    "OBJECTID": 103,
    "COUNTRY": "United States",
    "ISO": "US",
@@ -1235,26 +1174,6 @@
    "GDP": 2730000000000,
    "X": 2.551954985,
    "Y": 46.56450272
- },
- {
-   "OBJECTID": 105,
-   "COUNTRY": "Liechtenstein",
-   "ISO": "LI",
-   "COUNTRYAFF": "Liechtenstein",
-   "AFF_ISO": "LI",
-   "GDP": 6684443550,
-   "X": 9.554269791,
-   "Y": 47.15184784
- },
- {
-   "OBJECTID": 106,
-   "COUNTRY": "Monaco",
-   "ISO": "MC",
-   "COUNTRYAFF": "Monaco",
-   "AFF_ISO": "MC",
-   "GDP": 7383745662,
-   "X": 7.412820816,
-   "Y": 43.74798203
  },
  {
    "OBJECTID": 107,
@@ -1435,16 +1354,6 @@
    "GDP": 597000000000,
    "X": 19.40088463,
    "Y": 52.1246109
- },
- {
-   "OBJECTID": 122,
-   "COUNTRY": "San Marino",
-   "ISO": "SM",
-   "COUNTRYAFF": "San Marino",
-   "AFF_ISO": "SM",
-   "GDP": 1616369646,
-   "X": 12.46097755,
-   "Y": 43.94294357
  },
  {
    "OBJECTID": 123,
@@ -1639,17 +1548,6 @@
    "Y": 33.83880615
  },
  {
-   "OBJECTID": 139,
-   "COUNTRY": "Bahrain",
-   "ISO": "BH",
-   "COUNTRYAFF": "Bahrain",
-   "AFF_ISO": "BH",
-   "REMI_O": 0,
-   "GDP": 38652579787,
-   "X": 50.55964279,
-   "Y": 26.02240562
- },
- {
    "OBJECTID": 140,
    "COUNTRY": "India",
    "ISO": "IN",
@@ -1780,17 +1678,6 @@
    "GDP": 45231428571,
    "X": 58.39131546,
    "Y": 39.21879196
- },
- {
-   "OBJECTID": 151,
-   "COUNTRY": "United Arab Emirates",
-   "ISO": "AE",
-   "COUNTRYAFF": "United Arab Emirates",
-   "AFF_ISO": "AE",
-   "REMI_O": 44976,
-   "GDP": 417000000000,
-   "X": 54.33515549,
-   "Y": 23.91093254
  },
  {
    "OBJECTID": 152,
@@ -2045,17 +1932,6 @@
    "Y": 36.52032852
  },
  {
-   "OBJECTID": 173,
-   "COUNTRY": "Brunei Darussalam",
-   "ISO": "BN",
-   "COUNTRYAFF": "Brunei Darussalam",
-   "AFF_ISO": "BN",
-   "REMI_O": 0,
-   "GDP": 13469422959,
-   "X": 114.7611008,
-   "Y": 4.521445751
- },
- {
    "OBJECTID": 174,
    "COUNTRY": "Philippines",
    "ISO": "PH",
@@ -2080,16 +1956,6 @@
    "Y": 46.835289
  },
  {
-   "OBJECTID": 176,
-   "COUNTRY": "Guam",
-   "ISO": "GU",
-   "COUNTRYAFF": "United States",
-   "AFF_ISO": "US",
-   "GDP": 6364000000,
-   "X": 144.7756042,
-   "Y": 13.44356537
- },
- {
    "OBJECTID": 177,
    "COUNTRY": "Japan",
    "ISO": "JP",
@@ -2112,16 +1978,6 @@
    "GDP": 239462200,
    "X": 168.62677,
    "Y": 7.643561363
- },
- {
-   "OBJECTID": 179,
-   "COUNTRY": "Northern Mariana Islands",
-   "ISO": "MP",
-   "COUNTRYAFF": "United States",
-   "AFF_ISO": "US",
-   "GDP": 1182000000,
-   "X": 145.6792145,
-   "Y": 15.08851814
  },
  {
    "OBJECTID": 180,
@@ -2159,530 +2015,26 @@
    "X": -3.491558075,
    "Y": 40.3830719
  },
- {
-   "OBJECTID": 183,
-   "COUNTRY": "British Virgin Islands",
-   "ISO": "VG",
-   "COUNTRYAFF": "United Kingdom",
-   "AFF_ISO": "GB",
-   "REMI_O": 0,
-   "GDP": null,
-   "X": -64.53042603,
-   "Y": 18.44458961
- },
- {
-   "OBJECTID": 184,
-   "COUNTRY": "Gibraltar",
-   "ISO": "GI",
-   "COUNTRYAFF": "United Kingdom",
-   "AFF_ISO": "GB",
-   "REMI_O": 0,
-   "GDP": null,
-   "X": -5.344892979,
-   "Y": 36.13821411
- },
- {
-   "OBJECTID": 185,
-   "COUNTRY": "Faroe Islands",
-   "ISO": "FO",
-   "COUNTRYAFF": "Denmark",
-   "AFF_ISO": "DK",
-   "REMI_O": 16,
-   "GDP": 3126293220,
-   "X": -6.88410902,
-   "Y": 62.03106308
- },
- {
-   "OBJECTID": 186,
-   "COUNTRY": "Zimbabwe",
-   "ISO": "ZW",
-   "COUNTRYAFF": "Zimbabwe",
-   "AFF_ISO": "ZW",
-   "REMI_O": 0,
-   "GDP": 19284289739,
-   "X": 29.87183762,
-   "Y": -19.00009727
- },
- {
-   "OBJECTID": 187,
-   "COUNTRY": "South Sudan",
-   "ISO": "SS",
-   "COUNTRYAFF": "South Sudan",
-   "AFF_ISO": "SS",
-   "REMI_O": 200,
-   "GDP": null,
-   "X": 30.32024193,
-   "Y": 7.27866745
- },
- {
-   "OBJECTID": 188,
-   "COUNTRY": "Sudan",
-   "ISO": "SD",
-   "COUNTRYAFF": "Sudan",
-   "AFF_ISO": "SD",
-   "REMI_O": 0,
-   "GDP": 26155799325,
-   "X": 29.9605217,
-   "Y": 15.99964428
- },
- {
-   "OBJECTID": 189,
-   "COUNTRY": "Somalia",
-   "ISO": "SO",
-   "COUNTRYAFF": "Somalia",
-   "AFF_ISO": "SO",
-   "REMI_O": 0,
-   "GDP": 6476674592,
-   "X": 45.86259079,
-   "Y": 6.063723087
- },
- {
-   "OBJECTID": 190,
-   "COUNTRY": "Nauru",
-   "ISO": "NR",
-   "COUNTRYAFF": "Nauru",
-   "AFF_ISO": "NR",
-   "GDP": 118724074,
-   "X": 166.9293823,
-   "Y": -0.522102118
- },
- {
-   "OBJECTID": 191,
-   "COUNTRY": "United States Minor Outlying Islands",
-   "ISO": "UM",
-   "COUNTRYAFF": "United States",
-   "AFF_ISO": "US",
-   "REMI_O": 0,
-   "GDP": null,
-   "X": -5.07808876,
-   "Y": 15.932971
- },
- {
-   "OBJECTID": 192,
-   "COUNTRY": "Cook Islands",
-   "ISO": "CK",
-   "COUNTRYAFF": "New Zealand",
-   "AFF_ISO": "NZ",
-   "REMI_O": 99,
-   "GDP": null,
-   "X": -158.9089203,
-   "Y": -20.93399429
- },
- {
-   "OBJECTID": 193,
-   "COUNTRY": "Niue",
-   "ISO": "NU",
-   "COUNTRYAFF": "New Zealand",
-   "AFF_ISO": "NZ",
-   "GDP": null,
-   "X": -169.8687744,
-   "Y": -19.05230904
- },
- {
-   "OBJECTID": 194,
-   "COUNTRY": "Pitcairn",
-   "ISO": "PN",
-   "COUNTRYAFF": "United Kingdom",
-   "AFF_ISO": "GB",
-   "REMI_O": 0,
-   "GDP": null,
-   "X": -128.5931549,
-   "Y": -24.47649765
- },
- {
-   "OBJECTID": 195,
-   "COUNTRY": "Tokelau",
-   "ISO": "TK",
-   "COUNTRYAFF": "New Zealand",
-   "AFF_ISO": "NZ",
-   "REMI_O": 908,
-   "GDP": null,
-   "X": -171.8526611,
-   "Y": -9.195175171
- },
- {
-   "OBJECTID": 196,
-   "COUNTRY": "Wallis and Futuna",
-   "ISO": "WF",
-   "COUNTRYAFF": "France",
-   "AFF_ISO": "FR",
-   "REMI_O": 0,
-   "GDP": null,
-   "X": -177.1507874,
-   "Y": -13.78743362
- },
- {
-   "OBJECTID": 197,
-   "COUNTRY": "Falkland Islands",
-   "ISO": "FK",
-   "COUNTRYAFF": "United Kingdom",
-   "AFF_ISO": "GB",
-   "REMI_O": 0,
-   "GDP": null,
-   "X": -59.36330032,
-   "Y": -51.73711777
- },
- {
-   "OBJECTID": 198,
-   "COUNTRY": "South Georgia and South Sandwich Islands",
-   "ISO": "GS",
-   "COUNTRYAFF": "United Kingdom",
-   "AFF_ISO": "GB",
-   "REMI_O": 1004,
-   "GDP": null,
-   "X": -36.38237381,
-   "Y": -54.48814392
- },
- {
-   "OBJECTID": 200,
-   "COUNTRY": "Saint Helena",
-   "ISO": "SH",
-   "COUNTRYAFF": "United Kingdom",
-   "AFF_ISO": "GB",
-   "REMI_O": 16,
-   "GDP": null,
-   "X": -5.717151642,
-   "Y": -15.96154594
- },
- {
-   "OBJECTID": 201,
-   "COUNTRY": "Anguilla",
-   "ISO": "AI",
-   "COUNTRYAFF": "United Kingdom",
-   "AFF_ISO": "GB",
-   "REMI_O": 0,
-   "GDP": null,
-   "X": -63.0600853,
-   "Y": 18.22287369
- },
- {
-   "OBJECTID": 202,
-   "COUNTRY": "Bahamas",
-   "ISO": "BS",
-   "COUNTRYAFF": "Bahamas",
-   "AFF_ISO": "BS",
-   "REMI_O": 351,
-   "GDP": null,
-   "X": -76.54662323,
-   "Y": 24.20112038
- },
- {
-   "OBJECTID": 203,
-   "COUNTRY": "Bonaire",
-   "ISO": "BQ",
-   "COUNTRYAFF": "Netherlands",
-   "AFF_ISO": "NL",
-   "REMI_O": 0,
-   "GDP": null,
-   "X": -68.28430939,
-   "Y": 12.18761826
- },
- {
-   "OBJECTID": 204,
-   "COUNTRY": "French Guiana",
-   "ISO": "GF",
-   "COUNTRYAFF": "France",
-   "AFF_ISO": "FR",
-   "REMI_O": 0,
-   "GDP": null,
-   "X": -53.24122238,
-   "Y": 3.924688339
- },
- {
-   "OBJECTID": 205,
-   "COUNTRY": "Guadeloupe",
-   "ISO": "GP",
-   "COUNTRYAFF": "France",
-   "AFF_ISO": "FR",
-   "REMI_O": 574,
-   "GDP": null,
-   "X": -61.53674698,
-   "Y": 16.20346069
- },
- {
-   "OBJECTID": 206,
-   "COUNTRY": "Martinique",
-   "ISO": "MQ",
-   "COUNTRYAFF": "France",
-   "AFF_ISO": "FR",
-   "REMI_O": 106,
-   "GDP": null,
-   "X": -61.02128601,
-   "Y": 14.65254688
- },
- {
-   "OBJECTID": 207,
-   "COUNTRY": "Montserrat",
-   "ISO": "MS",
-   "COUNTRYAFF": "United Kingdom",
-   "AFF_ISO": "GB",
-   "REMI_O": 11232,
-   "GDP": null,
-   "X": -62.18693161,
-   "Y": 16.73536301
- },
- {
-   "OBJECTID": 208,
-   "COUNTRY": "Saba",
-   "ISO": "BQ",
-   "COUNTRYAFF": "Netherlands",
-   "AFF_ISO": "NL",
-   "REMI_O": 0,
-   "GDP": null,
-   "X": -63.23753738,
-   "Y": 17.63223076
- },
- {
-   "OBJECTID": 209,
-   "COUNTRY": "Saint Barthelemy",
-   "ISO": "BL",
-   "COUNTRYAFF": "France",
-   "AFF_ISO": "FR",
-   "REMI_O": 459,
-   "GDP": null,
-   "X": -62.82920074,
-   "Y": 17.902668
- },
- {
-   "OBJECTID": 210,
-   "COUNTRY": "Saint Eustatius",
-   "ISO": "BQ",
-   "COUNTRYAFF": "Netherlands",
-   "AFF_ISO": "NL",
-   "GDP": null,
-   "X": -62.97813797,
-   "Y": 17.49090576
- },
- {
-   "OBJECTID": 211,
-   "COUNTRY": "Saint Kitts and Nevis",
-   "ISO": "KN",
-   "COUNTRYAFF": "Saint Kitts and Nevis",
-   "AFF_ISO": "KN",
-   "GDP": null,
-   "X": -62.75351715,
-   "Y": 17.32618904
- },
- {
-   "OBJECTID": 212,
-   "COUNTRY": "Saint Lucia",
-   "ISO": "LC",
-   "COUNTRYAFF": "Saint Lucia",
-   "AFF_ISO": "LC",
-   "GDP": null,
-   "X": -60.96871185,
-   "Y": 13.89786625
- },
- {
-   "OBJECTID": 213,
-   "COUNTRY": "Saint Martin",
-   "ISO": "MF",
-   "COUNTRYAFF": "France",
-   "AFF_ISO": "FR",
-   "GDP": null,
-   "X": -63.05878448,
-   "Y": 18.07946014
- },
- {
-   "OBJECTID": 214,
-   "COUNTRY": "Saint Pierre and Miquelon",
-   "ISO": "PM",
-   "COUNTRYAFF": "France",
-   "AFF_ISO": "FR",
-   "GDP": null,
-   "X": -56.30610275,
-   "Y": 46.93091965
- },
- {
-   "OBJECTID": 215,
-   "COUNTRY": "Saint Vincent and the Grenadines",
-   "ISO": "VC",
-   "COUNTRYAFF": "Saint Vincent and the Grenadines",
-   "AFF_ISO": "VC",
-   "GDP": null,
-   "X": -61.19376755,
-   "Y": 13.25480843
- },
- {
-   "OBJECTID": 216,
-   "COUNTRY": "Sint Maarten",
-   "ISO": "SX",
-   "COUNTRYAFF": "Netherlands",
-   "AFF_ISO": "NL",
-   "GDP": null,
-   "X": -63.06328583,
-   "Y": 18.03794479
- },
- {
-   "OBJECTID": 217,
-   "COUNTRY": "US Virgin Islands",
-   "ISO": "VI",
-   "COUNTRYAFF": "United States",
-   "AFF_ISO": "US",
-   "GDP": null,
-   "X": -64.80702972,
-   "Y": 17.90510178
- },
- {
-   "OBJECTID": 218,
-   "COUNTRY": "Venezuela",
-   "ISO": "VE",
-   "COUNTRYAFF": "Venezuela",
-   "AFF_ISO": "VE",
-   "GDP": null,
-   "X": -66.16956329,
-   "Y": 7.122448921
- },
- {
-   "OBJECTID": 219,
-   "COUNTRY": "Côte d'Ivoire",
-   "ISO": "CI",
-   "COUNTRYAFF": "Côte d'Ivoire",
-   "AFF_ISO": "CI",
-   "GDP": null,
-   "X": -5.55561924,
-   "Y": 7.631533146
- },
- {
-   "OBJECTID": 220,
-   "COUNTRY": "Gambia",
-   "ISO": "GM",
-   "COUNTRYAFF": "Gambia",
-   "AFF_ISO": "GM",
-   "GDP": null,
-   "X": -15.38664055,
-   "Y": 13.45265007
- },
- {
-   "OBJECTID": 221,
-   "COUNTRY": "Guernsey",
-   "ISO": "GG",
-   "COUNTRYAFF": "United Kingdom",
-   "AFF_ISO": "GB",
-   "GDP": null,
-   "X": -2.576392651,
-   "Y": 49.4587059
- },
- {
-   "OBJECTID": 222,
-   "COUNTRY": "Jersey",
-   "ISO": "JE",
-   "COUNTRYAFF": "United Kingdom",
-   "AFF_ISO": "GB",
-   "GDP": null,
-   "X": -2.128652573,
-   "Y": 49.21911621
- },
- {
-   "OBJECTID": 223,
-   "COUNTRY": "Svalbard",
-   "ISO": "SJ",
-   "COUNTRYAFF": "Norway",
-   "AFF_ISO": "NO",
-   "GDP": null,
-   "X": 18.36346626,
-   "Y": 78.82863617
- },
- {
-   "OBJECTID": 224,
-   "COUNTRY": "Bouvet Island",
-   "ISO": "BV",
-   "COUNTRYAFF": "Norway",
-   "AFF_ISO": "NO",
-   "GDP": null,
-   "X": 3.412521362,
-   "Y": -54.42190552
- },
- {
-   "OBJECTID": 225,
-   "COUNTRY": "Congo",
-   "ISO": "CG",
-   "COUNTRYAFF": "Congo",
-   "AFF_ISO": "CG",
-   "GDP": null,
-   "X": 15.22429371,
-   "Y": -0.840231836
- },
- {
-   "OBJECTID": 226,
-   "COUNTRY": "Congo DRC",
-   "ISO": "CD",
-   "COUNTRYAFF": "Congo DRC",
-   "AFF_ISO": "CD",
-   "GDP": null,
-   "X": 23.65500641,
-   "Y": -2.87623477
- },
- {
-   "OBJECTID": 227,
-   "COUNTRY": "Juan De Nova Island",
-   "ISO": "TF",
-   "COUNTRYAFF": "France",
-   "AFF_ISO": "FR",
-   "GDP": null,
-   "X": 42.74374771,
-   "Y": -17.06449127
- },
- {
-   "OBJECTID": 228,
-   "COUNTRY": "British Indian Ocean Territory",
-   "ISO": "IO",
-   "COUNTRYAFF": "United Kingdom",
-   "AFF_ISO": "GB",
-   "GDP": null,
-   "X": 72.43402863,
-   "Y": -7.334268093
- },
- {
-   "OBJECTID": 229,
-   "COUNTRY": "French Southern Territories",
-   "ISO": "TF",
-   "COUNTRYAFF": "France",
-   "AFF_ISO": "FR",
-   "GDP": null,
-   "X": 68.86193085,
-   "Y": -49.19179535
- },
- {
-   "OBJECTID": 230,
-   "COUNTRY": "Heard Island and McDonald Islands",
-   "ISO": "HM",
-   "COUNTRYAFF": "Australia",
-   "AFF_ISO": "AU",
-   "GDP": null,
-   "X": 73.49837494,
-   "Y": -53.09133148
- },
- {
-   "OBJECTID": 231,
-   "COUNTRY": "Mayotte",
-   "ISO": "YT",
-   "COUNTRYAFF": "France",
-   "AFF_ISO": "FR",
-   "GDP": null,
-   "X": 45.13869858,
-   "Y": -12.81871223
- },
- {
-   "OBJECTID": 232,
-   "COUNTRY": "Glorioso Islands",
-   "ISO": "TF",
-   "COUNTRYAFF": "France",
-   "AFF_ISO": "FR",
-   "GDP": null,
-   "X": 47.29094696,
-   "Y": -11.56622505
- },
- {
-   "OBJECTID": 233,
-   "COUNTRY": "Réunion",
-   "ISO": "RE",
-   "COUNTRYAFF": "France",
-   "AFF_ISO": "FR",
-   "GDP": null,
-   "X": 55.5381813,
-   "Y": -21.12166214
- },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  {
    "OBJECTID": 234,
    "COUNTRY": "Egypt",
@@ -2694,155 +2046,5 @@
    "GDP": null,
    "X": 29.87195778,
    "Y": 26.49425507
- },
- {
-   "OBJECTID": 235,
-   "COUNTRY": "Palestinian Territory",
-   "ISO": "PS",
-   "COUNTRYAFF": "Palestinian Territory",
-   "AFF_ISO": "PS",
-   "GDP": null,
-   "X": 35.20410156,
-   "Y": 31.91438293
- },
- {
-   "OBJECTID": 236,
-   "COUNTRY": "Syria",
-   "ISO": "SY",
-   "COUNTRYAFF": "Syria",
-   "AFF_ISO": "SY",
-   "GDP": null,
-   "X": 38.50513077,
-   "Y": 35.013134
- },
- {
-   "OBJECTID": 237,
-   "COUNTRY": "Slovakia",
-   "ISO": "SK",
-   "COUNTRYAFF": "Slovakia",
-   "AFF_ISO": "SK",
-   "GDP": null,
-   "X": 19.49165154,
-   "Y": 48.70753098
- },
- {
-   "OBJECTID": 238,
-   "COUNTRY": "Vatican City",
-   "ISO": "VA",
-   "COUNTRYAFF": "Vatican City",
-   "AFF_ISO": "VA",
-   "GDP": null,
-   "X": 12.45135498,
-   "Y": 41.90398788
- },
- {
-   "OBJECTID": 239,
-   "COUNTRY": "Iran",
-   "ISO": "IR",
-   "COUNTRYAFF": "Iran",
-   "AFF_ISO": "IR",
-   "GDP": null,
-   "X": 54.19776535,
-   "Y": 32.73946381
- },
- {
-   "OBJECTID": 240,
-   "COUNTRY": "Yemen",
-   "ISO": "YE",
-   "COUNTRYAFF": "Yemen",
-   "AFF_ISO": "YE",
-   "GDP": null,
-   "X": 47.59996796,
-   "Y": 15.90561867
- },
- {
-   "OBJECTID": 241,
-   "COUNTRY": "Kyrgyzstan",
-   "ISO": "KG",
-   "COUNTRYAFF": "Kyrgyzstan",
-   "AFF_ISO": "KG",
-   "GDP": null,
-   "X": 74.5555954,
-   "Y": 41.46505356
- },
- {
-   "OBJECTID": 242,
-   "COUNTRY": "Christmas Island",
-   "ISO": "CX",
-   "COUNTRYAFF": "Australia",
-   "AFF_ISO": "AU",
-   "GDP": null,
-   "X": 105.7036972,
-   "Y": -10.44411659
- },
- {
-   "OBJECTID": 243,
-   "COUNTRY": "Cocos Islands",
-   "ISO": "CC",
-   "COUNTRYAFF": "Australia",
-   "AFF_ISO": "AU",
-   "GDP": null,
-   "X": 96.83689117,
-   "Y": -12.17124939
- },
- {
-   "OBJECTID": 244,
-   "COUNTRY": "Norfolk Island",
-   "ISO": "NF",
-   "COUNTRYAFF": "Australia",
-   "AFF_ISO": "AU",
-   "GDP": null,
-   "X": 167.9525909,
-   "Y": -29.03765488
- },
- {
-   "OBJECTID": 245,
-   "COUNTRY": "Laos",
-   "ISO": "LA",
-   "COUNTRYAFF": "Laos",
-   "AFF_ISO": "LA",
-   "GDP": null,
-   "X": 103.7632904,
-   "Y": 18.50274277
- },
- {
-   "OBJECTID": 246,
-   "COUNTRY": "South Korea",
-   "ISO": "KR",
-   "COUNTRYAFF": "South Korea",
-   "AFF_ISO": "KR",
-   "GDP": null,
-   "X": 127.8347702,
-   "Y": 36.37509155
- },
- {
-   "OBJECTID": 247,
-   "COUNTRY": "North Korea",
-   "ISO": "KP",
-   "COUNTRYAFF": "North Korea",
-   "AFF_ISO": "KP",
-   "GDP": null,
-   "X": 127.1819534,
-   "Y": 40.14306259
- },
- {
-   "OBJECTID": 248,
-   "COUNTRY": "Micronesia",
-   "ISO": "FM",
-   "COUNTRYAFF": "Micronesia",
-   "AFF_ISO": "FM",
-   "GDP": null,
-   "X": 159.4042206,
-   "Y": 6.492378712
- },
- {
-   "OBJECTID": 249,
-   "COUNTRY": "Canarias",
-   "ISO": "ES",
-   "COUNTRYAFF": "Spain",
-   "AFF_ISO": "ES",
-   "GDP": null,
-   "X": -15.67404747,
-   "Y": 28.33662605
  }
 ]

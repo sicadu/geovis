@@ -541,22 +541,53 @@ input[type="range"]::-moz-range-thumb{
   width: 100%;
 }
 
-/* Textboxes*/
 .text-box{
-  /*position: center;*/
   font-family: sans-serif;
-  /*max-width: 686px;*/
-  /*height: 220px;*/
   background: #dddddd;
-  /*padding:;*/
-  /*box-shadow: 0 0 22px #3336;*/
-  /*margin: 30px 20px 30px 20px;*/
-  /* margin-left: 20px;*/
   position: relative;
-  height: 85vh;
-  width: 80vw;
-  max-width: 1200px;
+  height: 100vh;
+  width: 95vw;
+  max-width: 2330px;
   float: left;
+}
+
+.text-box-migration{
+  font-family: sans-serif;
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  top: 20px;
+  left: 20px; 
+
+}
+
+.text-box-remittance{
+  font-family: sans-serif;
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  top: 20px;
+  right: 20px;
+
+}
+
+.text-box-video{
+  font-family: sans-serif;
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  right: 20px;
+  bottom: 500px;
+  border: solid
+}
+
+.text-box-final{
+  font-family: sans-serif;
+  position: absolute;
+  height: 30;
+  width: 600px;
+  left: 20px;
+  bottom: 30px
 }
 
 .text-title{

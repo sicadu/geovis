@@ -70,50 +70,47 @@
   <div class="background page" id="backgroundNav">
      <div class= "text-box">
         <div class="text-title">Background</div>
-        <div class= "text-section">
-           <p style="text-align: justify"> <b>Why remittances matter:</b><br>
-              The Sustainable Development Goals (SDG) are an urgent call
-              for action to reduce all forms of inequality and deprivation 
-              as well as to preserve the nature of our planet (UN, 2021). 
-              These goals are to be achieved by 2030. Migration is a cross-cutting 
-              issue and is relevant to all seventeen goals (Migration Data 
-              Portal, no date). While it is not explicitly one of the goals, 
-              it is crucial to understand migration patterns because of its 
-              relationship to the goals above. This Web Page provides an 
-              overview of migration and its aftereffect: Remittances.<br>
-              <br>Remittances are household incomes from foreign countries 
-              that result from the temporary or permanent movement of people 
-              to those countries (IMF, 2009). In the past years the interest 
-              in remittances increased and bridges between academic and 
-              political spheres were created (Gubert, 2017). A specific United 
-              Nation goal is to decrease transaction costs (SDG 10.c) of migrant 
-              remittances, as this is one of the most important and mature steps 
-              taken to increase incomes in developing countries (IOM, 2017). 
-              Concrete examples in the Global Forum on Remittances, Investment 
-              and Development (GFRID, 2017) have shown how migrant remittances 
-              and diaspora investments were reducing poverty and hunger and 
-              promoting access to health and education (UN, no date).<br>
-           </p>
-           <b>7 facts about remittances:</b>
-           <br>
+        <div class="text-box-migration"></div>
+          <div class= "text-section">
+            <p style="text-align: justify"> <b>Migration</b><br>
+                Text Migration<br>
+            </p>
+          </div>
+        <div class="text-box-remittance">
+          <div class= "text-section">
+            <p style="text-align: justify"> <b>Remittances</b><br>
+                Text Remittance<br>
+            </p>
+          </div>
         </div>
-        <img class="center-cropped" src="./images/Graphik_7Punkte_2.png" />
-        <div class= "text-section">
-           <p style="text-align: justify">In order to approach the reduction of inequalities – especially 
-              the remittance costs, it is crucial to better understand the global 
-              pattern and dynamics of migration and financial flows between countries. 
-              According to the Global Knowledge Partnership on Migration and Development 
-              (KNOMAD), which has the same objective, this knowledge can be used by 
-              policy makers in sending and receiving countries (Gubert, 2017).
-           </p>
+
+        <div class="text-box-video">
+          <div class="text-section">
+            <p style="text-align: justify">Text über Video.</p>
+          </div>
         </div>
-        <!-- 
-        <iframe src="https://embed.ted.com/talks/lang/en/dilip_ratha_the_hidden_force_in_global_economics_sending_money_home"
-          height=40% 
-           width=60%
-           allowfullscreen=true>    
-        </iframe>
-        -->
+
+        <div class="text-box-final">
+          <div class= "text-section">
+            <p style="text-align: justify">Final Blabla
+            </p>
+          </div>
+        </div>
+
+        <!--
+            <b>7 facts about remittances:</b>
+            <br>
+          </div>
+          <img class="center-cropped" src="./images/Graphik_7Punkte_2.png" />
+          -->
+          
+          <!-- 
+          <iframe src="https://embed.ted.com/talks/lang/en/dilip_ratha_the_hidden_force_in_global_economics_sending_money_home"
+            height=40% 
+            width=60%
+            allowfullscreen=true>    
+          </iframe>
+          -->
      </div>
   </div>
   <div class="mapPage page" id="mapNav">
@@ -472,6 +469,7 @@
           latitude: 50,
           zoom: 3,
           maxZoom: 15,
+          minZoom: 2,
           pitch: 30,
           bearing: 0
         },
@@ -534,7 +532,7 @@
             //}},
 
           //Option B: definiere minSize 
-          sizeMinPixels: 10,
+          sizeMinPixels: 6,
 
           //Option C: definiere nichts: alle herausgelöschten Remis werden nicht angezeigt
 
@@ -552,7 +550,7 @@
           getPosition: d => [d.X, d.Y],
           getSize: d => (Math.sqrt(d.REMI_I))/2,
           //sizeScale: 0,
-          sizeMinPixels: 10,
+          sizeMinPixels: 6,
           /*sizeMinPixels: d => {
             if (d.REMI_I == "undefined" ) {
               return 0;
