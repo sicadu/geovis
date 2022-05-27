@@ -533,13 +533,7 @@ input[type="range"]::-moz-range-thumb{
     background-color: var(--color3)
 }
 
-/* Info Graphic */
-.center-cropped {
-  object-fit: cover; /* Do not scale the image */
-  object-position: center; /* Center the image within the element */
-  height: 45%;
-  width: 100%;
-}
+
 
 .text-box{
   font-family: sans-serif;
@@ -565,7 +559,7 @@ input[type="range"]::-moz-range-thumb{
   height: auto;
   width: 32vw;
   padding: 10px;
-  top: 40px;
+  top: 80px;
   left: 20px; 
 
 }
@@ -576,11 +570,23 @@ input[type="range"]::-moz-range-thumb{
   height: auto;
   width: 32vw;
   padding: 10px;
-  top: 40px;
+  top:80px;
   right: 20px;
 
 }
 
+/* Info Graphic */
+.center-cropped {
+  position: absolute;
+  object-fit: cover; /* Do not scale the image */
+  object-position: center; /* Center the image within the element */
+  height: auto;
+  /*width: 100%;*/
+  width: 1740px; 
+  padding: 10px;
+  left: 10px;
+  bottom: 260px;
+}
 
 .text-box-video{
   font-family: sans-serif;
@@ -589,7 +595,7 @@ input[type="range"]::-moz-range-thumb{
   width: 32vw;
   padding: 10px;
   right: 20px;
-  bottom: 300px;
+  bottom: 260px;
 }
 
 .text-box-final{
