@@ -545,18 +545,27 @@ input[type="range"]::-moz-range-thumb{
   font-family: sans-serif;
   background: #dddddd;
   position: relative;
-  height: 100vh;
-  width: 95vw;
-  max-width: 2330px;
+  height: 90vh;
+  width: 90vw;
+  max-width: 1800px;
   float: left;
+}
+
+.text-title{
+  text-align: center;
+  top: 20px;
+  padding: 10px  0px 20px;
+  font-size: 36px;
+  color: rgb(64, 64, 64);
 }
 
 .text-box-migration{
   font-family: sans-serif;
   position: absolute;
-  height: 300px;
-  width: 300px;
-  top: 20px;
+  height: auto;
+  width: 32vw;
+  padding: 10px;
+  top: 40px;
   left: 20px; 
 
 }
@@ -564,38 +573,35 @@ input[type="range"]::-moz-range-thumb{
 .text-box-remittance{
   font-family: sans-serif;
   position: absolute;
-  height: 300px;
-  width: 300px;
-  top: 20px;
+  height: auto;
+  width: 32vw;
+  padding: 10px;
+  top: 40px;
   right: 20px;
 
 }
 
+
 .text-box-video{
   font-family: sans-serif;
   position: absolute;
-  height: 300px;
-  width: 300px;
+  height: auto;
+  width: 32vw;
+  padding: 10px;
   right: 20px;
-  bottom: 500px;
-  border: solid
+  bottom: 300px;
 }
 
 .text-box-final{
   font-family: sans-serif;
   position: absolute;
-  height: 30;
-  width: 600px;
+  height: auto;
+  width: 70.31vw;
+  padding: 10px;
   left: 20px;
-  bottom: 30px
+  bottom: 20px
 }
 
-.text-title{
-  text-align: center;
-  padding: 10px  0px 20px;
-  font-size: 36px;
-  color: rgb(64, 64, 64);
-}
 
 .text-section{
   padding: 5px;
