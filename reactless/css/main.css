@@ -584,6 +584,7 @@ input[type="range"]::-moz-range-thumb{
   position: absolute;
   /*object-fit: cover;  Do not scale the image 
   object-position: center; Center the image within the element */
+
   height: 21vh;
   width: 79vw;
   padding: 2px;
