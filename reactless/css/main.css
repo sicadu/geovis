@@ -578,16 +578,6 @@ input[type="range"]::-moz-range-thumb{
 /* Info Graphic */
 .center-cropped {
   position: absolute;
-<<<<<<< Updated upstream
-  object-fit: cover; /* Do not scale the image */
-  object-position: center; /* Center the image within the element */
-  height: auto;
-  /*width: 100%;*/
-  width: 1740px; 
-  padding: 10px;
-  left: 10px;
-  bottom: 260px;
-=======
   /*object-fit: cover;  Do not scale the image 
   object-position: center; Center the image within the element */
   height: 32vh;
@@ -595,7 +585,6 @@ input[type="range"]::-moz-range-thumb{
   padding: 2px;
   left: 0.5vw;
   bottom: 29vh;
->>>>>>> Stashed changes
 }
 
 .text-box-video{
@@ -604,10 +593,6 @@ input[type="range"]::-moz-range-thumb{
   height: auto;
   width: 32vw;
   padding: 10px;
-<<<<<<< Updated upstream
-  right: 20px;
-  bottom: 260px;
-=======
   right: 0vw;
   bottom: 8vh;
   /*border: solid 1px;*/
@@ -620,7 +605,6 @@ input[type="range"]::-moz-range-thumb{
   padding: 2px;
   left: 0vw;
   bottom: 10vh; 
->>>>>>> Stashed changes
 }
 
 .text-box-final{
