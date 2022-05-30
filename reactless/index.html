@@ -230,7 +230,9 @@
            </fieldset>
 
            <fieldset class="controlPanel">
+               
               <legend class="fsTitle">Control Panel</legend>
+              <button class="controlButton">Update</button>
               <div class="controlTitle">Migration Filter</div>            
               <div class="wrapper2">
                 <div class="price-input">
@@ -248,8 +250,8 @@
                   <div class="progress"></div>
                 </div>
                 <div class="range-input">
-                  <input type="range" class="range-min" min="0" max="100000" value="0" step="100">
-                  <input type="range" class="range-max" min="0" max="100000" value="1000000" step="100">
+                  <input type="range" class="range-min" min="0" max="1000000" value="0" step="100">
+                  <input type="range" class="range-max" min="0" max="10000000" value="10000000" step="100">
                 </div>
               </div>
               <div class="controlTitle">Line Width</div>
@@ -262,6 +264,7 @@
           </fieldset>
 
             <script type="text/javascript">
+              var currentMax = 0;
               const rangeInput = document.querySelectorAll(".range-input input"),
               priceInput = document.querySelectorAll(".price-input input"),
               range = document.querySelector(".slider .progress");
@@ -282,7 +285,7 @@
                               range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
                           }
                       }
-                      updateLayers(updateStartCountry, false);
+                      currentMax = maxVal;
                   });
               });
               rangeInput.forEach(input =>{
@@ -301,10 +304,14 @@
                           range.style.left = ((minVal / rangeInput[0].max) * 100) + "%";
                           range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
                       }
-
-                      updateLayers(updateStartCountry, false);
+                      currentMax = maxVal;
                   });
               });
+
+              $(".controlButton").click(function() {
+                reduceData(currentMax);
+                updateLayers(updateStartCountry, true)
+              })
             </script>
              
             
@@ -846,7 +853,7 @@
         });
 
         colorList(arcs);
-        if(truePlot){createPlot(countryNumbers, 5);}
+        if(truePlot){createPlot(countryNumbers, 5, filterFromTop);}
 
         arcLayer = new ArcLayer({
           id: 'arc',
@@ -894,24 +901,45 @@
           });
       }
 
-    var myChart;
+    
+    function reduceData(filterValue) {
+      console.log(filterValue);
+      console.log(topCountriesValues);
+      var predicateBigger = (x) => x < filterValue;
+      filterFromTop = topCountriesValues.length - topCountriesValues.filter(predicateBigger).length;
+      console.log(filterFromTop)
+    } 
 
+    var myChart, migrationValues, countryMigration, topCountries, countryKey, topCountriesValues;
+    var filterFromTop = 1000000000;
 
-    function createPlot(data, n){
+    function createPlot(data, n, filter = 0){
       if (myChart){
         myChart.destroy();
       }
+      countryMigration = data;
 
-      var topCountries = getTopN(data, 'migration', n);
-      var migrationValues = [];
-      var countryKey = [];
+      console.log(data.length);
 
-      for (let i =0; i<n ;i++) {
+      topCountries = getTopN(data, 'migration', data.length);
+
+      topCountriesValues = [];
+
+      for (let i = 0; i<data.length ;i++){
+        topCountriesValues.push(topCountries[i]['migration'])
+      }
+
+      migrationValues = [];
+      countryKey = [];
+
+      for (let i = filter; i<n+filter ;i++) {
         migrationValues.push(topCountries[i]['migration']);
         countryKey.push(topCountries[i]['country']);
       } 
 
-      Chart.register(ChartDataLabels)
+      console.log(migrationValues);
+
+      //Chart.register(ChartDataLabels)
 
       const config = {
         type: 'bar',
@@ -920,13 +948,13 @@
           datasets: [
             {
               backgroundColor: colorD3,
-              data: migrationValues,
+              data: migrationValues, /*
               datalabels: {
                 color: 'white',
                 anchor: 'end',
                 align: 'start',
 
-              }
+              }*/
             }
           ]
         },
@@ -934,10 +962,11 @@
           maintainAspectRatio: false,
           indexAxis: 'y',
           plugins: {
-            title: {display: true, 
+            title: {
+              display: true, 
               text: 'Top Migration',
               font: {
-                size: 15,
+                size: 20,
               }},
             legend: {display: false},
             tooltips: {enabled: false}
@@ -948,7 +977,7 @@
             }
           }
         },
-        plugins: [ChartDataLabels]
+        //plugins: [ChartDataLabels]
       };
 
       myChart = new Chart(

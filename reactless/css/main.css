@@ -264,16 +264,24 @@ input[type="radio"]{
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
 }
 
+.chartWrapper canvas {
+  padding: 20px;
+}
+
 .chartBigWrapper{
   background-color:rgba(123,204,196, 0.2);
   transition: all 0.5s;
   position: absolute;
-  height: 80vh;
+  height: 81vh;
   width: 95vw;
-  bottom: 0px;
-  right: 0px;
+  bottom: -10px;
+  right: -10px;
   border: 1px solid black;
   background-color: white;
+}
+
+.chartBigWrapper canvas{
+  padding: 2%;
 }
 
 .controlPanel{
@@ -284,6 +292,11 @@ input[type="radio"]{
   flex-direction: column;
   margin-top: 2%;
   padding: 0;
+}
+
+.controlButton{
+  position: absolute;
+  right: 10px;
 }
 
 .controlTitle {
@@ -439,7 +452,7 @@ input[type="range"]::-moz-range-thumb{
 .btn {
   position: absolute;
   right: 0;
-  margin: 5px;
+  margin: 10px;
   background-color: rgb(127, 160, 194); /* Blue background */
   border: none; /* Remove borders */
   color: white; /* White text */
