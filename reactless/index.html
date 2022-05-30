@@ -232,7 +232,6 @@
            <fieldset class="controlPanel">
                
               <legend class="fsTitle">Control Panel</legend>
-              <button class="controlButton">Update</button>
               <div class="controlTitle">Migration Filter</div>            
               <div class="wrapper2">
                 <div class="price-input">
@@ -243,15 +242,15 @@
                   <div class="separator">-</div>
                   <div class="field">
                     <span class="minMax">Max</span>
-                    <input type="number" class="input-max" value="100000">
+                    <input type="number" class="input-max" value="2141800">
                   </div>
                 </div>
                 <div class="slider">
                   <div class="progress"></div>
                 </div>
                 <div class="range-input">
-                  <input type="range" class="range-min" min="0" max="1000000" value="0" step="100">
-                  <input type="range" class="range-max" min="0" max="10000000" value="10000000" step="100">
+                  <input type="range" class="range-min" min="0" max="2141800" value="0" step="100">
+                  <input type="range" class="range-max" min="0" max="2141800" value="2141800" step="100">
                 </div>
               </div>
               <div class="controlTitle">Line Width</div>
@@ -269,8 +268,8 @@
               priceInput = document.querySelectorAll(".price-input input"),
               range = document.querySelector(".slider .progress");
               range.style.left = "0%";
-              range.style.right = "0%"
-              let priceGap = 10;
+              range.style.right = "0%";
+              let priceGap = 1;
               priceInput.forEach(input =>{
                 input.addEventListener("input", e =>{
                   let minPrice = parseInt(priceInput[0].value),
@@ -285,7 +284,10 @@
                               range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
                           }
                       }
-                      currentMax = maxVal;
+                      currentMax = maxPrice;
+                      reduceData(currentMax);
+                      updateLayers(updateStartCountry, true);
+                      
                   });
               });
               rangeInput.forEach(input =>{
@@ -305,13 +307,10 @@
                           range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
                       }
                       currentMax = maxVal;
+                      reduceData(currentMax);
+                      updateLayers(updateStartCountry, true);
                   });
               });
-
-              $(".controlButton").click(function() {
-                reduceData(currentMax);
-                updateLayers(updateStartCountry, true)
-              })
             </script>
              
             
@@ -815,7 +814,7 @@
           stroked: true,
           getFillColor: [0,0,0,0],
           getLineColor: [240,249,232],
-          onClick: info => updateLayers(info.object, true),
+          onClick: info => updateLayers(info.object, true, true),
           pickable: true
         });
       }); 
@@ -826,7 +825,12 @@
       }
     }
 
-    function updateLayers(dataFeature, truePlot) {
+    var oldTopValue,
+    percentage,
+    maxRangeSet,
+    topValue;
+
+    function updateLayers(dataFeature, truePlot, rangeSet=false) {
         selectedFeature = dataSorted.find(f => f.properties.COUNTRY === dataFeature.properties.COUNTRY);
         updateStartCountry = dataFeature; 
         startCountry = dataFeature.properties.COUNTRY;
@@ -854,6 +858,26 @@
 
         colorList(arcs);
         if(truePlot){createPlot(countryNumbers, 5, filterFromTop);}
+        
+        oldTopValue = topValue ? topValue : 2141800
+        topValue = getTopN(countryNumbers, 'migration', 1)[0]['migration'];
+        percentage = 100 - (oldTopValue/topValue * 100);
+        
+        maxRangeSet = percentage >= 0 ? percentage : 0;
+        
+
+        if(rangeSet){
+          range.style.right = maxRangeSet + '%';
+          priceInput[1].value = topValue;
+          rangeInput[1].value = topValue;
+          rangeInput[1].max = topValue + 100;
+          rangeInput[0].max = topValue + 100;
+
+          console.log(oldTopValue);
+          console.log(topValue);
+          console.log(percentage);
+          console.log(maxRangeSet);
+        }
 
         arcLayer = new ArcLayer({
           id: 'arc',
@@ -900,14 +924,12 @@
               return sortOrder * ((x < y) ? -1 : ((x > y) ? 1 : 0));
           });
       }
+  
 
     
     function reduceData(filterValue) {
-      console.log(filterValue);
-      console.log(topCountriesValues);
       var predicateBigger = (x) => x < filterValue;
       filterFromTop = topCountriesValues.length - topCountriesValues.filter(predicateBigger).length;
-      console.log(filterFromTop)
     } 
 
     var myChart, migrationValues, countryMigration, topCountries, countryKey, topCountriesValues;
@@ -919,7 +941,6 @@
       }
       countryMigration = data;
 
-      console.log(data.length);
 
       topCountries = getTopN(data, 'migration', data.length);
 
@@ -936,8 +957,6 @@
         migrationValues.push(topCountries[i]['migration']);
         countryKey.push(topCountries[i]['country']);
       } 
-
-      console.log(migrationValues);
 
       //Chart.register(ChartDataLabels)
 
@@ -959,6 +978,9 @@
           ]
         },
         options: {
+          animation: {
+            duration: 0
+          },
           maintainAspectRatio: false,
           indexAxis: 'y',
           plugins: {

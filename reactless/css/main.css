@@ -294,11 +294,6 @@ input[type="radio"]{
   padding: 0;
 }
 
-.controlButton{
-  position: absolute;
-  right: 10px;
-}
-
 .controlTitle {
   right: 10%;
   margin-top: 2%;
