@@ -680,12 +680,57 @@ input[type="range"]::-moz-range-thumb{
   display: inline-block;
   height: auto;
   width: auto;
-  padding: 1px;
+  padding: 5px;
   left: 0vw;
   bottom: 0vh;
   /*border: solid 1px;*/
 }
 
+.text-box-summary1{
+  font-family: sans-serif;
+  position: absolute;
+  display: inline-block;
+  height: auto;
+  width: 32vw;
+  padding: 5px;
+  left: 0vw;
+  top: 11vh;
+}
+
+.text-box-summary2{
+  font-family: sans-serif;
+  position: absolute;
+  display: inline-block;
+  height: auto;
+  width: auto;
+  padding: 5px;
+  left: 0vw;
+  bottom: 5vh;
+}
+
+.summary-image {
+  position: absolute;
+  /*object-fit: cover;  Do not scale the image 
+  object-position: center; Center the image within the element */
+
+  height: 53vh;
+  width: 46vw;
+  padding: 2px;
+  right: 0vw;
+  top: 12.5vh;
+}
+
+.text-box-references{
+  font-family: sans-serif;
+  position: absolute;
+  display: inline-block;
+  height: auto;
+  width: auto;
+  padding: 5px;
+  left: 0vw;
+  top: 8vh;
+  /*border: solid 1px;*/
+}
 
 .text-section{
   padding: 5px;
