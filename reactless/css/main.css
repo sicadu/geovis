@@ -76,9 +76,57 @@
   z-index: 0;
 }
 
+.mapDesc{
+  position: absolute;
+  height: 30px;
+  width: 30px; 
+  right: 10px;
+  bottom: 25px; 
+}
+
+.mapInfo{
+  margin-top: 1%;
+  padding-bottom: 21px;
+}
+
+.infoText {
+  font-size: 17px;
+  text-align: justify;
+}
+
+.migrationDesc{
+  visibility: hidden;
+  position: absolute;
+  right: 10px;
+  bottom: 25px;
+  width: 30%;
+  height: 20%;
+  border: white 2px solid;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.descText {
+  position: absolute;
+  top: 15%;
+  left: 8%;
+  width: 80%;
+  height: 80%;
+  font-size: 17px;
+  text-align: justify;
+}
+
+.mapDescClose{
+  position: absolute;
+  right: 10px;
+  top: 10px; 
+  height: 30px;
+  width: 30px;
+}
+
 
 .optionBox{
   position: absolute;
+  top: -1%;
   height: 80vh;
   width: 20vw;
   right: 3.5%;
@@ -92,10 +140,11 @@ fieldset {
 
 legend {
   background-color: rgb(221, 221, 221);
+  font-size: 25px;
 }
 
 .wrapper{
-  width: 90%;
+  width: 100%;
   align-items: center;
   justify-content: space-evenly;
   border-radius: 5px;
@@ -208,7 +257,7 @@ input[type="radio"]{
 
 
 .chartWrapper{
-  margin-top: 5%;
+  margin-top: 3%;
   bottom: 0;
   border: 1px solid black;
   transition: all 0.5s;
@@ -229,24 +278,29 @@ input[type="radio"]{
 
 .controlPanel{
   width: 100%;
-  height: 300px;
+  height: 250px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  border: 1px solid black;
-  margin-top: 5%;
+  margin-top: 2%;
+  padding: 0;
 }
 
 .controlTitle {
-  margin-top: 4%;
-  font-size: 30px;
+  right: 10%;
+  margin-top: 2%;
+  font-size: 20px;
+}
+
+.minMax {
+  font-size: 15px;
 }
 
 /* Range Slider */
 
 .range-input1 {
   position:relative;
-  margin-top: 40px; 
+  margin-top: 25px; 
   left: 44%;
   width: 75%;
   transform:translate(-50%,-50%);
@@ -278,7 +332,7 @@ input[type="radio"]{
 .range-input1 .value1 {
   color:black;
   text-align:center;
-  font-size: 35px;
+  font-size: 30px;
   font-weight:300;
   line-height:40px;
   height:40px;
@@ -299,14 +353,16 @@ input[type="radio"]{
 .price-input{
   width: 100%; 
   display: flex;
-  margin: 30px 0 35px;
+  margin: 15px 0 35px;
 }
 .price-input .field{
   display: flex;
   width: 100%;
-  height: 45px;
+  height: 35px;
   align-items: center;
 }
+
+
 .field input{
   max-width: 100px;
   width: 100%;
@@ -516,7 +572,6 @@ input[type="range"]::-moz-range-thumb{
 
 .layerSelection {
   position: relative;
-  margin-top: 5%;
   color: black;
   font-size: 20px;
 }

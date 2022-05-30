@@ -30,7 +30,7 @@
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
   <!-- Add icon library -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
   <!-- Materilize library - Mainly for the slider-->
 
@@ -191,6 +191,26 @@
                 </div>
               </div>
            </div>
+           <button class="mapDesc"><i class="fa-solid fa-info"></i></button>
+           <div class="migrationDesc">
+              <button class="mapDescClose"><i class="fa-solid fa-xmark"></i></button>
+              <div class="descText">
+                When clicking on a country its immigration/ emigration is displayed, the arcs can be adjusted personally by moving the sliders (width, minimum and maximum of migrants shown).<br><br>
+                <i>Navigating on the map: Press Ctrl+left mouse button to change the view angle. Zoom as usual </i>
+              </div>
+           </div>
+           <script type="text/javascript">
+             $(".mapDesc").click(function() {
+               $(".migrationDesc").css("visibility", "visible");
+               $(".mapDesc").css("visibility", "hidden");
+             })
+
+             $(".mapDescClose").click(function() {
+              $(".migrationDesc").css("visibility", "hidden");
+               $(".mapDesc").css("visibility", "visible");
+             })
+           </script>
+
         </div>
         <div class="optionBox">
            <fieldset class="layerSelection">
@@ -209,37 +229,37 @@
               </div>
            </fieldset>
 
-           <div class="controlPanel">
-
-            <span class="controlTitle">Migration Filter</span>            
-            <div class="wrapper2">
-              <div class="price-input">
-                <div class="field">
-                  <span>Min</span>
-                  <input type="number" class="input-min" value="0">
+           <fieldset class="controlPanel">
+              <legend class="fsTitle">Control Panel</legend>
+              <div class="controlTitle">Migration Filter</div>            
+              <div class="wrapper2">
+                <div class="price-input">
+                  <div class="field">
+                    <span class="minMax">Min</span>
+                    <input type="number" class="input-min" value="0">
+                  </div>
+                  <div class="separator">-</div>
+                  <div class="field">
+                    <span class="minMax">Max</span>
+                    <input type="number" class="input-max" value="100000">
+                  </div>
                 </div>
-                <div class="separator">-</div>
-                <div class="field">
-                  <span>Max</span>
-                  <input type="number" class="input-max" value="100000">
+                <div class="slider">
+                  <div class="progress"></div>
+                </div>
+                <div class="range-input">
+                  <input type="range" class="range-min" min="0" max="100000" value="0" step="100">
+                  <input type="range" class="range-max" min="0" max="100000" value="1000000" step="100">
                 </div>
               </div>
-              <div class="slider">
-                <div class="progress"></div>
-              </div>
-              <div class="range-input">
-                <input type="range" class="range-min" min="0" max="100000" value="0" step="1">
-                <input type="range" class="range-max" min="0" max="100000" value="1000000" step="1">
+              <div class="controlTitle">Line Width</div>
+              <div class="range-input1">
+                <input type="range" min="1" max="7" value="1" step="1">
+                <div class="value1">
+                  <div></div>
               </div>
             </div>
-            <span class="controlTitle">Line Width</span>
-            <div class="range-input1">
-              <input type="range" min="1" max="7" value="1" step="1">
-              <div class="value1">
-                <div></div>
-             </div>
-           </div>
-          </div>
+          </fieldset>
 
             <script type="text/javascript">
               const rangeInput = document.querySelectorAll(".range-input input"),
@@ -317,6 +337,14 @@
               <button type="button" class="expandChart btn"><i class="fa-solid fa-expand"></i></button>
               <canvas id="myChart" height="250"></canvas>
            </div>
+          
+           <fieldset class="mapInfo">
+            <legend class="fsTitle">Information</legend>
+            <div class="infoText">
+              The map provides information about destination and origin of the migration flows in the past years <i>(1990-2015)</i>. The UN DESA defines an international migrant as someone who has been living for one year or longer in a country other than the one in which he or she was born. The color hue of the countries give an overview about the net migration <i>(2010-2015)</i> of a certain country, as this information cannot be retrieved from the flows.
+            </div>
+           </fieldset>
+
         </div>
      </div>
      <div class="remittance selectt slide2">
@@ -336,6 +364,25 @@
                  </div>
               </div>
            </div>
+           <button class="mapDesc"><i class="fa-solid fa-info"></i></button>
+           <div class="migrationDesc">
+              <button class="mapDescClose"><i class="fa-solid fa-xmark"></i></button>
+              <div class="descText">
+                By hovering over a symbol, more information about the remittances is revealed. The exact amount of remittance as well as their share to the GDP is shown.<br><br>
+                <i>Navigating on the map: Press Ctrl+left mouse button to change the view angle. Zoom as usual </i>
+              </div>
+           </div>
+           <script type="text/javascript">
+             $(".mapDesc").click(function() {
+               $(".migrationDesc").css("visibility", "visible");
+               $(".mapDesc").css("visibility", "hidden");
+             })
+
+             $(".mapDescClose").click(function() {
+              $(".migrationDesc").css("visibility", "hidden");
+               $(".mapDesc").css("visibility", "visible");
+             })
+           </script>
         </div>
         <div class="optionBox">
            <fieldset class="layerSelection">
@@ -364,7 +411,14 @@
                </label>
              </div>
            </fieldset>
+           <fieldset class="mapInfo">
+            <legend class="fsTitle">Information</legend>
+            <div class="infoText">
+              The map provides information about remittances for each country for the years 2017, 2018, 2019, and 2020. The circles show remittances sent or received by resident households to or from nonresident households in US$. The size of the symbols gives an idea about the number of remittances sent or received. A missing symbol indicates lack of data for the specific country. 
+            </div> 
+           </fieldset>
         </div>
+
      </div>
      <script type="text/javascript">
         $(".remittance").hide();
@@ -745,8 +799,8 @@
         const flows = selectedFeature.properties.flows;
         const centroid = selectedFeature.geometry.centroid;
 
-
         const arcs = Object.keys(flows).map(toId => {
+
           const f = dataSorted[toId];
           return {
             source: centroid,
