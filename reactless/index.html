@@ -151,42 +151,42 @@
            <div class="arcslegend">
               <div class="text-legend">
                  <p style="font-size:15px;display:inline;text-align:justify"><b>Bilateral Migration Stock from 1990 to 2015</b>
-                 <p style="font-size:13px;text-align:justify">Estimated Migration [number of people]</p>
+                 <p style="font-size:13px;text-align:justify">Estimated Migration<br> <i>[number of people]</i></p>
                  <div class="legend-break">
-                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(8,104,172);"></span>
-                    <span> Legendeneintrag 1</span>
+                    <span class="lg-area" style="display: inline-block; height: 5px; width: 15px; margin-right: 10px; background-color: rgb(8,104,172);"></span>
+                    <span> 0 - 32</span>
                  </div>
                  <div class="legend-break">
-                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(67,162,202);"></span>
-                    <span> Legendeneintrag 2</span>
+                    <span class="lg-area" style="display: inline-block; height: 5px; width: 15px; margin-right: 10px; background-color: rgb(67,162,202);"></span>
+                    <span> 33 - 177 </span>
                  </div>
                  <div class="legend-break">
-                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(123,204,196);"></span>
-                    <span> Legendeneintrag 3</span>
+                    <span class="lg-area" style="display: inline-block; height: 5px; width: 15px; margin-right: 10px; background-color: rgb(123,204,196);"></span>
+                    <span> 177 - 866</span>
                  </div>
                  <div class="legend-break">
-                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(186,228,188);"></span>
-                    <span> Legendeneintrag 4</span>
+                    <span class="lg-area" style="display: inline-block; height: 5px; width: 15px; margin-right: 10px; background-color: rgb(186,228,188);"></span>
+                    <span> 866 - 6'156</span>
                  </div>
                  <div class="legend-break">
-                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(240,249,232)"></span>
-                    <span> Legendeneintrag 5</span>
+                    <span class="lg-area" style="display: inline-block; height: 5px; width: 15px; margin-right: 10px; background-color: rgb(240,249,232)"></span>
+                    <span> 6'156 - 10'853'105</span>
                  </div>
-                 <p style="font-size:13px;text-align:justify">Net Migration [number of migrants per 1000 inhabitants] (2010-2015)</p>
+                 <p style="font-size:13px;text-align:justify">Net Migration <i>(2010-2015)</i><br> <i>[number of migrants per 1000 inhabitants]</i></p>
                  <div class="legend-break">
-                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(26,60,96);"></span>
+                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 10px; background-color: rgb(26,60,96);"></span>
                     <span> Negative Net Migration</span>
                  </div>
                  <div class="legend-break">
-                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(120,120,120);"></span>
+                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 10px; background-color: rgb(120,120,120);"></span>
                     <span> Net Migration ~ 0</span>
                 </div>
                 <div class="legend-break">
-                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(22,74,41);"></span>
+                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 10px; background-color: rgb(22,74,41);"></span>
                     <span> Positive Net Migration</span>
                 </div>
                 <div class="legend-break">
-                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(62,60,60)"></span>
+                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 10px; background-color: rgb(62,60,60)"></span>
                     <span> <i> No data available</i> </span>
                 </div>
               </div>
@@ -230,6 +230,7 @@
            </fieldset>
 
            <fieldset class="controlPanel">
+               
               <legend class="fsTitle">Control Panel</legend>
               <div class="controlTitle">Migration Filter</div>            
               <div class="wrapper2">
@@ -241,15 +242,15 @@
                   <div class="separator">-</div>
                   <div class="field">
                     <span class="minMax">Max</span>
-                    <input type="number" class="input-max" value="100000">
+                    <input type="number" class="input-max" value="2141800">
                   </div>
                 </div>
                 <div class="slider">
                   <div class="progress"></div>
                 </div>
                 <div class="range-input">
-                  <input type="range" class="range-min" min="0" max="100000" value="0" step="100">
-                  <input type="range" class="range-max" min="0" max="100000" value="1000000" step="100">
+                  <input type="range" class="range-min" min="0" max="2141800" value="0" step="100">
+                  <input type="range" class="range-max" min="0" max="2141800" value="2141800" step="100">
                 </div>
               </div>
               <div class="controlTitle">Line Width</div>
@@ -262,12 +263,13 @@
           </fieldset>
 
             <script type="text/javascript">
+              var currentMax = 0;
               const rangeInput = document.querySelectorAll(".range-input input"),
               priceInput = document.querySelectorAll(".price-input input"),
               range = document.querySelector(".slider .progress");
               range.style.left = "0%";
-              range.style.right = "0%"
-              let priceGap = 10;
+              range.style.right = "0%";
+              let priceGap = 1;
               priceInput.forEach(input =>{
                 input.addEventListener("input", e =>{
                   let minPrice = parseInt(priceInput[0].value),
@@ -282,7 +284,10 @@
                               range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
                           }
                       }
-                      updateLayers(updateStartCountry, false);
+                      currentMax = maxPrice;
+                      reduceData(currentMax);
+                      updateLayers(updateStartCountry, true);
+                      
                   });
               });
               rangeInput.forEach(input =>{
@@ -301,8 +306,9 @@
                           range.style.left = ((minVal / rangeInput[0].max) * 100) + "%";
                           range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
                       }
-
-                      updateLayers(updateStartCountry, false);
+                      currentMax = maxVal;
+                      reduceData(currentMax);
+                      updateLayers(updateStartCountry, true);
                   });
               });
             </script>
@@ -324,7 +330,6 @@
               rangeInput1.addEventListener("input",function(){
                 let top = (parseFloat(rangeInput1.value)-1)/step * -40;
                 rangeValue1.style.marginTop = top+"px";
-                console.log(rangeInput1.value);
                 scale = rangeInput1.value;
                 updateLayers(updateStartCountry, false);
               });
@@ -782,8 +787,8 @@
     var countryNumbers;
     var migration = 'e20_w0'
     var startCountry = 'GERMANY';
-    var breaks_e = [32, 177, 866, 6156];
-    var breaks_i = [25, 136, 693, 5097];
+    var breaks_e = [32, 177, 866, 6156, 10853105];
+    var breaks_i = [25, 136, 693, 5097, 11643298];
     var scale = 1;
     var arc_data;
     var updateStartCountry;
@@ -808,18 +813,23 @@
           stroked: true,
           getFillColor: [0,0,0,0],
           getLineColor: [240,249,232],
-          onClick: info => updateLayers(info.object, true),
+          onClick: info => updateLayers(info.object, true, true),
           pickable: true
         });
       }); 
       if (layerName === 'e20_w0'){
-        updateLegend(inFlowColors);
+        updateLegend(inFlowColors, breaks_e);
       } else {
-        updateLegend(outFlowColors);
+        updateLegend(outFlowColors, breaks_i);
       }
     }
 
-    function updateLayers(dataFeature, truePlot) {
+    var oldTopValue,
+    percentage,
+    maxRangeSet,
+    topValue;
+
+    function updateLayers(dataFeature, truePlot, rangeSet=false) {
         selectedFeature = dataSorted.find(f => f.properties.COUNTRY === dataFeature.properties.COUNTRY);
         updateStartCountry = dataFeature; 
         startCountry = dataFeature.properties.COUNTRY;
@@ -846,7 +856,22 @@
         });
 
         colorList(arcs);
-        if(truePlot){createPlot(countryNumbers, 5);}
+        if(truePlot){createPlot(countryNumbers, 5, filterFromTop);}
+        
+        oldTopValue = topValue ? topValue : 2141800
+        topValue = getTopN(countryNumbers, 'migration', 1)[0]['migration'];
+        percentage = 100 - (oldTopValue/topValue * 100);
+        
+        maxRangeSet = percentage >= 0 ? percentage : 0;
+        
+
+        if(rangeSet){
+          range.style.right = maxRangeSet + '%';
+          priceInput[1].value = topValue;
+          rangeInput[1].value = topValue;
+          rangeInput[1].max = topValue + 100;
+          rangeInput[0].max = topValue + 100;
+        }
 
         arcLayer = new ArcLayer({
           id: 'arc',
@@ -893,25 +918,41 @@
               return sortOrder * ((x < y) ? -1 : ((x > y) ? 1 : 0));
           });
       }
+  
 
-    var myChart;
+    
+    function reduceData(filterValue) {
+      var predicateBigger = (x) => x < filterValue;
+      filterFromTop = topCountriesValues.length - topCountriesValues.filter(predicateBigger).length;
+    } 
 
+    var myChart, migrationValues, countryMigration, topCountries, countryKey, topCountriesValues;
+    var filterFromTop = 1000000000;
 
-    function createPlot(data, n){
+    function createPlot(data, n, filter = 0){
       if (myChart){
         myChart.destroy();
       }
+      countryMigration = data;
 
-      var topCountries = getTopN(data, 'migration', n);
-      var migrationValues = [];
-      var countryKey = [];
 
-      for (let i =0; i<n ;i++) {
+      topCountries = getTopN(data, 'migration', data.length);
+
+      topCountriesValues = [];
+
+      for (let i = 0; i<data.length ;i++){
+        topCountriesValues.push(topCountries[i]['migration'])
+      }
+
+      migrationValues = [];
+      countryKey = [];
+
+      for (let i = filter; i<n+filter ;i++) {
         migrationValues.push(topCountries[i]['migration']);
         countryKey.push(topCountries[i]['country']);
       } 
 
-      Chart.register(ChartDataLabels)
+      //Chart.register(ChartDataLabels)
 
       const config = {
         type: 'bar',
@@ -920,24 +961,28 @@
           datasets: [
             {
               backgroundColor: colorD3,
-              data: migrationValues,
+              data: migrationValues, /*
               datalabels: {
                 color: 'white',
                 anchor: 'end',
                 align: 'start',
 
-              }
+              }*/
             }
           ]
         },
         options: {
+          animation: {
+            duration: 0
+          },
           maintainAspectRatio: false,
           indexAxis: 'y',
           plugins: {
-            title: {display: true, 
+            title: {
+              display: true, 
               text: 'Top Migration',
               font: {
-                size: 15,
+                size: 20,
               }},
             legend: {display: false},
             tooltips: {enabled: false}
@@ -948,7 +993,7 @@
             }
           }
         },
-        plugins: [ChartDataLabels]
+        //plugins: [ChartDataLabels]
       };
 
       myChart = new Chart(
@@ -1041,12 +1086,24 @@
       }
     }
   
-  function updateLegend(sign){
+  function updateLegend(sign, breaks){
+    legend_spans = $('.legend-break span');
+    legendNumbers = [... breaks];
+    legendNumbers.unshift(0);
+    console.log(legend_spans[1])
+    legend_spans[1].textContent = (legendNumbers[0] + " - " + legendNumbers[1])
+    legend_spans[3].textContent = (legendNumbers[1]+1 + " - " + legendNumbers[2])
+    legend_spans[5].textContent = (legendNumbers[2]+1 + " - " + legendNumbers[3])
+    legend_spans[7].textContent = (legendNumbers[3]+1 + " - " + legendNumbers[4])
+    legend_spans[9].textContent = (legendNumbers[4]+1 + " - " + legendNumbers[5])
+
+
     legend_colors = $('.lg-area');
     for (let i = 0; i < legend_colors.length; i++){
         legend_colors[i].style.backgroundColor = "rgb(" + sign[4-i][0] + "," + sign[4-i][1] + "," + sign[4-i][2] + ")";
     }
+
+    
   }
-  
   
   </script>
