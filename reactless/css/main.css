@@ -194,12 +194,10 @@ input[type="radio"]{
   display: none;
 }
 #option-1:checked:checked ~ .option-1{
-  border-color: rgb(0,109,44); 
   background: rgb(0,109,44);
 }
 
 #option-2:checked:checked ~ .option-2{
-   border-color: rgb(8,81,156); 
    background: rgb(8,81,156);
 }
 
@@ -227,7 +225,6 @@ input[type="radio"]{
 #option-5:checked:checked ~ .option-5,
 #option-6:checked:checked ~ .option-6,
 #option-7:checked:checked ~ .option-7{
-  border-color: rgb(176,172,172);
   background: rgb(176,172,172);
 }
 
@@ -604,6 +601,7 @@ input[type="range"]::-moz-range-thumb{
 
 
 
+
 .text-box{
   font-family: sans-serif;
   background: #dddddd;
@@ -680,6 +678,16 @@ input[type="range"]::-moz-range-thumb{
   padding: 2px;
   left: 0vw;
   bottom: 12vh; 
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+.videoOverlay{
+  position: absolute;
+  top: 0;
+  left: 0px;
+  height: 100%;
+  width: 100%;
 }
 
 .text-box-final{
