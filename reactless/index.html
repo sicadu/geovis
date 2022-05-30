@@ -151,42 +151,42 @@
            <div class="arcslegend">
               <div class="text-legend">
                  <p style="font-size:15px;display:inline;text-align:justify"><b>Bilateral Migration Stock from 1990 to 2015</b>
-                 <p style="font-size:13px;text-align:justify">Estimated Migration [number of people]</p>
+                 <p style="font-size:13px;text-align:justify">Estimated Migration<br> <i>[number of people]</i></p>
                  <div class="legend-break">
-                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(8,104,172);"></span>
-                    <span> Legendeneintrag 1</span>
+                    <span class="lg-area" style="display: inline-block; height: 5px; width: 15px; margin-right: 10px; background-color: rgb(8,104,172);"></span>
+                    <span> 0 - 32</span>
                  </div>
                  <div class="legend-break">
-                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(67,162,202);"></span>
-                    <span> Legendeneintrag 2</span>
+                    <span class="lg-area" style="display: inline-block; height: 5px; width: 15px; margin-right: 10px; background-color: rgb(67,162,202);"></span>
+                    <span> 33 - 177 </span>
                  </div>
                  <div class="legend-break">
-                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(123,204,196);"></span>
-                    <span> Legendeneintrag 3</span>
+                    <span class="lg-area" style="display: inline-block; height: 5px; width: 15px; margin-right: 10px; background-color: rgb(123,204,196);"></span>
+                    <span> 177 - 866</span>
                  </div>
                  <div class="legend-break">
-                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(186,228,188);"></span>
-                    <span> Legendeneintrag 4</span>
+                    <span class="lg-area" style="display: inline-block; height: 5px; width: 15px; margin-right: 10px; background-color: rgb(186,228,188);"></span>
+                    <span> 866 - 6'156</span>
                  </div>
                  <div class="legend-break">
-                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(240,249,232)"></span>
-                    <span> Legendeneintrag 5</span>
+                    <span class="lg-area" style="display: inline-block; height: 5px; width: 15px; margin-right: 10px; background-color: rgb(240,249,232)"></span>
+                    <span> 6'156 - 10'853'105</span>
                  </div>
-                 <p style="font-size:13px;text-align:justify">Net Migration [number of migrants per 1000 inhabitants] (2010-2015)</p>
+                 <p style="font-size:13px;text-align:justify">Net Migration <i>(2010-2015)</i><br> <i>[number of migrants per 1000 inhabitants]</i></p>
                  <div class="legend-break">
-                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(26,60,96);"></span>
+                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 10px; background-color: rgb(26,60,96);"></span>
                     <span> Negative Net Migration</span>
                  </div>
                  <div class="legend-break">
-                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(120,120,120);"></span>
+                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 10px; background-color: rgb(120,120,120);"></span>
                     <span> Net Migration ~ 0</span>
                 </div>
                 <div class="legend-break">
-                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(22,74,41);"></span>
+                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 10px; background-color: rgb(22,74,41);"></span>
                     <span> Positive Net Migration</span>
                 </div>
                 <div class="legend-break">
-                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 5px; background-color: rgb(62,60,60)"></span>
+                    <span class="lg-area" style="display: inline-block; height: 15px; width: 15px; margin-right: 10px; background-color: rgb(62,60,60)"></span>
                     <span> <i> No data available</i> </span>
                 </div>
               </div>
@@ -330,7 +330,6 @@
               rangeInput1.addEventListener("input",function(){
                 let top = (parseFloat(rangeInput1.value)-1)/step * -40;
                 rangeValue1.style.marginTop = top+"px";
-                console.log(rangeInput1.value);
                 scale = rangeInput1.value;
                 updateLayers(updateStartCountry, false);
               });
@@ -788,8 +787,8 @@
     var countryNumbers;
     var migration = 'e20_w0'
     var startCountry = 'GERMANY';
-    var breaks_e = [32, 177, 866, 6156];
-    var breaks_i = [25, 136, 693, 5097];
+    var breaks_e = [32, 177, 866, 6156, 10853105];
+    var breaks_i = [25, 136, 693, 5097, 11643298];
     var scale = 1;
     var arc_data;
     var updateStartCountry;
@@ -819,9 +818,9 @@
         });
       }); 
       if (layerName === 'e20_w0'){
-        updateLegend(inFlowColors);
+        updateLegend(inFlowColors, breaks_e);
       } else {
-        updateLegend(outFlowColors);
+        updateLegend(outFlowColors, breaks_i);
       }
     }
 
@@ -872,11 +871,6 @@
           rangeInput[1].value = topValue;
           rangeInput[1].max = topValue + 100;
           rangeInput[0].max = topValue + 100;
-
-          console.log(oldTopValue);
-          console.log(topValue);
-          console.log(percentage);
-          console.log(maxRangeSet);
         }
 
         arcLayer = new ArcLayer({
@@ -1092,12 +1086,24 @@
       }
     }
   
-  function updateLegend(sign){
+  function updateLegend(sign, breaks){
+    legend_spans = $('.legend-break span');
+    legendNumbers = [... breaks];
+    legendNumbers.unshift(0);
+    console.log(legend_spans[1])
+    legend_spans[1].textContent = (legendNumbers[0] + " - " + legendNumbers[1])
+    legend_spans[3].textContent = (legendNumbers[1]+1 + " - " + legendNumbers[2])
+    legend_spans[5].textContent = (legendNumbers[2]+1 + " - " + legendNumbers[3])
+    legend_spans[7].textContent = (legendNumbers[3]+1 + " - " + legendNumbers[4])
+    legend_spans[9].textContent = (legendNumbers[4]+1 + " - " + legendNumbers[5])
+
+
     legend_colors = $('.lg-area');
     for (let i = 0; i < legend_colors.length; i++){
         legend_colors[i].style.backgroundColor = "rgb(" + sign[4-i][0] + "," + sign[4-i][1] + "," + sign[4-i][2] + ")";
     }
+
+    
   }
-  
   
   </script>
