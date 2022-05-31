@@ -180,7 +180,9 @@
   </div>
   <div class="mapPage page" id="mapNav">
      <div class="mapSwitch">
-        <span class="mapSpan">Switch between the maps - </span>
+        <span class="mapSpan">Switch between the maps <i class="fa-solid fa-repeat"></i>
+
+        </span>
         <div class="switch">
            <input type="radio" class="switch-input" name="view" value="migration" id="migration" checked>
            <label for="migration" class="switch-label switch-label-off">Migration</label>
@@ -312,7 +314,7 @@
               const rangeInput = document.querySelectorAll(".range-input input"),
               priceInput = document.querySelectorAll(".price-input input"),
               range = document.querySelector(".slider .progress");
-              range.style.left = "0%";
+              range.style.left = "3%";
               range.style.right = "0%";
               let priceGap = 1;
               priceInput.forEach(input =>{
@@ -330,7 +332,7 @@
                           }
                       }
                       currentMax = maxPrice;
-                      reduceData(currentMax);
+                      reduceData(currentMax);                      
                       updateLayers(updateStartCountry, true);
                       
                   });
@@ -488,10 +490,12 @@
             var chartWrapper = $('.chartSelector');
             if (chartWrapper.hasClass('chartWrapper')) {
               $('.chartWrapper').removeClass("chartWrapper").addClass("chartBigWrapper");
-              createPlot(countryNumbers, 15);
+              topN = 15;
+              updateLayers(updateStartCountry, true, false);
             } else {
               $('.chartBigWrapper').removeClass("chartBigWrapper").addClass("chartWrapper")
-              createPlot(countryNumbers, 5);
+              topN = 5;
+              updateLayers(updateStartCountry, true, false);
             }
         
           })
@@ -639,9 +643,7 @@
 
 <script language="JavaScript">  
 
-    alert("This Webpage is developed for a display with dimension 2560*1240")
-
-    console.log($('.Embeddable__landing__poster'))
+    // alert("This Webpage is developed for a display with dimension 2560px*1240px. Open the inspector (Ctrl + I) in your browser to change the dimensions of your displayed window.");
 
     $('.videoOverlay').click(function(){
       $('.ted-talk').css('filter', 'grayscale(0%)');
@@ -717,6 +719,7 @@
     var in_out = 'r';
     var year_r = '17';
     var colorD3 = [];
+    var topN = 5;
 
     layerChangeR("r17");
 
@@ -929,7 +932,7 @@
     maxRangeSet,
     topValue;
 
-    function updateLayers(dataFeature, truePlot, rangeSet=false) {
+    function updateLayers(dataFeature, truePlot=true, rangeSet=false) {
         selectedFeature = dataSorted.find(f => f.properties.COUNTRY === dataFeature.properties.COUNTRY);
         updateStartCountry = dataFeature; 
         startCountry = dataFeature.properties.COUNTRY;
@@ -956,7 +959,7 @@
         });
 
         colorList(arcs);
-        if(truePlot){createPlot(countryNumbers, 5, filterFromTop);}
+        if(truePlot){createPlot(countryNumbers, topN, filterFromTop);}
         
         oldTopValue = topValue ? topValue : 2141800
         topValue = getTopN(countryNumbers, 'migration', 1)[0]['migration'];
@@ -1061,7 +1064,11 @@
           datasets: [
             {
               backgroundColor: colorD3,
-              data: migrationValues, /*
+              data: migrationValues, 
+              barThickness: 13,
+              maxBarThickness: 26,
+              minBarLenght: 3,
+              /*
               datalabels: {
                 color: 'white',
                 anchor: 'end',
@@ -1088,9 +1095,11 @@
             tooltips: {enabled: false}
           },
           scales: {
-            y: {
-              beginAtZero: true
-            }
+            yAxes: [{
+              afterFit: function(scaleInstance) {
+                scaleInstance.width = 100; // sets the width to 100px
+              }
+            }]
           }
         },
         //plugins: [ChartDataLabels]
