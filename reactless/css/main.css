@@ -788,7 +788,7 @@ h3 {
   width: 32vw;
   padding: 5px;
   left: 0vw;
-  top: 11vh;
+  top: 9vh;
 }
 
 .text-box-summary2{
@@ -797,9 +797,9 @@ h3 {
   display: inline-block;
   height: auto;
   width: 46vw;
-  padding: 0px 5px 0px 5px;
+  padding: 5px;
   right: 0vw;
-  top: 27vh;
+  top: 50vh;
 }
 
 .summary-image {
@@ -810,18 +810,18 @@ h3 {
   width: 46vw;
   padding: 2px;
   right: 0vw;
-  bottom: 10vh;
+  top: 11.5vh;
 }
 
 .summary-question {
+  font-family: sans-serif;
   position: absolute;
   display: inline-block;
   height: auto;
   width: 32vw;
-  padding: 0px;
-  left: 0.5vw;
-  bottom: 10vh;
-  background-color: var(--color3)
+  padding: 5px;
+  left: 0vw;
+  bottom: 2.5vh;
 }
 
 .summary-links {
@@ -829,10 +829,9 @@ h3 {
   display: inline-block;
   height: auto;
   width: 46vw;
-  padding: 0px;
+  padding: 5px;
   right: 0vw;
-  top: 15vh;
-  background-color: var(--color3)
+  bottom: 2.5vh;
 }
 
 .text-box-references{
