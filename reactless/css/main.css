@@ -24,6 +24,7 @@
     align-items: center;
     font-size: 60px;
     color: rgb(45, 45, 45);
+    overflow: hidden;
 }
 
 .intro{
@@ -54,6 +55,9 @@
     width: 100vw;
     background-color: rgb(233,233,233);
     display:block;
+    overflow-y: scroll;
+    padding-right: 17px;
+    box-sizing: content-box;
 }
 
 .selectt{
