@@ -1,4 +1,4 @@
-<!doctype html>
+1<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -52,7 +52,7 @@
            <li className="motivationNav"><a href="#motivationNav">motivation</a></li>
            <li className="backgroundNav"><a href="#backgroundNav">background</a></li>
            <li className="mapNav"><a href="#mapNav">map</a></li>
-           <li className="summaryNav"><a href="#summaryNav">summary</a></li>
+           <li className="summaryNav"><a href="#summaryNav">discussion</a></li>
            <li className="referencesNav"><a href="#referencesNav">references</a></li>
            <li className="authorsNav"><a href="#authorsNav">authors</a></li>
         </ul>
@@ -110,7 +110,7 @@
     </div>
   </div>
   <div class="background page" id="backgroundNav">
-     <div class= "text-box">
+     <div class= "text-box bbbb">
         <div class="text-title">Background</div>
         <div class="text-box-migration">
           <div class= "text-section">
@@ -237,23 +237,78 @@
                 </div>
               </div>
            </div>
-           <button class="mapDesc"><i class="fa-solid fa-info"></i></button>
+           <button class="dataDesc"><i class="fa-solid fa-database"></i></button>
+           <div class="dataDescText"> 
+              <button class="dataDescClose"><i class="fa-solid fa-xmark"></i></button>
+              <div class="dataText">
+                <h3 class="dataTextTitle">Bilateral Migration Stock 1990 - 2015  <button class="nextDataTab right"><i class="fa-solid fa-angle-right"></i></button></h3>
+                <p class="paragraphDesc"><b>Generation:</b> Based on available data and modelled estimates</p> <br>
+                <p class="paragraphDesc"><b>Definition:</b> The UN defines immigrants or emigrants on the basis of country of birth. This results that a person that even acquired citizenship in the country of residence is considered as a migrant (UN DESA, 2020). For the purpose of analysing migration patterns and its relations with remittance data this definition appropriate because acquiring a citizenship does not mean that the contact with people in the country of birth is lost – hence remittance can still be sent back. However, if for a country data on the place of birth is not available, the country of citizenship is used as the basis of migrant status (UN DESA, 2020). This leads us to the problem the reliability and comparability of migration data.</p> <br>
+                <p class="paragraphDesc"><b>Reliability:</b> Migration data generation varies from country to country. The Map must be assessed critically for underestimated data. Therefore, this projects’ aim is to emphasize the need of reliable data for migration, as well as boosting the use of this data (Migration Data Portal, no date). It is necessary to help policy makers devise evidence-based policies to face migration aspects of the SDGs (Migration Data Portal, no date).</p> <br>
+                <p class="paragraphDesc"><b>Source:</b> United Nations Department of Economic and Social Affairs (UN DESA), Population Division (2020). International Migration Stock. Downloaded from Our World in Data. <a href="https://ourworldindata.org/explorers/migration-flows?time=2010&facet=none&Select+a+country=Argentina&Outflow+or+Inflow=Emigrants%3A+Where+people+born+in+the+selected+country+moved+to&country=USA~GBR~MEX~IND~AUS~BRA~ZAF">available here</a> (accessed: 14.04.2022).</p> <br>
+              </div>
+              <div class="dataTextChoro">
+                <h3 class="dataTextTitle">Net Migration (2010-2015 / 2015-2020)<button class="nextDataTab left"><i class="fa-solid fa-angle-left"></i></button></h3>
+                <p class="paragraphDesc"><b>Generation:</b>5-year estimates</p><br>
+                <p class="paragraphDesc"><b>Definition:Net Migration Rate = number of immigrants – number of emigrants (citizens & noncitizens) divided by population. The rate is expressed as average annual net number of migrants per 1000 inhabitants. A person living more than 1 year in a country other than country of birth is considered as a migrant (includes: students, refugees, foreign workers, etc.</b></p><br>
+                <p class="paragraphDesc"><b>Reliability:</b>Migration data generation varies from country to country. The Map must be assessed critically for underestimated data. Therefore, this projects’ aim is to emphasize the need of reliable data for migration, as well as boosting the use of this data (Migration Data Portal, no date). It is necessary to help policy makers devise evidence-based policies to face migration aspects of the SDGs (Migration Data Portal, no date).</p> <br>
+                <p class="paragraphDesc"><b>Source:</b>United Nations Department of Economic and Social Affairs (UN DESA), World Population Prospects: 2019 Revisions. Net Migration Rate. Downloaded from UN DESA. <a href="https://population.un.org/wpp/Download/Standard/Migration/">available here</a> (accessed: 14.04.2022).</p><br>
+              </div>
+           </div>
+
+           <button class="mapDesc"><i class="fa-solid fa-compass"></i></button>
            <div class="migrationDesc">
               <button class="mapDescClose"><i class="fa-solid fa-xmark"></i></button>
               <div class="descText">
                 When clicking on a country its immigration / emigration is displayed, the arcs can be adjusted personally by moving the sliders (width, minimum and maximum of migrants shown).<br><br>
-                <i>Navigating on the map: Press Ctrl+left mouse button to change the view angle. Zoom as usual </i>
+                <i>Navigating on the map: Press <b>Ctrl+left / Alt+left</b> mouse button to change the view angle. Zoom by <b>scrolling</b> on your mouse or <b>double clicking</b> on the map. </i>
               </div>
            </div>
            <script type="text/javascript">
+            
+            $(".right").click(function() {
+              $(".right").css("visibility", "hidden");
+              $(".dataText").css("visibility", "hidden");
+              $(".left").css("visibility", "visible");
+              $(".dataTextChoro").css("visibility", "visible");
+            })
+
+            $(".left").click(function() {
+              $(".left").css("visibility", "hidden");
+              $(".dataTextChoro").css("visibility", "hidden");
+              $(".right").css("visibility", "visible");
+              $(".dataText").css("visibility", "visible");
+            })
+
+             $(".dataDesc").click(function() {
+               $(".dataDescText").css("visibility", "visible");
+               $(".dataDesc").css("visibility", "hidden");
+               $(".mapDesc").css("visibility", "hidden");
+               $(".dataText").css("visibility", "visible");
+               $(".right").css("visibility", "visible");
+             })
+
+             $(".dataDescClose").click(function() {
+              $(".dataDescText").css("visibility", "hidden");
+              $(".dataText").css("visibility", "hidden");
+              $(".dataTextChoro").css("visibility", "hidden");
+              $(".left").css("visibility", "hidden");
+              $(".right").css("visibility", "hidden");
+              $(".dataDesc").css("visibility", "visible");
+              $(".mapDesc").css("visibility", "visible");
+             })
+             
+             
              $(".mapDesc").click(function() {
                $(".migrationDesc").css("visibility", "visible");
                $(".mapDesc").css("visibility", "hidden");
+               $(".dataDesc").css("visibility", "hidden");
              })
 
              $(".mapDescClose").click(function() {
               $(".migrationDesc").css("visibility", "hidden");
                $(".mapDesc").css("visibility", "visible");
+               $(".dataDesc").css("visibility", "visible");
              })
            </script>
 
@@ -316,7 +371,7 @@
               range = document.querySelector(".slider .progress");
               range.style.left = "3%";
               range.style.right = "0%";
-              let priceGap = 1;
+              let priceGap = 1000;
               priceInput.forEach(input =>{
                 input.addEventListener("input", e =>{
                   let minPrice = parseInt(priceInput[0].value),
@@ -414,24 +469,71 @@
                     <span> Remittances sent</span>
                  </div>
               </div>
-           </div>
-           <button class="mapDesc"><i class="fa-solid fa-info"></i></button>
+            </div>
+          <button class="dataDesc"><i class="fa-solid fa-database"></i></button>
+           <div class="dataDescText remiDataText"> 
+            <button class="dataDescClose"><i class="fa-solid fa-xmark"></i></button>
+            <div class="dataText">
+              <h3 class="dataTextTitle">Personal Remittances paid/received (2017-2020)</h3>
+              <p class="paragraphDesc"><b>Generation:</b> All numbers are in current (nominal) US $.</p> <br>
+              <p class="paragraphDesc"><b>Definition:</b> Remittances include all personal transfers and compensation of employees. The transfers consist of all transfers in cash or in kind and include current transfers between resident and nonresident individuals. Compensation of employees is defined as the income of border, seasonal, and other short-term workers who are employed in an economy where they are not resident. Furthermore, compensation of employees includes residents employed by nonresident entities. The data is the sum of personal transfers and compensation of employees, as defined in the sixth edition of the IMF’s Balance of Payments Manual (IMF, 2009; Ratha, 2003; World Bank, no date).</p> <br>
+              <p class="paragraphDesc"><b>Reliability:</b> It is difficult to collect remittance data due to the nature of the data (IMF, 2009) and there is a considerable room for improvement in the collection of such data (Gubert, 2017).</p> <br>
+              <p class="paragraphDesc"><b>Source:</b> KNOMAD/World Bank (2021): Remittance Inflows / Outward Remittance: <a href="https://www.knomad.org/data/remittances">Available here</a> (accessed: 14.04.2022)</p> <br>
+            </div>
+         </div>
+           <button class="mapDesc"><i class="fa-solid fa-compass"></i></button>
            <div class="migrationDesc">
               <button class="mapDescClose"><i class="fa-solid fa-xmark"></i></button>
               <div class="descText">
                 By hovering over a symbol, more information about the remittances is revealed. The exact amount of remittance as well as their share to the GDP is shown.<br><br>
-                <i>Navigating on the map: Press Ctrl+left mouse button to change the view angle. Zoom as usual </i>
+                <i>Navigating on the map: Press <b>Ctrl+left / Alt+left</b> mouse button to change the view angle. Zoom by <b>scrolling</b> on your mouse or <b>double clicking</b> on the map. </i>
               </div>
            </div>
            <script type="text/javascript">
+            
+            $(".right").click(function() {
+              $(".right").css("visibility", "hidden");
+              $(".dataText").css("visibility", "hidden");
+              $(".left").css("visibility", "visible");
+              $(".dataTextChoro").css("visibility", "visible");
+            })
+
+            $(".left").click(function() {
+              $(".left").css("visibility", "hidden");
+              $(".dataTextChoro").css("visibility", "hidden");
+              $(".right").css("visibility", "visible");
+              $(".dataText").css("visibility", "visible");
+            })
+
+             $(".dataDesc").click(function() {
+               $(".dataDescText").css("visibility", "visible");
+               $(".dataDesc").css("visibility", "hidden");
+               $(".mapDesc").css("visibility", "hidden");
+               $(".dataText").css("visibility", "visible");
+               $(".right").css("visibility", "visible");
+             })
+
+             $(".dataDescClose").click(function() {
+              $(".dataDescText").css("visibility", "hidden");
+              $(".dataText").css("visibility", "hidden");
+              $(".dataTextChoro").css("visibility", "hidden");
+              $(".left").css("visibility", "hidden");
+              $(".right").css("visibility", "hidden");
+              $(".dataDesc").css("visibility", "visible");
+              $(".mapDesc").css("visibility", "visible");
+             })
+             
+             
              $(".mapDesc").click(function() {
                $(".migrationDesc").css("visibility", "visible");
                $(".mapDesc").css("visibility", "hidden");
+               $(".dataDesc").css("visibility", "hidden");
              })
 
              $(".mapDescClose").click(function() {
               $(".migrationDesc").css("visibility", "hidden");
                $(".mapDesc").css("visibility", "visible");
+               $(".dataDesc").css("visibility", "visible");
              })
            </script>
         </div>
@@ -504,7 +606,7 @@
      </div>
      <div class="summary page" id="summaryNav">
        <div class= "text-box">
-         <div class="text-title">Summary</div>
+         <div class="text-title">Discussion</div>
          <div class="text-box-summary1">
            <div class= "text-section"> 
              <p style="text-align: justify"> <b>Local Patterns</b><br>
@@ -534,7 +636,7 @@
         </div>
         <div class="summary-question">
           <div class= "text-section">
-            <p style="text-align: justify"> <b>TITEL TBCHANGED!!!</b><br>
+            <p style="text-align: justify"> <b>Exploring our personal stories</b><br>
               <br>
               Dilip Ratha says in his Ted Talk (cf. Background) "my story is not unique", you do not have to go far in your social 
               environment to get in touch with remittances and migration. Think about your social environment in your country and
@@ -557,6 +659,7 @@
           <div class= "text-section"> 
             <p style="text-align: justify"><b>Outlook: Reduction of Transaction Costs</b><br>
               <br>
+              Transaction costs have decreased globally in the past years.
               The relevance to reduce transaction costs is shown by Gubert (2017): a discount for 
               remittance fees lead to a large increase in the number of transactions and the total amount remitted. The SDG 10.c 
               goal could be indeed expedient, however the question of how to stimulate the use of remittances effectively remains (Gubert, 2017). As an outlook, climate change is likely to result in increased 
@@ -627,7 +730,7 @@
         </div>
         <div class="profile-card">
            <div class="img">
-              <img src="./images/fiona_stroke_2_cropped.png" style="object-fit: scale-down"></img>
+              <img src="./images/fiona_stroke_2_cropped.png"></img>
            </div>
            <div class="caption">
               <h3>Fiona Federer</h3>
@@ -653,7 +756,6 @@
       $(this).hide();
       $("iframe")[0].src += "?autoplay=1";
     })
-
 
     const pages = document.querySelectorAll('.page');
     const navLi = document.querySelectorAll('nav li');
