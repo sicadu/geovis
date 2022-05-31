@@ -646,7 +646,7 @@ input[type="range"]::-moz-range-thumb{
 
 .background {
     background-color: var(--color2);
-    overflow-y: scroll;
+    height: 115%;
     /*padding-right: 17px;*/
     box-sizing: content-box;
 }
@@ -670,7 +670,10 @@ input[type="range"]::-moz-range-thumb{
   width: 90vw;
   max-width: 80%;
   float: left;
-  overflow:auto;
+}
+
+.bbbb {
+  top: -50px;
 }
 
 .text-box-r{
@@ -777,7 +780,7 @@ h3 {
   height: auto;
   width: auto;
   padding: 2px;
-  top: 35vh;
+  top: 31vh;
 }
 
 .text-box-video{
