@@ -1207,8 +1207,8 @@
     legend_spans[1].textContent = (legendNumbers[0] + " - " + legendNumbers[1])
     legend_spans[3].textContent = (legendNumbers[1]+1 + " - " + legendNumbers[2])
     legend_spans[5].textContent = (legendNumbers[2]+1 + " - " + legendNumbers[3])
-    legend_spans[7].textContent = (legendNumbers[3]+1 + " - " + legendNumbers[4])
-    legend_spans[9].textContent = (legendNumbers[4]+1 + " - " + legendNumbers[5])
+    legend_spans[7].textContent = (legendNumbers[3]+1 + " - " + legendNumbers[4].toLocaleString('de-CH'))
+    legend_spans[9].textContent = ((legendNumbers[4]+1).toLocaleString('de-CH') + " - " + legendNumbers[5].toLocaleString('de-CH'))
 
 
     legend_colors = $('.lg-area');
