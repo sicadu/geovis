@@ -88,6 +88,14 @@
   bottom: 25px; 
 }
 
+.dataDesc {
+  position: absolute;
+  height: 30px;
+  width: 30px; 
+  right: 10px;
+  bottom: 65px; 
+}
+
 .mapInfo{
   margin-top: 1%;
   padding-bottom: 21px;
@@ -98,18 +106,28 @@
   text-align: justify;
 }
 
-.migrationDesc{
+
+.migrationDesc, .dataDescText{
   visibility: hidden;
   position: absolute;
   right: 10px;
   bottom: 25px;
   width: 30%;
-  height: 20%;
+  height: 22%;
   border: white 2px solid;
   background: rgba(255, 255, 255, 0.8);
 }
 
-.descText {
+.dataDescText {
+  height: 55%;
+  width: 50%
+}
+
+.remiDataText {
+  height: 45%;
+}
+
+.descText, .dataText, .dataTextChoro {
   position: absolute;
   top: 15%;
   left: 8%;
@@ -119,12 +137,31 @@
   text-align: justify;
 }
 
-.mapDescClose{
+.dataText, .dataTextChoro {
+  top: 5%;
+  width: 80%;
+  text-indent: -30px;
+  padding-left: 30px;
+}
+
+.dataTextChoro, .left {
+  visibility: hidden;
+}
+
+.mapDescClose, .dataDescClose{
   position: absolute;
   right: 10px;
   top: 10px; 
   height: 30px;
   width: 30px;
+}
+
+.nextDataTab {
+  position: absolute;
+  right: 40%;
+  top: 15px;
+  height: 30px;
+  width: 30px; 
 }
 
 
@@ -1056,6 +1093,15 @@ animation-fill-mode: forwards;
 margin-left:-500px;
 animation: slidein 7s infinite;
 animation-fill-mode: forwards;
+}
+
+.paragraphDesc {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.dataTextTitle {
+  margin-bottom: 30px;
 }
 
 @keyframes showup {
