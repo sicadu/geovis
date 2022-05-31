@@ -718,14 +718,22 @@ input[type="range"]::-moz-range-thumb{
 
 .summary-image {
   position: absolute;
-  /*object-fit: cover;  Do not scale the image 
-  object-position: center; Center the image within the element */
-
   height: 53vh;
   width: 46vw;
   padding: 2px;
   right: 0vw;
   top: 12.5vh;
+}
+
+.summary-links {
+  position: absolute;
+  display: inline-block;
+  height: auto;
+  width: 32vw;
+  padding: 5px;
+  left: 0vw;
+  top: 50vh;
+  background-color: var(--color3)
 }
 
 .text-box-references{
