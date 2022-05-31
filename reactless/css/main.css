@@ -105,6 +105,7 @@
 .infoText {
   font-size: 1.4vh; /*********************************************** 17px */
   text-align: justify;
+  margin: 5px 20px 10px 20px;
 }
 
 
@@ -363,7 +364,7 @@ input[type="radio"]{
 .range-input1 {
   position:relative;
   margin-top: 2vh; /*************************************** 25px */
-  left: 45%; /************************************************ 224 px*/
+  left: 44%; /************************************************ 224 px*/
   width: 75%;
   transform:translate(-50%,-50%);
   padding: 10px 20px; /******************************************** 10px 20px */
@@ -680,6 +681,25 @@ input[type="range"]::-moz-range-thumb{
   top: -50px;
 }
 
+.paraTitle  {
+  color: rgb(72, 123, 87);
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.firstB{
+  margin-top: 50px;
+}
+
+.bullet {
+  margin-left: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-indent: -25px;
+  padding: 0px 20px;
+  color: rgb(65, 82, 69);
+}
+
 .text-box-r{
   font-family: sans-serif;
   background: rgb(233,233,233);
@@ -693,14 +713,15 @@ input[type="range"]::-moz-range-thumb{
 
 .text-title{
   text-align: center;
-  top: 20px;
-  padding: 10px  0px 20px;
-  font-size: 36px;
-  color: rgb(22,74,41);
+  top: 410px;
+  padding: 25px  0px 20px;
+  font-size: 50px;
+  font-weight: 600;
+  color: rgb(72, 123, 87);
 }
 
 h3 {
- color: rgb(22,74,41);
+ color: rgb(72, 123, 87);
  margin-bottom:15px;
 }
 
@@ -780,11 +801,11 @@ h3 {
   position: absolute;
   /*object-fit: cover;  Do not scale the image */
   left: 1vw;
-  max-height: 35vh;
+  max-height: 34vh;
   height: auto;
   width: auto;
   padding: 2px;
-  top: 31vh;
+  top: 32vh;
 }
 
 .text-box-video{
@@ -950,7 +971,7 @@ h3 {
     text-decoration: none;
     display: block;
     position: relative;
-    color: rgb(22,74,41);
+    color: rgb(72, 123, 87);
     text-transform: uppercase;
   }
   nav a:after {
@@ -1085,7 +1106,7 @@ h3 {
     white-space:nowrap;
     font-size: 1.5em;
     z-index: 1;
-    color: rgb(22,74,41);;
+    color: rgb(72, 123, 87);;
   }
   
 .e:first-of-type { 
