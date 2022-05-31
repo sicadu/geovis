@@ -90,11 +90,12 @@
 
 .mapInfo{
   margin-top: 1%;
-  padding-bottom: 21px;
+  /*padding-bottom: 21px; **************************************** habe ich auskommentiert */
+  padding: 12px; /**************************************** war vorher nicht drin */
 }
 
 .infoText {
-  font-size: 17px;
+  font-size: 1.4vh; /*********************************************** 17px */
   text-align: justify;
 }
 
@@ -115,7 +116,7 @@
   left: 8%;
   width: 80%;
   height: 80%;
-  font-size: 17px;
+  font-size: 1.5vh;  /*************************************************** 17px */
   text-align: justify;
 }
 
@@ -145,7 +146,7 @@ fieldset {
 
 legend {
   background-color: rgb(233, 233, 233);
-  font-size: 25px;
+  font-size: 2vh; /******************************************** 25px */
   color: rgb(45, 45, 45);
 }
 
@@ -160,12 +161,12 @@ legend {
   align-items: center;
   justify-content: space-evenly;
   border-radius: 5px;
-  padding: 20px 15px;
+  padding: 1.5vh 1vw; /************************************* 20px 15px */
 }
 
 .wrapper .option{
   background: #fff;
-  height: 50px;
+  height: 4vh; /************************************* 50px*/
   width: 80%;
   display: flex;
   align-items: center;
@@ -224,7 +225,7 @@ input[type="radio"]{
   transform: scale(1);
 }
 .wrapper .option span{
-  font-size: 20px;
+  font-size: 2vh; /******************************************************** 20px */
   color: #808080;
 }
 #option-1:checked:checked ~ .option-1 span,
@@ -269,7 +270,8 @@ input[type="radio"]{
 
 
 .chartWrapper{
-  width: 508px;
+  width: 20vw; /*********************************************************** 508px*/
+  max-height: 22vh; /************************************ habe ich eingefügt */
   margin-top: 3%;
   bottom: 0;
   border: 1px solid black;
@@ -299,8 +301,9 @@ input[type="radio"]{
 
 .controlPanel{
   position: relative;
-  width: 99%;
-  height: 250px;
+  width: 20vw; /********************************************** 99% */
+  max-width: 21vw; /**************************************** habe ich eingefügt */
+  height: 22vh; /******************************************* 250px */
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -309,31 +312,31 @@ input[type="radio"]{
 }
 
 .controlTitle {
-  right: 10%;
-  margin-top: 6%;
-  font-size: 20px;
+  right: 10vw; /************************************** 10% KEINE AHNUNG WAS DAS MACHT*/
+  margin-top: 2vh; /********************************** 6% */
+  font-size: 1.6vh; /******************************** 20px */
 }
 
 .minMax {
-  font-size: 15px;
+  font-size: 1.5vh; /***************************************************** 15px */
 }
 
 /* Range Slider */
 
 .range-input1 {
   position:relative;
-  margin-top: 25px; 
-  left: 224px;
+  margin-top: 2vh; /*************************************** 25px */
+  left: 45%; /************************************************ 224 px*/
   width: 75%;
   transform:translate(-50%,-50%);
-  padding:10px 20px;
+  padding: 10px 20px; /******************************************** 10px 20px */
   display:flex;
   align-items:center;
   border-radius:10px;
 }
 .range-input1 input {
   -webkit-appearance:none;
-  width: 370px;
+  width: 15vw; /***************************************************** 370 px */
   margin-right: 5px;
   height:5px;
   background:black;
@@ -343,7 +346,7 @@ input[type="radio"]{
 .range-input1 input::-webkit-slider-thumb {
   -webkit-appearance:none;
   width:20px;
-  height:20px;
+  height:20px; /*********************************************************20px*/
   background:black;
   border:2px solid black;
   border-radius:50%;
@@ -354,7 +357,7 @@ input[type="radio"]{
 .range-input1 .value1 {
   color:black;
   text-align:center;
-  font-size: 30px;
+  font-size: 2.5vh; /********************************************** 30px */
   font-weight:300;
   line-height:40px;
   height:40px;
@@ -369,29 +372,30 @@ input[type="radio"]{
 
 .wrapper2 {
   max-width: 70%;
-  font-size: 20px;
+  font-size: 1.5vh; /******************************************** 20px  KEINE AHNUNG*/
 }
 
 .price-input{
-  width: 100%; 
+  width: 15vw; /************************************************** 100% */
   display: flex;
   margin: 15px 0 35px;
 }
 .price-input .field{
   display: flex;
   width: 100%;
-  height: 35px;
+  height: 3vh; /********************************************************* 35 px*/
   align-items: center;
 }
 
 
 .field input{
-  max-width: 100px;
-  width: 100%;
+  max-width: 4vw; /********************************************** 100px */
+  max-height: 3vh; /**************************************************** habe ich eingefügt */
+  width: 100%; /****************************************************** 100% */
   height: 100%;
   outline: none;
-  font-size: 19px;
-  margin-left: 12px;
+  font-size: 1.5vh; /************************************************** 19px */
+  margin-left: 12px; 
   border-radius: 5px;
   text-align: center;
   border: 1px solid #999;
@@ -416,8 +420,8 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 .slider .progress{
   height: 100%;
-  left: 25%;
-  right: 25%;
+  left: 2vw; /************************************************************ 25% */
+  right: 2vw; /********************************************************** 25 %*/
   position: absolute;
   border-radius: 5px;
   background: black;
@@ -448,7 +452,7 @@ input[type="range"]::-webkit-slider-thumb{
 }
 input[type="range"]::-moz-range-thumb{
   height: 20px;
-  width: 20px;
+  width: 20px; 
   border: none;
   border-radius: 50%;
   background: black;
@@ -511,7 +515,7 @@ input[type="range"]::-moz-range-thumb{
   float: left;
   width: 228px;
   line-height: 40px;
-  font-size: 30px;
+  font-size: 2.5vh; /***************************************************** 30px */
   color: rgba(255, 255, 255, 1);
   text-align: center;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
@@ -596,7 +600,7 @@ input[type="range"]::-moz-range-thumb{
 .layerSelection {
   position: relative;
   color: black;
-  font-size: 20px;
+  font-size: 2vh; /********************************************** 20px */
 }
 
 .summary{
