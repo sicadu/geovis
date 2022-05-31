@@ -72,7 +72,7 @@
         <div class="text-title">Background</div>
         <div class="text-box-migration">
           <div class= "text-section">
-            <p style="text-align: justify"> <b>Migration</b><br>
+            <p style="text-align: justify"> <h3>Migration</h3>
               The Sustainable Development Goals (SDG) are an urgent call for action to reduce all forms of inequality and deprivation as 
               well as to preserve the nature of our planet (UN, 2021). These goals are to be achieved by 2030. Migration is a cross-cutting 
               issue and is relevant to all seventeen goals (Migration Data Portal, no date). It is crucial to understand migration patterns 
@@ -86,7 +86,7 @@
         </div>
         <div class="text-box-remittance">
           <div class= "text-section">
-            <p style="text-align: justify"> <b>Remittances</b><br>
+            <p style="text-align: justify"> <h3>Remittances</h3>
               Remittances are household incomes from foreign countries that result from the temporary or permanent movement of people to 
               those countries (IMF, 2009). In the past years the interest in remittances increased and bridges between academic and political
                spheres were created (Gubert, 2017). A specific United Nation goal is to decrease transaction costs (SDG 10.c) of migrant 
@@ -101,7 +101,7 @@
         <img class="background-image" src="./images/Bild3.jpeg">
         <div class="text-box-video">
           <div class="text-section">
-            <p style="text-align: justify"><b>Dilip Ratha</b><br>
+            <p style="text-align: justify"><h3>Dilip Ratha </h3>
               Dilip Ratha is head of KNOMAD (Global Knowledge Partnership on Migration and Development) and works at the World Bank as the 
               lead economist covering topics concerning Migration and Remittances, Social Protection and Jobs Global Practice. Over three 
               decades, he has done work on migration, remittance, and innovative financing.<br>
@@ -215,7 +215,7 @@
         </div>
         <div class="optionBox">
            <fieldset class="layerSelection">
-              <legend>Select a layer:</legend>
+              <legend class="fsTitle">Select a layer:</legend>
               <div class="wrapper">
                  <input type="radio" name="inout" id="option-1" value="e20_w0" onclick="layerChange(this.value)" checked>
                  <input type="radio" name="inout" id="option-2" value="i20_w0" onclick="layerChange(this.value)" >
@@ -232,7 +232,8 @@
 
            <fieldset class="controlPanel">
                
-              <legend class="fsTitle">Control Panel</legend>
+              <legend class="fsTitleControl">Control Panel</legend>
+
               <div class="controlTitle">Migration Filter</div>            
               <div class="wrapper2">
                 <div class="price-input">
@@ -339,18 +340,17 @@
             
             
 
-           <div class="chartWrapper chartSelector">
-              <button type="button" class="expandChart btn"><i class="fa-solid fa-expand"></i></button>
-              <canvas id="myChart" height="250"></canvas>
-           </div>
-          
-           <fieldset class="mapInfo">
-            <legend class="fsTitle">Information</legend>
+          <div class="chartWrapper chartSelector">
+            <button type="button" class="expandChart btn"><i class="fa-solid fa-expand"></i></button>
+            <canvas id="myChart" height="250"></canvas>
+          </div>
+        
+          <fieldset class="mapInfo">
+            <legend class="fsTitleInfo">Information</legend>
             <div class="infoText">
               The map provides information about destination and origin of the migration flows in the past years <i>(1990-2015)</i>. The UN DESA defines an international migrant as someone who has been living for one year or longer in a country other than the one in which he or she was born. The color hue of the countries give an overview about the net migration <i>(2010-2015)</i> of a certain country, as this information cannot be retrieved from the flows.
             </div>
-           </fieldset>
-
+          </fieldset>
         </div>
      </div>
      <div class="remittance selectt slide2">
@@ -563,6 +563,8 @@
 
 
 <script language="JavaScript">  
+
+    alert("This Webpage is developed for a display with dimension 2560*1240")
 
     console.log($('.Embeddable__landing__poster'))
 

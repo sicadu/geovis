@@ -24,7 +24,6 @@
     align-items: center;
     font-size: 60px;
     color: rgb(45, 45, 45);
-    overflow: hidden;
 }
 
 .intro{
@@ -55,9 +54,6 @@
     width: 100vw;
     background-color: rgb(233,233,233);
     display:block;
-    overflow-y: scroll;
-    padding-right: 17px;
-    box-sizing: content-box;
 }
 
 .selectt{
@@ -130,7 +126,7 @@
 
 .optionBox{
   position: absolute;
-  top: -1%;
+  top: -2%;
   height: 80vh;
   width: 20vw;
   right: 3.5%;
@@ -140,11 +136,19 @@
 fieldset {
   border: black 1px solid;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+  display: block;
 }
 
 legend {
-  background-color: rgb(221, 221, 221);
+  background-color: rgb(233, 233, 233);
   font-size: 25px;
+  color: rgb(45, 45, 45);
+}
+
+.fsTitleControl {
+  position: absolute;
+  left: 3%;
+  top: -3%;
 }
 
 .wrapper{
@@ -273,9 +277,9 @@ input[type="radio"]{
   background-color:rgba(123,204,196, 0.2);
   transition: all 0.5s;
   position: absolute;
-  height: 81vh;
+  height: 82vh;
   width: 95vw;
-  bottom: -10px;
+  bottom: -30px;
   right: -10px;
   border: 1px solid black;
   background-color: white;
@@ -286,6 +290,7 @@ input[type="radio"]{
 }
 
 .controlPanel{
+  position: relative;
   width: 100%;
   height: 250px;
   display: flex;
@@ -633,7 +638,12 @@ input[type="range"]::-moz-range-thumb{
   top: 20px;
   padding: 10px  0px 20px;
   font-size: 36px;
-  color: rgb(64, 64, 64);
+  color: rgb(22,74,41);
+}
+
+h3 {
+ color: rgb(22,74,41);
+ margin-bottom:15px;
 }
 
 .text-box-migration{
@@ -666,12 +676,11 @@ input[type="range"]::-moz-range-thumb{
   position: absolute;
   /*object-fit: cover;  Do not scale the image 
   object-position: center; Center the image within the element */
-
-  height: 21vh;
-  width: 79vw;
+  height: auto;
+  width: 50vw;
   padding: 2px;
-  left: 0.5vw;
-  bottom: 35vh;
+  left: 18%;
+  bottom: 33vh;
 }
 
 .text-box-video{
@@ -691,8 +700,8 @@ input[type="range"]::-moz-range-thumb{
   height: 19vh;
   width: 22vw;
   padding: 2px;
-  left: 0vw;
-  bottom: 12vh; 
+  left: 9px;
+  bottom: 13vh; 
   -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
   filter: grayscale(100%);
 }
@@ -741,22 +750,14 @@ input[type="range"]::-moz-range-thumb{
 
 .summary-image {
   position: absolute;
+  /*object-fit: cover;  Do not scale the image 
+  object-position: center; Center the image within the element */
+
   height: 53vh;
   width: 46vw;
   padding: 2px;
   right: 0vw;
   top: 12.5vh;
-}
-
-.summary-links {
-  position: absolute;
-  display: inline-block;
-  height: auto;
-  width: 32vw;
-  padding: 5px;
-  left: 0vw;
-  top: 50vh;
-  background-color: var(--color3)
 }
 
 .text-box-references{
@@ -823,7 +824,7 @@ input[type="range"]::-moz-range-thumb{
     text-decoration: none;
     display: block;
     position: relative;
-    color: rgb(91, 91, 91);
+    color: rgb(22,74,41);
     text-transform: uppercase;
   }
   nav a:after {
@@ -956,6 +957,8 @@ input[type="range"]::-moz-range-thumb{
     overflow:hidden;
     white-space:nowrap;
     font-size: 1.5em;
+    z-index: 1;
+    color: rgb(22,74,41);;
   }
   
 .e:first-of-type { 
