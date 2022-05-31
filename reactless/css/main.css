@@ -798,22 +798,43 @@ h3 {
   position: absolute;
   display: inline-block;
   height: auto;
-  width: auto;
-  padding: 5px;
-  left: 0vw;
-  bottom: 5vh;
+  width: 46vw;
+  padding: 0px 5px 0px 5px;
+  right: 0vw;
+  top: 27vh;
 }
 
 .summary-image {
   position: absolute;
-  /*object-fit: cover;  Do not scale the image 
-  object-position: center; Center the image within the element */
-
-  height: 53vh;
+  object-fit: cover; 
+  /*object-position: center; Center the image within the element */
+  height: auto;
   width: 46vw;
   padding: 2px;
   right: 0vw;
-  top: 12.5vh;
+  bottom: 10vh;
+}
+
+.summary-question {
+  position: absolute;
+  display: inline-block;
+  height: auto;
+  width: 32vw;
+  padding: 0px;
+  left: 0.5vw;
+  bottom: 10vh;
+  background-color: var(--color3)
+}
+
+.summary-links {
+  position: absolute;
+  display: inline-block;
+  height: auto;
+  width: 46vw;
+  padding: 0px;
+  right: 0vw;
+  top: 15vh;
+  background-color: var(--color3)
 }
 
 .text-box-references{
@@ -822,8 +843,8 @@ h3 {
   display: inline-block;
   height: auto;
   width: auto;
-  padding: 5px;
-  left: 0vw;
+  padding: 8px;
+  left: 8px;
   top: 8vh;
   /*border: solid 1px;*/
 }
