@@ -140,7 +140,7 @@
 fieldset {
   border: black 1px solid;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
-  display: block;
+
 }
 
 legend {
@@ -262,10 +262,14 @@ input[type="radio"]{
   color: #fff;
 }
 
-
+.fa-repeat {
+  margin-right: 10px;
+  margin-left: 20px;
+}
 
 
 .chartWrapper{
+  width: 508px;
   margin-top: 3%;
   bottom: 0;
   border: 1px solid black;
@@ -282,9 +286,9 @@ input[type="radio"]{
   transition: all 0.5s;
   position: absolute;
   height: 82vh;
-  width: 95vw;
-  bottom: -30px;
-  right: -10px;
+  width: 72vw;
+  bottom: -40px;
+  right: 555px;
   border: 1px solid black;
   background-color: white;
 }
@@ -295,7 +299,7 @@ input[type="radio"]{
 
 .controlPanel{
   position: relative;
-  width: 100%;
+  width: 99%;
   height: 250px;
   display: flex;
   align-items: center;
@@ -306,7 +310,7 @@ input[type="radio"]{
 
 .controlTitle {
   right: 10%;
-  margin-top: 2%;
+  margin-top: 6%;
   font-size: 20px;
 }
 
@@ -319,7 +323,7 @@ input[type="radio"]{
 .range-input1 {
   position:relative;
   margin-top: 25px; 
-  left: 44%;
+  left: 224px;
   width: 75%;
   transform:translate(-50%,-50%);
   padding:10px 20px;
@@ -426,6 +430,7 @@ input[type="number"]::-webkit-inner-spin-button {
   width: 100%;
   height: 5px;
   top: -6px;
+  left:-2px;
   background: none;
   pointer-events: none;
   -webkit-appearance: none;
