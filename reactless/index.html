@@ -96,9 +96,9 @@
             they influence the achievement of other goals, as well. In relation to the United Nation goals in general, 
             the research questions of this project are the following: <br>
             
-              <p class="bullet firstB">1) What migration flows did exist in the last 3 decades? </p>
-              <p class="bullet" >2) The pattern of global financial flows in the past years: Which countries did receive remittances and in which countries more money has been paid? </p>
-              <p class="bullet">3) What is the linkage between the two phenomena?</p>
+              <p class="bullet firstB">1) &nbsp;&nbsp;&nbsp;What migration flows did exist in the last 3 decades? </p>
+              <p class="bullet" >2) &nbsp;&nbsp;&nbsp;The pattern of global financial flows in the past years: Which countries did receive remittances and in which countries more money has been paid? </p>
+              <p class="bullet">3) &nbsp;&nbsp;&nbsp;What is the linkage between the two phenomena?</p>
 
           </p>
         </div>
@@ -605,6 +605,7 @@
      </div>
      <div class="summary page" id="summaryNav">
        <div class= "text-box">
+         <div class="divider"></div>
          <div class="text-title">Discussion</div>
          <div class="text-box-summary1">
            <div class= "text-section"> 
@@ -618,7 +619,6 @@
                destination are, as we can see on the map, the Gulf States, Malaysia, India and the US. Gurung also mentions Korea 
                as a destination country, which isn’t represented in our data and again indicates the lack of reliable migration data
               (2020).<br>
-              <br>
               <br>
               <span class="paraTitle">Global Patterns</span><br>
               <br>
@@ -965,7 +965,7 @@
 
     
     // Define Arc colors -- Color with colorBrewer sequential 5 Colors 
-    const inFlowColors = [ 
+    const inFlowColors = [
       [237,248,251],
       [178,226,226],
       [102,194,164],
@@ -1062,7 +1062,7 @@
           };
         });
 
-        colorList(arcs);
+        colorList(arcs, filterFromTop);
         if(truePlot){createPlot(countryNumbers, topN, filterFromTop);}
         
         oldTopValue = topValue ? topValue : 2141800
@@ -1229,12 +1229,16 @@
       return clone.slice(0, n || 1);
     }
 
-    function colorList(arr) {
+    function colorList(arr, fi=0) {
       colorD3 = [];
-      for (var i = 0; i < arr.length; i++) {
+      var i = 0;
+      for (i; i < arr.length; i++) {
         color_rgb = checkBreaksForColor(arr[i]);
         color_hex = rgbToHex(color_rgb[0], color_rgb[1], color_rgb[2]);
         colorD3.push(color_hex);
+      }
+      if(fi != 0){
+        colorD3 = colorD3.splice(0,(arr.length -fi));
       }
     }
 
@@ -1304,12 +1308,11 @@
     legend_spans = $('.legend-break span');
     legendNumbers = [... breaks];
     legendNumbers.unshift(0);
-    console.log(legend_spans[1])
-    legend_spans[1].textContent = (legendNumbers[0] + " - " + legendNumbers[1])
-    legend_spans[3].textContent = (legendNumbers[1]+1 + " - " + legendNumbers[2])
-    legend_spans[5].textContent = (legendNumbers[2]+1 + " - " + legendNumbers[3])
-    legend_spans[7].textContent = (legendNumbers[3]+1 + " - " + legendNumbers[4].toLocaleString('de-CH'))
-    legend_spans[9].textContent = ((legendNumbers[4]+1).toLocaleString('de-CH') + " - " + legendNumbers[5].toLocaleString('de-CH'))
+    legend_spans[1].textContent = (legendNumbers[0] + " - " + legendNumbers[1]);
+    legend_spans[3].textContent = (legendNumbers[1]+1 + " - " + legendNumbers[2]);
+    legend_spans[5].textContent = (legendNumbers[2]+1 + " - " + legendNumbers[3]);
+    legend_spans[7].textContent = (legendNumbers[3]+1 + " - " + legendNumbers[4].toLocaleString('de-CH'));
+    legend_spans[9].textContent = ((legendNumbers[4]+1).toLocaleString('de-CH') + " - " + legendNumbers[5].toLocaleString('de-CH'));
 
 
     legend_colors = $('.lg-area');
