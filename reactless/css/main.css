@@ -593,8 +593,15 @@ input[type="range"]::-moz-range-thumb{
     background-color: rgb(233,233,233);
 }
 
-.background{
+.background {
     background-color: var(--color2);
+    overflow-y: scroll;
+    /*padding-right: 17px;*/
+    box-sizing: content-box;
+}
+
+.motivation {
+    background-color: rgb(233,233,233);
 }
 
 .authors{
@@ -602,8 +609,6 @@ input[type="range"]::-moz-range-thumb{
     color: black;
     background-color: var(--color3)
 }
-
-
 
 
 .text-box{
@@ -636,6 +641,50 @@ input[type="range"]::-moz-range-thumb{
   color: rgb(64, 64, 64);
 }
 
+.text-box-motivation {
+  font-family: sans-serif;
+  background: rgb(233,233,233);
+  position: relative;
+  height: 90vh;
+  width: 90vw;
+  max-width: 80%;
+  float: left;
+  overflow:auto;
+}
+
+.text-box-introduction {
+  font-family: sans-serif;
+  position: absolute;
+  display: inline-block;
+  height: auto;
+  width: 38vw;
+  padding: 5px;
+  top: 8vh;
+  left: 0vw;
+  border: solid 1px;
+}
+
+.text-box-rq {
+  font-family: sans-serif;
+  position: absolute;
+  display: inline-block;
+  height: auto;
+  width: 38vw;
+  padding: 5px;
+  top: 50vh; /* nicht nicht sicher, ob es das braucht*/
+  left: 0vw; /*braucht es wahrscheinlich nicht, da in .text-box drin */
+  border: solid 1px;
+}
+
+.img-sdg {
+  position:absolute;
+  height: 50vh;
+  width: 50vw;
+  top: 8vh;
+  right: 0vw;
+
+}
+
 .text-box-migration{
   font-family: sans-serif;
   position: absolute;
@@ -664,14 +713,13 @@ input[type="range"]::-moz-range-thumb{
 /* Info Graphic */
 .background-image {
   position: absolute;
-  /*object-fit: cover;  Do not scale the image 
-  object-position: center; Center the image within the element */
-
-  height: 21vh;
-  width: 79vw;
+  /*object-fit: cover;  Do not scale the image */
+  left: 1vw;
+  max-height: 35vh;
+  height: auto;
+  width: auto;
   padding: 2px;
-  left: 0.5vw;
-  bottom: 35vh;
+  top: 30vh;
 }
 
 .text-box-video{
@@ -682,7 +730,7 @@ input[type="range"]::-moz-range-thumb{
   width: 55vw;
   padding: 10px;
   right: 0vw;
-  bottom: 10vh;
+  top: 63vh;
   /*border: solid 1px;*/
 }
 
@@ -692,7 +740,7 @@ input[type="range"]::-moz-range-thumb{
   width: 22vw;
   padding: 2px;
   left: 0vw;
-  bottom: 12vh; 
+  top: 65vh; 
   -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
   filter: grayscale(100%);
 }
@@ -713,7 +761,7 @@ input[type="range"]::-moz-range-thumb{
   width: auto;
   padding: 5px;
   left: 0vw;
-  bottom: 0vh;
+  top: 85vh;
   /*border: solid 1px;*/
 }
 
