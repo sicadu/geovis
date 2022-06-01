@@ -1229,17 +1229,20 @@
       return clone.slice(0, n || 1);
     }
 
-    function colorList(arr, fi=0) {
+    function colorList(oldArr, fi=0) {
       colorD3 = [];
-      var i = 0;
-      for (i; i < arr.length; i++) {
-        color_rgb = checkBreaksForColor(arr[i]);
+      var arr = getTopN(oldArr,'value',oldArr.length);
+      for (let i = 0; i < arr.length; i++) {
+        color_rgb = checkBreaksForColor(arr[i]['value']);
         color_hex = rgbToHex(color_rgb[0], color_rgb[1], color_rgb[2]);
         colorD3.push(color_hex);
       }
       if(fi != 0){
-        colorD3 = colorD3.splice(0,(arr.length -fi));
+        colorD3.splice(0,fi);
       }
+
+      console.log(colorD3.length)
+      console.log(colorD3)
     }
 
     // helper function for colorList
